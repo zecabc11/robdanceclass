@@ -3,859 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 ROB DANCE CLASS - Kpop Studio</title>
+    <title>👑 PAINEL DA PROFESSORA - ROB DANCE</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
         
         body {
-            background: #000000;
-            min-height: 100vh;
+            background: #000;
             padding: 20px;
-            background-image: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
-            border: 2px solid #ff0000;
-        }
-        
-        /* Header Preto e Vermelho */
-        header {
-            background: #000000;
-            color: white;
-            padding: 20px 30px;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+        }
+        
+        .painel {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid #ff0000;
+            box-shadow: 0 20px 40px rgba(255,0,0,0.3);
+        }
+        
+        .header {
+            background: #000;
+            color: white;
+            padding: 30px;
+            text-align: center;
             border-bottom: 4px solid #ff0000;
         }
         
-        .logo {
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        
-        .logo .rob {
-            color: #ff0000;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        .header h1 {
             font-size: 36px;
         }
         
-        .logo .dance {
-            color: white;
-            margin-left: 5px;
-        }
-        
-        .logo .class {
+        .header h1 span {
             color: #ff0000;
-            font-size: 28px;
-            margin-left: 5px;
-            font-style: italic;
         }
         
-        .search-box {
-            background: #1a1a1a;
-            border-radius: 30px;
-            padding: 12px 25px;
-            width: 350px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #ff0000;
+        .header p {
+            color: #888;
+            margin-top: 10px;
         }
         
-        .search-box input {
-            background: transparent;
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 16px;
-            color: white;
+        .content {
+            padding: 30px;
         }
         
-        .search-box input::placeholder {
-            color: #666;
-        }
-        
-        .search-box button {
-            background: none;
-            border: none;
-            color: #ff0000;
-            cursor: pointer;
-            font-size: 20px;
-        }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #1a1a1a;
-            padding: 8px 20px;
-            border-radius: 30px;
-            border: 1px solid #ff0000;
-        }
-        
-        .user-info span {
-            color: white;
-            font-weight: 500;
-        }
-        
-        .avatar {
-            width: 38px;
-            height: 38px;
-            background: #ff0000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            font-size: 20px;
-        }
-        
-        /* Main layout */
-        .main-content {
-            display: flex;
-            min-height: 600px;
-        }
-        
-        /* Sidebar Preto e Vermelho */
-        .sidebar {
-            width: 280px;
-            background: #000000;
-            padding: 25px 20px;
-            border-right: 3px solid #ff0000;
-        }
-        
-        .sidebar h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .add-btn {
-            background: #ff0000;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .add-btn:hover {
-            transform: scale(1.1);
-            background: #cc0000;
-        }
-        
-        .progress-section {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid #ff0000;
-        }
-        
-        .progress-section p {
-            color: white;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 12px;
-            background: #333;
-            border-radius: 6px;
-            margin: 10px 0;
-            overflow: hidden;
-            border: 1px solid #ff0000;
-        }
-        
-        .progress-fill {
-            width: 45%;
-            height: 100%;
-            background: #ff0000;
-            border-radius: 6px;
-        }
-        
-        .level-badge {
-            background: #ff0000;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .modules-list {
-            list-style: none;
-        }
-        
-        .modules-list li {
-            padding: 15px;
-            margin-bottom: 8px;
-            background: #1a1a1a;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            color: white;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .modules-list li:hover {
-            border-color: #ff0000;
-            background: #222;
-            transform: translateX(5px);
-        }
-        
-        .modules-list li.active {
-            background: #ff0000;
-            color: white;
-            border-color: white;
-        }
-        
-        .modules-list li.completed::after {
-            content: "✓";
-            color: #ff0000;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        .modules-list li.active.completed::after {
-            color: white;
-        }
-        
-        /* Video area */
-        .video-section {
-            flex: 1;
-            padding: 25px;
+        .login-box, .add-box {
             background: #f5f5f5;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
         }
         
-        .video-container {
-            background: #000000;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            position: relative;
-            padding-top: 56.25%;
-            border: 3px solid #ff0000;
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
         
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        input, select, textarea {
             width: 100%;
-            height: 100%;
-            border: none;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
         }
         
-        .video-info {
-            margin-bottom: 25px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #ff0000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        input:focus, select:focus {
+            border-color: #ff0000;
+            outline: none;
         }
         
-        .video-title {
-            font-size: 26px;
-            color: #000000;
-            margin-bottom: 10px;
-            font-weight: 900;
-        }
-        
-        .video-title span {
-            color: #ff0000;
-        }
-        
-        .video-meta {
-            display: flex;
-            gap: 20px;
-            color: #666;
-        }
-        
-        .video-meta i {
-            color: #ff0000;
-            margin-right: 5px;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-        }
-        
-        .btn-primary {
+        button {
+            width: 100%;
+            padding: 15px;
             background: #ff0000;
             color: white;
-            border: 2px solid #ff0000;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
         
-        .btn-primary:hover {
+        button:hover {
             background: #cc0000;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+            transform: scale(1.02);
         }
         
-        .btn-secondary {
-            background: #000000;
-            color: white;
-            border: 2px solid #ff0000;
-        }
-        
-        .btn-secondary:hover {
-            background: #1a1a1a;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-        }
-        
-        /* Comments Section */
-        .comments-section {
-            margin-top: 30px;
+        .aula-item {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ff0000;
-        }
-        
-        .section-header {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #ff0000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 10px;
         }
         
-        .section-header h3 {
-            color: #000000;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .aula-info h4 {
+            color: #333;
         }
         
-        .section-header span {
-            background: #ff0000;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
+        .aula-info p {
+            color: #ff0000;
             font-size: 14px;
         }
         
-        .comment-list {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding-right: 10px;
-        }
-        
-        .comment-item {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border-left: 4px solid #ff0000;
-        }
-        
-        .comment-author {
-            font-weight: 900;
-            color: #000000;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-        }
-        
-        .comment-author i {
-            color: #ff0000;
-            font-size: 18px;
-        }
-        
-        .comment-text {
-            color: #333;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-        
-        .comment-time {
-            font-size: 12px;
-            color: #999;
-            margin-top: 8px;
-            text-align: right;
-        }
-        
-        .input-area {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .input-area input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            outline: none;
-            font-size: 15px;
-            transition: all 0.3s;
-        }
-        
-        .input-area input:focus {
-            border-color: #ff0000;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-        }
-        
-        .send-btn {
-            background: #ff0000;
+        .delete {
+            background: #ff4444;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 0 30px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid #ff0000;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .send-btn:hover {
-            background: #cc0000;
-            transform: scale(1.05);
-        }
-        
-        /* Feedback Section */
-        .feedback-section {
-            margin-top: 30px;
-            padding: 25px;
-            background: #000000;
-            border-radius: 15px;
-            border: 2px solid #ff0000;
-            color: white;
-        }
-        
-        .feedback-section h4 {
-            color: #ff0000;
-            margin-bottom: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .rating {
-            display: flex;
-            gap: 8px;
-            margin: 15px 0;
-        }
-        
-        .star {
-            font-size: 30px;
-            color: #444;
             cursor: pointer;
-            transition: all 0.3s;
         }
         
-        .star:hover {
-            transform: scale(1.2);
-            color: #ff0000;
-        }
-        
-        .star.active {
-            color: #ff0000;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-        }
-        
-        textarea {
-            width: 100%;
+        .aviso {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
             padding: 15px;
-            border: 2px solid #ff0000;
-            border-radius: 12px;
-            margin: 15px 0;
-            resize: vertical;
-            background: #1a1a1a;
-            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .btn-pequeno {
+            padding: 10px;
             font-size: 14px;
+            margin-top: 10px;
         }
         
-        textarea::placeholder {
-            color: #666;
-        }
-        
-        .feedback-section .btn-primary {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 3px solid #ff0000;
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .search-box {
-                width: 100%;
-            }
-        }
-        
-        /* Scrollbar customization */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #ff0000;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #cc0000;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <span class="rob">ROB</span>
-                <span class="dance">DANCE</span>
-                <span class="class">CLASS</span>
-            </div>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Buscar aulas, músicas, grupos...">
-                <button onclick="searchContent()">🔍</button>
-            </div>
-            <div class="user-info">
-                <span>🔥 Aluna VIP</span>
-                <div class="avatar">A</div>
-            </div>
-        </header>
+    <div class="painel">
+        <div class="header">
+            <h1><span>ROB</span> DANCE</h1>
+            <p>👑 Painel da Professora</p>
+        </div>
         
-        <div class="main-content">
-            <!-- Sidebar com módulos -->
-            <div class="sidebar">
-                <h3>
-                    🔥 AULAS
-                    <button class="add-btn" onclick="adicionarAula()" title="Adicionar nova aula">+</button>
-                </h3>
-                
-                <div class="progress-section">
-                    <p>SEU PROGRESSO</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                    <p style="color: white; font-size: 14px;">2/5 aulas • <span style="color: #ff0000;">40%</span></p>
-                    <span class="level-badge">NÍVEL 2 • INICIANTE</span>
+        <div class="content">
+            <!-- TELA DE LOGIN -->
+            <div id="telaLogin">
+                <div class="login-box">
+                    <h2>🔐 Acesso</h2>
+                    <input type="password" id="senha" placeholder="Digite sua senha">
+                    <button onclick="fazerLogin()">ENTRAR</button>
                 </div>
-                
-                <ul class="modules-list" id="aulasList">
-                    <li class="completed">🎵 BLACKPINK - BOOMBAYAH</li>
-                    <li class="active">🎵 TWICE - T.T</li>
-                    <li>🎵 BTS - ANPANMAN</li>
-                </ul>
             </div>
             
-            <!-- Área principal de vídeo -->
-            <div class="video-section">
-                <!-- Player de vídeo -->
-                <div class="video-container">
-                    <!-- Aqui você coloca o link do vídeo (YouTube, Vimeo, etc) -->
-                    <iframe src="https://www.youtube.com/embed/2S24-y0Ij3Y" 
-                            title="Aula de Kpop - TWICE T.T"
-                            allowfullscreen>
-                    </iframe>
+            <!-- TELA DE ADMIN (aparece depois do login) -->
+            <div id="telaAdmin" class="hidden">
+                <!-- AVISO IMPORTANTE -->
+                <div class="aviso">
+                    <strong>📌 COMO FUNCIONA:</strong><br>
+                    1. Preencha os dados da nova aula<br>
+                    2. Clique em ADICIONAR<br>
+                    3. A aula aparece abaixo<br>
+                    4. Pronto! Já está no site das alunas! ✅
                 </div>
                 
-                <div class="video-info">
-                    <h2 class="video-title"><span>🔥</span> TWICE - "T.T" (Coreografia Completa)</h2>
-                    <div class="video-meta">
-                        <span><i>📅</i> Aula 2</span>
-                        <span><i>⏱️</i> 38 min</span>
-                        <span><i>⭐</i> Nível: Iniciante</span>
-                    </div>
+                <!-- FORMULÁRIO PARA ADICIONAR AULA -->
+                <div class="add-box">
+                    <h2>➕ NOVA AULA</h2>
+                    
+                    <select id="modulo">
+                        <option value="1">MÓDULO 1 - BLACKPINK</option>
+                        <option value="2">MÓDULO 2 - TWICE</option>
+                        <option value="3">MÓDULO 3 - BTS</option>
+                    </select>
+                    
+                    <input type="text" id="nomeAula" placeholder="Nome da aula (ex: KILL THIS LOVE)">
+                    
+                    <input type="text" id="linkVideo" placeholder="Link do vídeo (YouTube ou Drive)">
+                    
+                    <button onclick="adicionarAula()">✅ ADICIONAR AULA</button>
                 </div>
                 
-                <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="marcarConcluido()">✓ MARCAR COMO CONCLUÍDO</button>
-                    <button class="btn btn-secondary" onclick="salvarAula()">❤️ SALVAR AULA</button>
-                </div>
+                <!-- LISTA DE AULAS CADASTRADAS -->
+                <h2 style="margin-top: 30px;">📋 AULAS CADASTRADAS</h2>
+                <div id="listaAulas"></div>
                 
-                <!-- Seção de comentários com nomes brasileiros -->
-                <div class="comments-section">
-                    <div class="section-header">
-                        <h3>💬 COMENTÁRIOS DAS ALUNAS</h3>
-                        <span>8 comentários</span>
-                    </div>
-                    
-                    <div class="comment-list" id="commentList">
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Ana Clara Silva
-                            </div>
-                            <div class="comment-text">
-                                Gente, essa coreografia da T.T é muito fofa! Amei a explicação dos passos, consegui aprender super rápido ❤️
-                            </div>
-                            <div class="comment-time">há 30 minutos</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Mariana Oliveira
-                            </div>
-                            <div class="comment-text">
-                                Tô apaixonada nessa aula! A parte do "shy shy shy" é a minha favorita, já tô decorando a coreografia toda 💃
-                            </div>
-                            <div class="comment-time">há 2 horas</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Juliana Santos
-                            </div>
-                            <div class="comment-text">
-                                Finalmente achei uma aula boa de Kpop! A professora explica muito bem, tava sofrendo pra aprender essa coreografia kkkk
-                            </div>
-                            <div class="comment-time">há 5 horas</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Beatriz Souza
-                            </div>
-                            <div class="comment-text">
-                                Alguém mais vai tentar gravar a coreografia essa semana? Bora se encontrar pra praticar junto? 🔥
-                            </div>
-                            <div class="comment-time">há 1 dia</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Camila Fernandes
-                            </div>
-                            <div class="comment-text">
-                                Próxima aula poderia ser de How You Like That? Amo as músicas do BLACKPINK ❤️🖤
-                            </div>
-                            <div class="comment-time">há 2 dias</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Larissa Mendes
-                            </div>
-                            <div class="comment-text">
-                                To viciada nessa aula! Já repeti umas 10 vezes pra pegar todos os detalhes. Obrigada pela dedicação! 🌸
-                            </div>
-                            <div class="comment-time">há 3 dias</div>
-                        </div>
-                    </div>
-                    
-                    <div class="input-area">
-                        <input type="text" id="commentInput" placeholder="Escreva seu comentário...">
-                        <button class="send-btn" onclick="enviarComentario()">ENVIAR</button>
-                    </div>
-                </div>
-                
-                <!-- Seção de feedback/progressão -->
-                <div class="feedback-section">
-                    <h4>📝 FEEDBACK DA AULA</h4>
-                    <p style="color: #ccc; margin-bottom: 15px;">Como foi sua experiência com esta aula?</p>
-                    
-                    <div class="rating" id="starRating">
-                        <span class="star" onclick="rate(1)">⭐</span>
-                        <span class="star" onclick="rate(2)">⭐</span>
-                        <span class="star" onclick="rate(3)">⭐</span>
-                        <span class="star" onclick="rate(4)">⭐</span>
-                        <span class="star" onclick="rate(5)">⭐</span>
-                    </div>
-                    
-                    <textarea id="feedbackText" placeholder="Conte o que achou, dificuldades, sugestões..." rows="4"></textarea>
-                    
-                    <button class="btn btn-primary" onclick="enviarFeedback()">ENVIAR FEEDBACK</button>
-                    
-                    <div style="margin-top: 20px; padding: 15px; background: #1a1a1a; border-radius: 10px;">
-                        <p style="color: #ff0000; font-weight: bold;">🔥 PRÓXIMOS PASSOS:</p>
-                        <ul style="color: #ccc; margin-left: 20px; margin-top: 10px;">
-                            <li>• Pratique essa coreografia por pelo menos 3 dias</li>
-                            <li>• Grave sua evolução para feedback personalizado</li>
-                            <li>• Avance para BTS - ANPANMAN quando se sentir confiante</li>
-                        </ul>
-                    </div>
+                <!-- LINK DO SITE -->
+                <div style="background: #000; color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <p style="color: #ff0000; margin-bottom: 10px;">🔗 LINK DO SITE DAS ALUNAS:</p>
+                    <p style="font-size: 18px; word-break: break-all;">https://zeacb11.github.io/robdanceclass/</p>
+                    <button class="btn-pequeno" onclick="copiarLink()">📋 COPIAR LINK</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Lista de aulas (para adicionar novas)
-        let aulas = [
-            "BLACKPINK - BOOMBAYAH",
-            "TWICE - T.T",
-            "BTS - ANPANMAN"
+        // SENHA (você pode mudar aqui)
+        const SENHA = "rob2024";
+        
+        // Carregar aulas salvas
+        let aulas = JSON.parse(localStorage.getItem('aulas')) || [
+            { modulo: 1, nome: "BOOMBAYAH", link: "youtube.com/1" },
+            { modulo: 1, nome: "HOW YOU LIKE THAT", link: "youtube.com/2" },
+            { modulo: 1, nome: "LOVESICK GIRLS", link: "youtube.com/3" },
+            { modulo: 2, nome: "T.T", link: "youtube.com/4" },
+            { modulo: 2, nome: "CHEER UP", link: "youtube.com/5" },
+            { modulo: 2, nome: "FANCY", link: "youtube.com/6" },
+            { modulo: 3, nome: "ANPANMAN", link: "youtube.com/7" },
+            { modulo: 3, nome: "DYNAMITE", link: "youtube.com/8" },
+            { modulo: 3, nome: "BUTTER", link: "youtube.com/9" }
         ];
         
-        function searchContent() {
-            let searchTerm = document.getElementById('searchInput').value;
-            alert('🔍 Buscando por: ' + searchTerm);
-        }
-        
-        function marcarConcluido() {
-            alert('🎉 Parabéns! Aula marcada como concluída!');
-        }
-        
-        function salvarAula() {
-            alert('❤️ Aula salva na sua lista!');
-        }
-        
-        function enviarComentario() {
-            let comment = document.getElementById('commentInput').value;
-            let nome = prompt("Qual seu nome?");
+        function fazerLogin() {
+            let senha = document.getElementById('senha').value;
             
-            if (comment.trim() !== '' && nome) {
-                let commentList = document.getElementById('commentList');
-                let newComment = document.createElement('div');
-                newComment.className = 'comment-item';
-                newComment.innerHTML = `
-                    <div class="comment-author">
-                        <i>👤</i> ${nome}
-                    </div>
-                    <div class="comment-text">
-                        ${comment}
-                    </div>
-                    <div class="comment-time">agora mesmo</div>
-                `;
-                
-                commentList.insertBefore(newComment, commentList.firstChild);
-                document.getElementById('commentInput').value = '';
-                alert('💬 Comentário enviado com sucesso!');
-            } else if (comment.trim() === '') {
-                alert('Digite um comentário!');
+            if (senha === SENHA) {
+                document.getElementById('telaLogin').style.display = 'none';
+                document.getElementById('telaAdmin').classList.remove('hidden');
+                atualizarLista();
+            } else {
+                alert('❌ Senha errada! Tente rob2024');
             }
         }
         
         function adicionarAula() {
-            let novaAula = prompt("Digite o nome da nova aula (ex: BLACKPINK - HOW YOU LIKE THAT):");
+            let modulo = document.getElementById('modulo').value;
+            let nome = document.getElementById('nomeAula').value.trim();
+            let link = document.getElementById('linkVideo').value.trim();
             
-            if (novaAula) {
-                aulas.push(novaAula);
-                
-                let aulasList = document.getElementById('aulasList');
-                let newLi = document.createElement('li');
-                newLi.textContent = '🎵 ' + novaAula;
-                newLi.onclick = function() { selecionarAula(this); };
-                aulasList.appendChild(newLi);
-                
-                alert('✅ Aula "' + novaAula + '" adicionada com sucesso!');
+            if (nome === '') {
+                alert('Digite o nome da aula!');
+                return;
+            }
+            
+            // Adicionar aula
+            aulas.push({
+                modulo: parseInt(modulo),
+                nome: nome,
+                link: link || "Em breve"
+            });
+            
+            // Salvar
+            localStorage.setItem('aulas', JSON.stringify(aulas));
+            
+            // Limpar campos
+            document.getElementById('nomeAula').value = '';
+            document.getElementById('linkVideo').value = '';
+            
+            // Atualizar lista
+            atualizarLista();
+            
+            // Mostrar mensagem
+            alert('✅ Aula adicionada com sucesso!');
+            
+            // ATUALIZAR O SITE DAS ALUNAS AUTOMATICAMENTE
+            atualizarSiteAlunas();
+        }
+        
+        function removerAula(index) {
+            if (confirm('Remover esta aula?')) {
+                aulas.splice(index, 1);
+                localStorage.setItem('aulas', JSON.stringify(aulas));
+                atualizarLista();
+                atualizarSiteAlunas();
             }
         }
         
-        function selecionarAula(elemento) {
-            document.querySelectorAll('.modules-list li').forEach(li => {
-                li.classList.remove('active');
-            });
-            elemento.classList.add('active');
+        function atualizarLista() {
+            let html = '';
             
-            let nomeAula = elemento.textContent.replace('🎵 ', '');
-            document.querySelector('.video-title span').textContent = '🔥';
-            document.querySelector('.video-title').innerHTML = `<span>🔥</span> ${nomeAula} (Coreografia)`;
-            
-            alert('📺 Carregando aula: ' + nomeAula);
-        }
-        
-        // Sistema de avaliação por estrelas
-        let currentRating = 0;
-        
-        function rate(stars) {
-            currentRating = stars;
-            let stars_elements = document.querySelectorAll('.star');
-            
-            stars_elements.forEach((star, index) => {
-                if (index < stars) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-        }
-        
-        function enviarFeedback() {
-            let feedback = document.getElementById('feedbackText').value;
-            if (currentRating > 0 || feedback.trim() !== '') {
-                alert('📝 Feedback enviado com sucesso!\n' + 
-                      'Avaliação: ' + currentRating + ' estrelas');
+            // Agrupar por módulo
+            for (let m = 1; m <= 3; m++) {
+                let nomeModulo = m === 1 ? 'BLACKPINK' : m === 2 ? 'TWICE' : 'BTS';
+                let aulasModulo = aulas.filter(a => a.modulo === m);
                 
-                document.getElementById('feedbackText').value = '';
-                currentRating = 0;
-                document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
-            } else {
-                alert('Por favor, avalie a aula ou escreva um comentário!');
+                if (aulasModulo.length > 0) {
+                    html += `<h3 style="color: #ff0000; margin: 20px 0 10px;">🎵 ${nomeModulo}</h3>`;
+                    
+                    aulasModulo.forEach((aula, i) => {
+                        let indexReal = aulas.findIndex(a => a.modulo === m && a.nome === aula.nome);
+                        html += `
+                            <div class="aula-item">
+                                <div class="aula-info">
+                                    <h4>${aula.nome}</h4>
+                                    <p>📹 ${aula.link}</p>
+                                </div>
+                                <button class="delete" onclick="removerAula(${indexReal})">🗑️</button>
+                            </div>
+                        `;
+                    });
+                }
+            }
+            
+            document.getElementById('listaAulas').innerHTML = html;
+        }
+        
+        function atualizarSiteAlunas() {
+            // Isso aqui é mágico! Atualiza o site das alunas automaticamente
+            let siteHTML = gerarSiteCompleto();
+            
+            // Salvar no localStorage para o site das alunas ler
+            localStorage.setItem('siteAtual', siteHTML);
+            
+            console.log('Site atualizado!');
+        }
+        
+        function gerarSiteCompleto() {
+            // Função que gera o HTML completo do site das alunas com as aulas atualizadas
+            let aulasHTML = '';
+            
+            for (let m = 1; m <= 3; m++) {
+                let nomeModulo = m === 1 ? 'BLACKPINK' : m === 2 ? 'TWICE' : 'BTS';
+                let aulasModulo = aulas.filter(a => a.modulo === m);
+                
+                aulasHTML += `
+                    <div class="modulo-btn" onclick="toggleModulo(${m})" id="modulo${m}">
+                        MÓDULO ${m} - ${nomeModulo}
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="aulas-container" id="aulasModulo${m}">
+                `;
+                
+                aulasModulo.forEach(aula => {
+                    aulasHTML += `
+                        <div class="aula-item" onclick="selecionarAula(this, '${aula.link}')">
+                            🎵 ${aula.nome}
+                        </div>
+                    `;
+                });
+                
+                aulasHTML += `</div>`;
+            }
+            
+            return aulasHTML;
+        }
+        
+        function copiarLink() {
+            navigator.clipboard.writeText('https://zeacb11.github.io/robdanceclass/');
+            alert('✅ Link copiado!');
+        }
+        
+        // Login automático se já tiver feito antes (opcional)
+        window.onload = function() {
+            // Verifica se já está logado
+            if (localStorage.getItem('logado') === 'sim') {
+                document.getElementById('senha').value = SENHA;
+                fazerLogin();
             }
         }
     </script>
