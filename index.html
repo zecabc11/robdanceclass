@@ -311,6 +311,13 @@
             padding: 8px 20px;
             border-radius: 30px;
             border: 1px solid #ff0000;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .user-info:hover {
+            border-color: #ff0000;
+            background: #222;
         }
         
         .user-info span {
@@ -323,8 +330,8 @@
         }
         
         .avatar {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             background: #ff0000;
             border-radius: 50%;
             display: flex;
@@ -332,7 +339,72 @@
             justify-content: center;
             font-weight: bold;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
+            overflow: hidden;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .avatar-upload {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            cursor: pointer;
+        }
+        
+        .avatar-upload img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #ff0000;
+            object-fit: cover;
+        }
+        
+        .avatar-upload input {
+            display: none;
+        }
+        
+        /* Navegação por abas */
+        .tabs-container {
+            display: flex;
+            background: #000;
+            border-bottom: 2px solid #ff0000;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tab:hover {
+            background: #1a1a1a;
+        }
+        
+        .tab.active {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 25px;
+            background: #f5f5f5;
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         /* Main layout */
@@ -484,7 +556,6 @@
         /* Video area */
         .video-section {
             flex: 1;
-            padding: 25px;
             background: #f5f5f5;
         }
         
@@ -577,7 +648,7 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
         
-        /* Admin Panel (só aparece para professor) */
+        /* Admin Panel */
         .admin-panel {
             background: #1a1a1a;
             border-radius: 15px;
@@ -617,12 +688,6 @@
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .admin-form button:hover {
-            background: #cc0000;
-            transform: scale(1.02);
         }
         
         .admin-list {
@@ -653,7 +718,179 @@
             cursor: pointer;
         }
         
-        /* Comments Section */
+        /* Modal de Perfil */
+        .profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+        
+        .profile-content {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 30px;
+            border: 3px solid #ff0000;
+            width: 400px;
+            text-align: center;
+        }
+        
+        .profile-content h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        
+        .avatar-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .avatar-option {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .avatar-option:hover {
+            border-color: #ff0000;
+            transform: scale(1.1);
+        }
+        
+        .avatar-option.selected {
+            border-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+        
+        /* Seção de Pedidos (aba separada) */
+        .pedidos-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .pedidos-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .pedidos-header h2 {
+            color: #ff0000;
+            font-size: 28px;
+        }
+        
+        .pedido-input {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        
+        .pedido-input input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        
+        .pedido-input input:focus {
+            border-color: #ff0000;
+            outline: none;
+        }
+        
+        .pedido-input button {
+            padding: 15px 30px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .pedido-item {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ff0000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pedido-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .pedido-meta {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .pedido-votos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .voto-contador {
+            background: #ff0000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .votar-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .votar-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+        
+        .votar-btn.votado {
+            background: #4CAF50;
+            cursor: default;
+        }
+        
+        .votar-btn.votado:hover {
+            transform: none;
+        }
+        
+        /* Comentários */
         .comments-section {
             margin-top: 30px;
             background: white;
@@ -676,89 +913,59 @@
             color: #000000;
             font-size: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .section-header span {
-            background: #ff0000;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
         }
         
         .comment-list {
-            max-height: 400px;
+            max-height: 300px;
             overflow-y: auto;
             margin-bottom: 20px;
-            padding-right: 10px;
         }
         
         .comment-item {
             background: #f8f8f8;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
             border-left: 4px solid #ff0000;
         }
         
         .comment-author {
-            font-weight: 900;
-            color: #000000;
-            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
         
         .comment-text {
             color: #333;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            font-size: 15px;
+            margin-bottom: 5px;
         }
         
         .comment-time {
             font-size: 12px;
-            color: #999;
-            margin-top: 8px;
-            text-align: right;
+            color: #888;
         }
         
         .input-area {
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
         }
         
         .input-area input {
             flex: 1;
-            padding: 15px 20px;
+            padding: 12px;
             border: 2px solid #ddd;
-            border-radius: 25px;
-            outline: none;
-            font-size: 15px;
-        }
-        
-        .input-area input:focus {
-            border-color: #ff0000;
+            border-radius: 8px;
         }
         
         .send-btn {
+            padding: 12px 25px;
             background: #ff0000;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 0 30px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .send-btn:hover {
-            background: #cc0000;
-            transform: scale(1.05);
         }
         
         .hidden {
@@ -772,12 +979,14 @@
             .sidebar {
                 width: 100%;
             }
-            .choice-box {
-                width: 90%;
-                padding: 30px;
-            }
-            .choice-buttons {
+            .pedido-item {
                 flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .pedido-votos {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -824,6 +1033,32 @@
         </div>
     </div>
     
+    <!-- MODAL DE PERFIL -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <h2>👤 SEU PERFIL</h2>
+            <div class="avatar-upload" onclick="document.getElementById('fotoPerfil').click()">
+                <img id="avatarPreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E👤%3C/text%3E%3C/svg%3E" alt="Avatar">
+                <input type="file" id="fotoPerfil" accept="image/*" onchange="previewAvatar(event)">
+            </div>
+            <p style="color: white; margin-bottom: 15px;">Clique na imagem para trocar a foto</p>
+            
+            <h3 style="color: #ff0000; margin: 20px 0 10px;">OU ESCOLHA UM EMOJI</h3>
+            <div class="avatar-options">
+                <div class="avatar-option" onclick="escolherEmoji('🦊')">🦊</div>
+                <div class="avatar-option" onclick="escolherEmoji('🐼')">🐼</div>
+                <div class="avatar-option" onclick="escolherEmoji('🐨')">🐨</div>
+                <div class="avatar-option" onclick="escolherEmoji('🦁')">🦁</div>
+                <div class="avatar-option" onclick="escolherEmoji('🐸')">🐸</div>
+                <div class="avatar-option" onclick="escolherEmoji('🐧')">🐧</div>
+                <div class="avatar-option" onclick="escolherEmoji('🌸')">🌸</div>
+                <div class="avatar-option" onclick="escolherEmoji('⭐')">⭐</div>
+            </div>
+            
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="salvarPerfil()">SALVAR PERFIL</button>
+        </div>
+    </div>
+    
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="container" id="mainContent" style="display: none;">
         <header>
@@ -833,102 +1068,121 @@
                 <span class="class">CLASS</span>
             </div>
             
-            <div class="user-info">
+            <div class="user-info" onclick="abrirPerfil()">
                 <span>Olá, <span id="nomeUsuario" class="user-name">...</span></span>
                 <div class="avatar" id="userAvatar">👤</div>
             </div>
         </header>
         
-        <div class="main-content">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <h3>🔥 MÓDULOS</h3>
-                
-                <div class="progress-section">
-                    <p>
-                        <span>Progresso</span>
-                        <span class="progress-percent" id="progressPercent">0%</span>
-                    </p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        <!-- Abas de navegação -->
+        <div class="tabs-container">
+            <div class="tab active" onclick="mudarAba('aulas')" id="tabAulas">📚 AULAS</div>
+            <div class="tab" onclick="mudarAba('pedidos')" id="tabPedidos">🎤 PEDIDOS</div>
+        </div>
+        
+        <!-- Conteúdo das abas -->
+        <div id="tabAulasContent" class="tab-content active">
+            <div class="main-content">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <h3>🔥 MÓDULOS</h3>
+                    
+                    <div class="progress-section">
+                        <p>
+                            <span>Progresso</span>
+                            <span class="progress-percent" id="progressPercent">0%</span>
+                        </p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
                     </div>
+                    
+                    <div class="modulo-buttons" id="modulosContainer"></div>
                 </div>
                 
-                <div class="modulo-buttons" id="modulosContainer"></div>
-            </div>
-            
-            <!-- Área de vídeo -->
-            <div class="video-section">
-                <!-- PAINEL ADMIN (só aparece para professor) -->
-                <div id="adminPanel" class="hidden">
-                    <div class="admin-panel">
-                        <h3>➕ ADICIONAR NOVA AULA</h3>
-                        <div class="admin-form">
-                            <select id="moduloSelect">
-                                <option value="1">MÓDULO 1 - BLACKPINK</option>
-                                <option value="2">MÓDULO 2 - TWICE</option>
-                                <option value="3">MÓDULO 3 - BTS</option>
-                            </select>
-                            <input type="text" id="aulaNome" placeholder="Nome da aula (ex: KILL THIS LOVE)">
-                            <input type="text" id="aulaLink" placeholder="Link do vídeo (opcional)">
-                            <button onclick="adicionarAula()">ADICIONAR AULA</button>
+                <!-- Área de vídeo -->
+                <div class="video-section">
+                    <!-- PAINEL ADMIN (só aparece para professor) -->
+                    <div id="adminPanel" class="hidden">
+                        <div class="admin-panel">
+                            <h3>➕ ADICIONAR NOVA AULA</h3>
+                            <div class="admin-form">
+                                <select id="moduloSelect">
+                                    <option value="1">MÓDULO 1 - BLACKPINK</option>
+                                    <option value="2">MÓDULO 2 - TWICE</option>
+                                    <option value="3">MÓDULO 3 - BTS</option>
+                                </select>
+                                <input type="text" id="aulaNome" placeholder="Nome da aula">
+                                <input type="text" id="aulaLink" placeholder="Link do vídeo">
+                                <button onclick="adicionarAula()">ADICIONAR</button>
+                            </div>
+                            
+                            <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
+                            <div class="admin-list" id="adminAulasList"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe id="videoPlayer" src="" style="display: none;"></iframe>
+                        <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <h3>🎥 Selecione uma aula</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="video-info">
+                        <h2 class="video-title" id="videoTitle"><span>🔥</span> Selecione uma aula para começar</h2>
+                        <div class="video-meta">
+                            <span><i>📅</i> Clique em uma aula ao lado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="marcarConcluido()">✓ MARCAR COMO CONCLUÍDO</button>
+                        <button class="btn btn-secondary" onclick="salvarAula()">❤️ SALVAR AULA</button>
+                    </div>
+                    
+                    <!-- Comentários -->
+                    <div class="comments-section">
+                        <div class="section-header">
+                            <h3>💬 COMENTÁRIOS</h3>
+                            <span id="comentariosCount">6</span>
                         </div>
                         
-                        <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
-                        <div class="admin-list" id="adminAulasList"></div>
-                    </div>
-                </div>
-                
-                <div class="video-container">
-                    <iframe id="videoPlayer" src="" style="display: none;"></iframe>
-                    <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                        <h3>🎥 Selecione uma aula</h3>
-                    </div>
-                </div>
-                
-                <div class="video-info">
-                    <h2 class="video-title" id="videoTitle"><span>🔥</span> Selecione uma aula para começar</h2>
-                    <div class="video-meta">
-                        <span><i>📅</i> Clique em uma aula ao lado</span>
-                    </div>
-                </div>
-                
-                <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="marcarConcluido()">✓ MARCAR COMO CONCLUÍDO</button>
-                    <button class="btn btn-secondary" onclick="salvarAula()">❤️ SALVAR AULA</button>
-                </div>
-                
-                <!-- Comentários -->
-                <div class="comments-section">
-                    <div class="section-header">
-                        <h3>💬 COMENTÁRIOS</h3>
-                        <span id="comentariosCount">6</span>
-                    </div>
-                    
-                    <div class="comment-list" id="commentList">
-                        <div class="comment-item">
-                            <div class="comment-author">👤 Ana Silva 1234</div>
-                            <div class="comment-text">Adorei as aulas!</div>
-                            <div class="comment-time">há 2 horas</div>
-                        </div>
-                        <div class="comment-item">
-                            <div class="comment-author">👤 Maria Oliveira 5678</div>
-                            <div class="comment-text">Estou amando as coreografias 🔥</div>
-                            <div class="comment-time">há 5 horas</div>
+                        <div class="comment-list" id="commentList"></div>
+                        
+                        <div class="input-area">
+                            <input type="text" id="commentInput" placeholder="Escreva seu comentário...">
+                            <button class="send-btn" onclick="enviarComentario()">ENVIAR</button>
                         </div>
                     </div>
-                    
-                    <div class="input-area">
-                        <input type="text" id="commentInput" placeholder="Escreva seu comentário...">
-                        <button class="send-btn" onclick="enviarComentario()">ENVIAR</button>
-                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ABA DE PEDIDOS -->
+        <div id="tabPedidosContent" class="tab-content">
+            <div class="pedidos-section">
+                <div class="pedidos-header">
+                    <span style="font-size: 40px;">🎤</span>
+                    <h2>PEDIDOS DE MÚSICAS</h2>
+                </div>
+                
+                <!-- Formulário para novo pedido -->
+                <div class="pedido-input">
+                    <input type="text" id="musicaPedido" placeholder="Qual música você quer aprender? (Ex: Super Shy - NewJeans)">
+                    <button onclick="enviarPedido()">ENVIAR PEDIDO</button>
+                </div>
+                
+                <!-- Lista de pedidos -->
+                <div id="pedidosList">
+                    <!-- Pedidos serão carregados aqui -->
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // SENHA SECRETA DO PROFESSOR (só você sabe)
+        // SENHA DO PROFESSOR
         const SENHA_PROFESSOR = "rob2026";
         
         // DADOS DAS AULAS
@@ -944,6 +1198,31 @@
             { modulo: 3, nome: "BUTTER", link: "" }
         ];
         
+        // PEDIDOS DE MÚSICAS (agora com controle de votos por pessoa)
+        let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [
+            { 
+                id: 1,
+                musica: "Super Shy - NewJeans", 
+                votos: 5, 
+                autor: "Ana Silva 1234",
+                quemVotou: ["maria_5678", "julia_9012"] // IDs de quem já votou
+            },
+            { 
+                id: 2,
+                musica: "Seven - Jungkook", 
+                votos: 3, 
+                autor: "Maria Oliveira 5678",
+                quemVotou: ["ana_1234"]
+            },
+            { 
+                id: 3,
+                musica: "Eve Psyche - LE SSERAFIM", 
+                votos: 2, 
+                autor: "Julia Santos 9012",
+                quemVotou: []
+            }
+        ];
+        
         // NOMES DOS MÓDULOS
         const nomesModulos = {
             1: "BLACKPINK",
@@ -956,6 +1235,7 @@
         let nomeAluno = "";
         let idUnico = "";
         let aulasConcluidas = [];
+        let avatarAluno = "👤";
         
         // ========== FUNÇÕES DE ESCOLHA ==========
         
@@ -973,14 +1253,31 @@
             document.getElementById('alunoLoginScreen').style.display = 'none';
             document.getElementById('professorLoginScreen').style.display = 'none';
             document.getElementById('choiceScreen').style.display = 'flex';
-            
-            // Limpar campos
             document.getElementById('alunoNome').value = '';
             document.getElementById('alunoCpf').value = '';
             document.getElementById('professorSenha').value = '';
         }
         
-        // ========== LOGIN DO ALUNO(A) ==========
+        // ========== FUNÇÕES DE ABA ==========
+        
+        function mudarAba(aba) {
+            // Atualizar abas
+            document.getElementById('tabAulas').classList.remove('active');
+            document.getElementById('tabPedidos').classList.remove('active');
+            document.getElementById('tabAulasContent').classList.remove('active');
+            document.getElementById('tabPedidosContent').classList.remove('active');
+            
+            if (aba === 'aulas') {
+                document.getElementById('tabAulas').classList.add('active');
+                document.getElementById('tabAulasContent').classList.add('active');
+            } else {
+                document.getElementById('tabPedidos').classList.add('active');
+                document.getElementById('tabPedidosContent').classList.add('active');
+                atualizarPedidos(); // Atualiza lista de pedidos ao entrar na aba
+            }
+        }
+        
+        // ========== LOGIN DO ALUNO ==========
         
         function loginAluno() {
             let nome = document.getElementById('alunoNome').value.trim();
@@ -996,37 +1293,66 @@
                 return;
             }
             
-            // Criar ID único
             idUnico = nome + '_' + cpf;
             nomeAluno = nome;
-            isProfessor = false;
             
-            // Salvar dados
-            localStorage.setItem('dadosAluno_' + idUnico, JSON.stringify({
+            // Carregar dados do aluno
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {
                 nome: nome,
-                cpf: cpf
-            }));
+                cpf: cpf,
+                avatar: "👤",
+                aulasConcluidas: []
+            };
             
-            // Carregar progresso
-            let progresso = localStorage.getItem('progresso_' + idUnico);
-            if (progresso) {
-                aulasConcluidas = JSON.parse(progresso);
-            }
+            aulasConcluidas = dadosAluno.aulasConcluidas;
+            avatarAluno = dadosAluno.avatar;
             
             // Atualizar interface
             document.getElementById('nomeUsuario').textContent = nome;
-            document.getElementById('userAvatar').textContent = nome.charAt(0).toUpperCase();
+            document.getElementById('userAvatar').innerHTML = avatarAluno;
             
-            // Esconder login e mostrar conteúdo
             document.getElementById('alunoLoginScreen').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
             
-            // Carregar módulos e progresso
             carregarModulos();
             atualizarProgresso();
+            atualizarPedidos();
             
-            // Mensagem de boas-vindas
             alert(`🎉 Bem-vindo(a), ${nome}!`);
+        }
+        
+        // ========== PERFIL E AVATAR ==========
+        
+        function abrirPerfil() {
+            document.getElementById('profileModal').style.display = 'flex';
+        }
+        
+        function previewAvatar(event) {
+            let reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('avatarPreview').src = reader.result;
+                avatarAluno = '<img src="' + reader.result + '">';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+        
+        function escolherEmoji(emoji) {
+            document.getElementById('avatarPreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E" + emoji + "%3C/text%3E%3C/svg%3E";
+            avatarAluno = emoji;
+        }
+        
+        function salvarPerfil() {
+            document.getElementById('profileModal').style.display = 'none';
+            document.getElementById('userAvatar').innerHTML = avatarAluno;
+            
+            // Salvar no localStorage
+            let dadosAluno = {
+                nome: nomeAluno,
+                cpf: document.getElementById('alunoCpf').value,
+                avatar: avatarAluno,
+                aulasConcluidas: aulasConcluidas
+            };
+            localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
         }
         
         // ========== LOGIN DO PROFESSOR ==========
@@ -1039,18 +1365,14 @@
                 document.getElementById('mainContent').style.display = 'block';
                 
                 isProfessor = true;
-                nomeAluno = "Professor";
-                
                 document.getElementById('nomeUsuario').textContent = "Professor";
-                document.getElementById('userAvatar').textContent = "👨‍🏫";
+                document.getElementById('userAvatar').innerHTML = "👨‍🏫";
                 
-                // Mostrar painel admin
                 document.getElementById('adminPanel').classList.remove('hidden');
                 
                 carregarModulos();
                 atualizarAdminLista();
-                
-                alert('👨‍🏫 Bem-vindo, Professor!');
+                atualizarPedidos();
             } else {
                 alert('Senha incorreta!');
             }
@@ -1070,24 +1392,18 @@
                 return;
             }
             
-            aulas.push({
-                modulo: parseInt(modulo),
-                nome: nome,
-                link: link
-            });
+            aulas.push({ modulo: parseInt(modulo), nome: nome, link: link });
             
             document.getElementById('aulaNome').value = '';
             document.getElementById('aulaLink').value = '';
             
             atualizarAdminLista();
             carregarModulos();
-            
-            alert('✅ Aula adicionada com sucesso!');
+            alert('✅ Aula adicionada!');
         }
         
         function removerAula(index) {
             if (!isProfessor) return;
-            
             if (confirm('Remover esta aula?')) {
                 aulas.splice(index, 1);
                 atualizarAdminLista();
@@ -1099,7 +1415,6 @@
             if (!isProfessor) return;
             
             let html = '';
-            
             aulas.forEach((aula, index) => {
                 html += `
                     <div class="admin-aula-item">
@@ -1108,8 +1423,115 @@
                     </div>
                 `;
             });
-            
             document.getElementById('adminAulasList').innerHTML = html;
+        }
+        
+        // ========== PEDIDOS (COM VOTO ÚNICO) ==========
+        
+        function enviarPedido() {
+            let musica = document.getElementById('musicaPedido').value.trim();
+            
+            if (musica === '') {
+                alert('Digite o nome da música!');
+                return;
+            }
+            
+            // Verificar se já existe pedido igual
+            let existe = pedidos.some(p => p.musica.toLowerCase() === musica.toLowerCase());
+            
+            if (existe) {
+                alert('Esta música já foi pedida! Você pode votar nela.');
+                document.getElementById('musicaPedido').value = '';
+                mudarAba('pedidos');
+                return;
+            }
+            
+            // Criar novo pedido
+            let novoPedido = {
+                id: Date.now(),
+                musica: musica,
+                votos: 1,
+                autor: nomeAluno + ' ' + document.getElementById('alunoCpf').value,
+                quemVotou: [idUnico] // Já adiciona o criador como primeiro voto
+            };
+            
+            pedidos.push(novoPedido);
+            
+            document.getElementById('musicaPedido').value = '';
+            
+            // Salvar
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            
+            // Atualizar lista
+            atualizarPedidos();
+            
+            // Mudar para aba de pedidos
+            mudarAba('pedidos');
+            
+            alert('✅ Pedido enviado!');
+        }
+        
+        function votarPedido(id) {
+            if (isProfessor) {
+                alert('👨‍🏫 Professor não vota nos pedidos!');
+                return;
+            }
+            
+            let pedido = pedidos.find(p => p.id === id);
+            
+            if (!pedido) return;
+            
+            // Verificar se já votou
+            if (pedido.quemVotou.includes(idUnico)) {
+                alert('Você já votou neste pedido! Apenas um voto por pessoa.');
+                return;
+            }
+            
+            // Adicionar voto
+            pedido.votos++;
+            pedido.quemVotou.push(idUnico);
+            
+            // Salvar
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            
+            // Atualizar lista
+            atualizarPedidos();
+        }
+        
+        function atualizarPedidos() {
+            // Ordenar por votos (maior para menor)
+            pedidos.sort((a, b) => b.votos - a.votos);
+            
+            let html = '';
+            
+            pedidos.forEach((pedido) => {
+                let jaVotou = !isProfessor && pedido.quemVotou.includes(idUnico);
+                
+                html += `
+                    <div class="pedido-item">
+                        <div class="pedido-info">
+                            <h4>${pedido.musica}</h4>
+                            <div class="pedido-meta">Pedido por: ${pedido.autor}</div>
+                        </div>
+                        <div class="pedido-votos">
+                            <span class="voto-contador">${pedido.votos} ${pedido.votos === 1 ? 'voto' : 'votos'}</span>
+                            ${!isProfessor ? `
+                                <button class="votar-btn ${jaVotou ? 'votado' : ''}" 
+                                        onclick="votarPedido(${pedido.id})"
+                                        ${jaVotou ? 'disabled' : ''}>
+                                    ${jaVotou ? '✓ VOTOU' : '👍 VOTAR'}
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (pedidos.length === 0) {
+                html = '<p style="text-align: center; color: #888;">Nenhum pedido ainda. Seja a primeira a pedir uma música!</p>';
+            }
+            
+            document.getElementById('pedidosList').innerHTML = html;
         }
         
         // ========== FUNÇÕES DO SITE ==========
@@ -1129,11 +1551,9 @@
                 `;
                 
                 aulasModulo.forEach(aula => {
-                    // Verificar se a aula está concluída
-                    let aulaCompleta = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
-                    
+                    let concluida = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
                     html += `
-                        <div class="aula-item ${aulaCompleta}" onclick="selecionarAula(this, '${aula.link || ''}')">
+                        <div class="aula-item ${concluida}" onclick="selecionarAula(this, '${aula.link}')">
                             🎵 ${aula.nome}
                         </div>
                     `;
@@ -1148,7 +1568,6 @@
         function toggleModulo(numero) {
             let container = document.getElementById('aulasModulo' + numero);
             let botao = document.getElementById('modulo' + numero);
-            
             container.classList.toggle('show');
             botao.classList.toggle('active');
         }
@@ -1179,14 +1598,13 @@
         
         function marcarConcluido() {
             if (isProfessor) {
-                alert('👨‍🏫 Você é o professor! Os alunos é que marcam progresso.');
+                alert('👨‍🏫 Professor não marca progresso!');
                 return;
             }
             
             let aulaAtiva = document.querySelector('.aula-item.active');
-            
             if (!aulaAtiva) {
-                alert('Selecione uma aula primeiro!');
+                alert('Selecione uma aula!');
                 return;
             }
             
@@ -1194,50 +1612,57 @@
             
             if (!aulasConcluidas.includes(nomeAula)) {
                 aulasConcluidas.push(nomeAula);
-                localStorage.setItem('progresso_' + idUnico, JSON.stringify(aulasConcluidas));
+                
+                // Salvar progresso
+                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+                dadosAluno.aulasConcluidas = aulasConcluidas;
+                localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
                 
                 aulaAtiva.classList.add('completed');
                 atualizarProgresso();
                 
-                alert('🎉 Aula concluída! Parabéns!');
-            } else {
-                alert('Você já concluiu esta aula!');
+                alert('🎉 Aula concluída!');
             }
         }
         
         function atualizarProgresso() {
             let total = document.querySelectorAll('.aula-item').length;
             let percentual = Math.round((aulasConcluidas.length / total) * 100) || 0;
-            
             document.getElementById('progressFill').style.width = percentual + '%';
             document.getElementById('progressPercent').textContent = percentual + '%';
         }
         
         function salvarAula() {
-            alert('❤️ Aula salva nos favoritos!');
+            alert('❤️ Aula salva!');
         }
         
         function enviarComentario() {
-            let comment = document.getElementById('commentInput').value;
+            if (!nomeAluno && !isProfessor) {
+                alert('Faça login primeiro!');
+                return;
+            }
             
-            if (comment.trim() !== '') {
-                let commentList = document.getElementById('commentList');
-                let newComment = document.createElement('div');
-                newComment.className = 'comment-item';
-                
-                let identificador = isProfessor ? '👨‍🏫 Professor' : `${nomeAluno} ${document.getElementById('alunoCpf').value}`;
-                
-                newComment.innerHTML = `
-                    <div class="comment-author">👤 ${identificador}</div>
-                    <div class="comment-text">${comment}</div>
-                    <div class="comment-time">agora mesmo</div>
-                `;
-                
-                commentList.insertBefore(newComment, commentList.firstChild);
-                document.getElementById('commentInput').value = '';
-                
-                let count = parseInt(document.getElementById('comentariosCount').textContent) + 1;
-                document.getElementById('comentariosCount').textContent = count;
+            let comment = document.getElementById('commentInput').value.trim();
+            if (comment === '') return;
+            
+            let commentList = document.getElementById('commentList');
+            let newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            
+            let autor = isProfessor ? '👨‍🏫 Professor' : `${avatarAluno} ${nomeAluno}`;
+            
+            newComment.innerHTML = `
+                <div class="comment-author">${autor}</div>
+                <div class="comment-text">${comment}</div>
+                <div class="comment-time">agora mesmo</div>
+            `;
+            
+            commentList.insertBefore(newComment, commentList.firstChild);
+            document.getElementById('commentInput').value = '';
+            
+            // Limitar número de comentários mostrados
+            if (commentList.children.length > 10) {
+                commentList.removeChild(commentList.lastChild);
             }
         }
     </script>
