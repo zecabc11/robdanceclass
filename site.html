@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 ROB DANCE CLASS - Kpop Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
+            position: relative;
+        }
+        
+        body::before {
+            content: "🔥";
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 40px;
+            opacity: 0.3;
+            color: #ff0000;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+            position: relative;
+        }
+        
+        /* Header Preto e Vermelho */
+        header {
+            background: #000000;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1));
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .logo .rob {
+            color: #ff0000;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            font-size: 36px;
+        }
+        
+        .logo .dance {
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .logo .class {
+            color: #ff0000;
+            font-size: 28px;
+            margin-left: 5px;
+            font-style: italic;
+        }
+        
+        .search-box {
+            background: #1a1a1a;
+            border-radius: 30px;
+            padding: 12px 25px;
+            width: 350px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ff0000;
+            transition: all 0.3s;
+        }
+        
+        .search-box:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            color: white;
+        }
+        
+        .search-box input::placeholder {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .search-box button {
+            background: none;
+            border: none;
+            color: #ff0000;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .search-box button:hover {
+            transform: scale(1.2);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1a1a1a;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid #ff0000;
+        }
+        
+        .user-info span {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .avatar {
+            width: 38px;
+            height: 38px;
+            background: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        /* Main layout */
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+        
+        /* Sidebar Preto e Vermelho */
+        .sidebar {
+            width: 280px;
+            background: #000000;
+            padding: 25px 20px;
+            border-right: 3px solid #ff0000;
+        }
+        
+        .sidebar h3 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        
+        .progress-section {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #ff0000;
+        }
+        
+        .progress-section p {
+            color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #333;
+            border-radius: 6px;
+            margin: 10px 0;
+            overflow: hidden;
+            border: 1px solid #ff0000;
+        }
+        
+        .progress-fill {
+            width: 45%;
+            height: 100%;
+            background: #ff0000;
+            border-radius: 6px;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .level-badge {
+            background: #ff0000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .modules-list {
+            list-style: none;
+        }
+        
+        .modules-list li {
+            padding: 15px;
+            margin-bottom: 8px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .modules-list li:hover {
+            border-color: #ff0000;
+            background: #222;
+            transform: translateX(5px);
+        }
+        
+        .modules-list li.active {
+            background: #ff0000;
+            color: white;
+            border-color: white;
+        }
+        
+        .modules-list li.completed::after {
+            content: "✓";
+            color: #ff0000;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .modules-list li.active.completed::after {
+            color: white;
+        }
+        
+        /* Video area */
+        .video-section {
+            flex: 1;
+            padding: 25px;
+            background: #f5f5f5;
+        }
+        
+        .video-container {
+            background: #000000;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            position: relative;
+            padding-top: 56.25%;
+            border: 3px solid #ff0000;
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            margin-bottom: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ff0000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-title {
+            font-size: 26px;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+        
+        .video-title span {
+            color: #ff0000;
+        }
+        
+        .video-meta {
+            display: flex;
+            gap: 20px;
+            color: #666;
+        }
+        
+        .video-meta i {
+            color: #ff0000;
+            margin-right: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #ff0000;
+            color: white;
+            border: 2px solid #ff0000;
+        }
+        
+        .btn-primary:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #000000;
+            color: white;
+            border: 2px solid #ff0000;
+        }
+        
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* Comments and Chat */
+        .social-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .comments-box, .chat-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #ff0000;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        
+        .section-header h3 {
+            color: #000000;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-header span {
+            background: #ff0000;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .comment-list, .chat-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+        
+        .comment-item {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #ff0000;
+        }
+        
+        .comment-author {
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comment-author i {
+            color: #ff0000;
+        }
+        
+        .comment-text {
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .comment-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+            text-align: right;
+        }
+        
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .chat-avatar {
+            width: 35px;
+            height: 35px;
+            background: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .chat-content {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 18px;
+            border-top-left-radius: 4px;
+        }
+        
+        .chat-name {
+            font-weight: 900;
+            font-size: 13px;
+            color: #ff0000;
+            margin-bottom: 4px;
+        }
+        
+        .chat-text {
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .input-area {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .input-area input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .input-area input:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+        }
+        
+        .send-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 0 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #ff0000;
+        }
+        
+        .send-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+        
+        /* Feedback Section */
+        .feedback-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: #000000;
+            border-radius: 15px;
+            border: 2px solid #ff0000;
+            color: white;
+        }
+        
+        .feedback-section h4 {
+            color: #ff0000;
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .star {
+            font-size: 30px;
+            color: #444;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .star:hover {
+            transform: scale(1.2);
+            color: #ff0000;
+        }
+        
+        .star.active {
+            color: #ff0000;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ff0000;
+            border-radius: 12px;
+            margin: 15px 0;
+            resize: vertical;
+            background: #1a1a1a;
+            color: white;
+            font-size: 14px;
+        }
+        
+        textarea::placeholder {
+            color: #666;
+        }
+        
+        .feedback-section .btn-primary {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 3px solid #ff0000;
+            }
+            
+            .social-section {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+        }
+        
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #ff0000;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="rob">ROB</span>
+                <span class="dance">DANCE</span>
+                <span class="class">CLASS</span>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar aulas, músicas, grupos...">
+                <button onclick="searchContent()">🔍</button>
+            </div>
+            <div class="user-info">
+                <span>🔥 Aluna VIP</span>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <!-- Sidebar com módulos -->
+            <div class="sidebar">
+                <h3>🔥 MÓDULOS</h3>
+                
+                <div class="progress-section">
+                    <p>SEU PROGRESSO</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p style="color: white; font-size: 14px;">6/12 aulas • <span style="color: #ff0000;">45%</span></p>
+                    <span class="level-badge">NÍVEL 2 • INTERMEDIÁRIO</span>
+                </div>
+                
+                <ul class="modules-list">
+                    <li class="completed">🎵 INTRO • BLACKPINK</li>
+                    <li class="completed">💃 INTRO • TWICE</li>
+                    <li class="active">🔥 MÓDULO 1 • BTS</li>
+                    <li>🌟 MÓDULO 2 • NEWJEANS</li>
+                    <li>⚡ MÓDULO 3 • STRAY KIDS</li>
+                    <li>💫 MÓDULO 4 • LE SSERAFIM</li>
+                    <li>👑 MÓDULO 5 • EXO</li>
+                    <li>✨ MÓDULO 6 • IVE</li>
+                </ul>
+            </div>
+            
+            <!-- Área principal de vídeo -->
+            <div class="video-section">
+                <!-- Player de vídeo -->
+                <div class="video-container">
+                    <!-- Aqui você coloca o link do vídeo (YouTube, Vimeo, etc) -->
+                    <iframe src="https://www.youtube.com/embed/d5PPZv57lC4?si=5wYrh8qgYrKl1gO8" 
+                            title="Aula de Kpop - BTS"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="video-info">
+                    <h2 class="video-title"><span>🔥</span> BTS - "Dynamite" (Coreografia Completa)</h2>
+                    <div class="video-meta">
+                        <span><i>📅</i> Aula 4 • Módulo 1</span>
+                        <span><i>⏱️</i> 45 min</span>
+                        <span><i>👥</i> 23 alunas assistindo</span>
+                        <span><i>⭐</i> Nível: Intermediário</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="marcarConcluido()">✓ MARCAR COMO CONCLUÍDO</button>
+                    <button class="btn btn-secondary" onclick="salvarAula()">❤️ SALVAR AULA</button>
+                </div>
+                
+                <!-- Seção de comentários e chat -->
+                <div class="social-section">
+                    <!-- Comentários -->
+                    <div class="comments-box">
+                        <div class="section-header">
+                            <h3>💬 COMENTÁRIOS</h3>
+                            <span>12</span>
+                        </div>
+                        <div class="comment-list" id="commentList">
+                            <div class="comment-item">
+                                <div class="comment-author">
+                                    <i>👤</i> Ana Souza
+                                </div>
+                                <div class="comment-text">
+                                    Adorei a coreografia! A parte do refrão ficou muito clara com suas explicações 🔥
+                                </div>
+                                <div class="comment-time">há 2 horas</div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-author">
+                                    <i>👤</i> Maria Kim
+                                </div>
+                                <div class="comment-text">
+                                    Consegui finalmente acertar o passo do "moonwalk"! Obrigada! ❤️
+                                </div>
+                                <div class="comment-time">há 5 horas</div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-author">
+                                    <i>👤</i> Julia Park
+                                </div>
+                                <div class="comment-text">
+                                    Próxima aula poderia ser "Butter"? 🥺
+                                </div>
+                                <div class="comment-time">há 1 dia</div>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input type="text" id="commentInput" placeholder="Escreva um comentário...">
+                            <button class="send-btn" onclick="enviarComentario()">ENVIAR</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat ao vivo -->
+                    <div class="chat-box">
+                        <div class="section-header">
+                            <h3>💬 CHAT AO VIVO</h3>
+                            <span>8 online</span>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="chat-message">
+                                <div class="chat-avatar">L</div>
+                                <div class="chat-content">
+                                    <div class="chat-name">Larissa</div>
+                                    <div class="chat-text">Alguém mais praticando hoje?</div>
+                                </div>
+                            </div>
+                            <div class="chat-message">
+                                <div class="chat-avatar">C</div>
+                                <div class="chat-content">
+                                    <div class="chat-name">Camila</div>
+                                    <div class="chat-text">Simmm! Tô aqui revendo a parte do pré-refrão</div>
+                                </div>
+                            </div>
+                            <div class="chat-message">
+                                <div class="chat-avatar">B</div>
+                                <div class="chat-content">
+                                    <div class="chat-name">Beatriz</div>
+                                    <div class="chat-text">Essa coreografia é viciante demais 🔥</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input type="text" id="chatInput" placeholder="Mensagem...">
+                            <button class="send-btn" onclick="enviarChat()">→</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seção de feedback/progressão -->
+                <div class="feedback-section">
+                    <h4>📝 FEEDBACK DA AULA</h4>
+                    <p style="color: #ccc; margin-bottom: 15px;">Como foi sua experiência com esta aula?</p>
+                    
+                    <div class="rating" id="starRating">
+                        <span class="star" onclick="rate(1)">⭐</span>
+                        <span class="star" onclick="rate(2)">⭐</span>
+                        <span class="star" onclick="rate(3)">⭐</span>
+                        <span class="star" onclick="rate(4)">⭐</span>
+                        <span class="star" onclick="rate(5)">⭐</span>
+                    </div>
+                    
+                    <textarea id="feedbackText" placeholder="Conte o que achou, dificuldades, sugestões..." rows="4"></textarea>
+                    
+                    <button class="btn btn-primary" onclick="enviarFeedback()">ENVIAR FEEDBACK</button>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: #1a1a1a; border-radius: 10px;">
+                        <p style="color: #ff0000; font-weight: bold;">🔥 PRÓXIMOS PASSOS:</p>
+                        <ul style="color: #ccc; margin-left: 20px; margin-top: 10px;">
+                            <li>• Pratique essa coreografia por pelo menos 3 dias</li>
+                            <li>• Grave sua evolução para feedback personalizado</li>
+                            <li>• Avance para o próximo módulo quando se sentir confiante</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funções de interatividade
+        function searchContent() {
+            let searchTerm = document.getElementById('searchInput').value;
+            alert('Buscando por: ' + searchTerm + '\n(Implementar busca real)');
+        }
+        
+        function marcarConcluido() {
+            alert('🎉 Parabéns! Aula marcada como concluída!');
+            // Aqui você pode adicionar lógica para atualizar a barra de progresso
+        }
+        
+        function salvarAula() {
+            alert('❤️ Aula salva na sua lista!');
+        }
+        
+        function enviarComentario() {
+            let comment = document.getElementById('commentInput').value;
+            if (comment.trim() !== '') {
+                alert('Comentário enviado: ' + comment);
+                document.getElementById('commentInput').value = '';
+            }
+        }
+        
+        function enviarChat() {
+            let message = document.getElementById('chatInput').value;
+            if (message.trim() !== '') {
+                alert('Mensagem enviada: ' + message);
+                document.getElementById('chatInput').value = '';
+            }
+        }
+        
+        // Sistema de avaliação por estrelas
+        let currentRating = 0;
+        
+        function rate(stars) {
+            currentRating = stars;
+            let stars_elements = document.querySelectorAll('.star');
+            
+            stars_elements.forEach((star, index) => {
+                if (index < stars) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+            
+            alert('Você avaliou com ' + stars + ' estrelas!');
+        }
+        
+        function enviarFeedback() {
+            let feedback = document.getElementById('feedbackText').value;
+            if (currentRating > 0 || feedback.trim() !== '') {
+                alert('Feedback enviado com sucesso!\n' + 
+                      'Avaliação: ' + currentRating + ' estrelas\n' +
+                      'Comentário: ' + feedback);
+                
+                // Reset do formulário
+                document.getElementById('feedbackText').value = '';
+                currentRating = 0;
+                document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+            } else {
+                alert('Por favor, avalie a aula ou escreva um comentário!');
+            }
+        }
+        
+        // Simular progresso dinâmico
+        function atualizarProgresso() {
+            // Lógica para atualizar barra de progresso
+            console.log('Progresso atualizado');
+        }
+    </script>
+</body>
+</html>
