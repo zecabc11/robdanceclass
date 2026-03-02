@@ -17,6 +17,7 @@
             min-height: 100vh;
             padding: 20px;
             background-image: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
+            position: relative;
         }
         
         .container {
@@ -432,7 +433,7 @@
         
         /* Sidebar */
         .sidebar {
-            width: 300px;
+            width: 320px;
             background: #000000;
             padding: 25px 20px;
             border-right: 3px solid #ff0000;
@@ -540,12 +541,15 @@
         .aula-item {
             background: #222;
             color: white;
-            padding: 12px 15px;
+            padding: 15px;
             margin-bottom: 8px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             border-left: 4px solid transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .aula-item:hover {
@@ -567,7 +571,36 @@
             content: "✓";
             color: #00ff00;
             margin-left: 10px;
-            float: right;
+        }
+        
+        .aula-item.bloqueada {
+            background: #2a2a2a;
+            color: #666;
+            cursor: default;
+            border-left-color: #ff0000;
+        }
+        
+        .aula-item.bloqueada:hover {
+            transform: none;
+            background: #2a2a2a;
+        }
+        
+        .comprar-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .comprar-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
         }
         
         /* Video area */
@@ -665,7 +698,7 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
         
-        /* Admin Panel */
+        /* Admin Panel - SÓ APARECE PARA PROFESSOR */
         .admin-panel {
             background: #1a1a1a;
             border-radius: 15px;
@@ -679,12 +712,25 @@
             margin-bottom: 20px;
             font-size: 20px;
             text-transform: uppercase;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        
+        .admin-subtitle {
+            color: #ff0000;
+            font-size: 18px;
+            margin: 20px 0 10px;
+            font-weight: bold;
         }
         
         .admin-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         
         .admin-form select,
@@ -692,7 +738,7 @@
             padding: 12px;
             border: 2px solid #333;
             border-radius: 8px;
-            background: #000;
+            background: #1a1a1a;
             color: white;
             font-size: 16px;
         }
@@ -705,24 +751,57 @@
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-form button:hover {
+            background: #cc0000;
         }
         
         .admin-list {
             margin-top: 20px;
-            max-height: 200px;
+            max-height: 300px;
             overflow-y: auto;
         }
         
         .admin-aula-item {
             background: #000;
             color: white;
-            padding: 10px;
+            padding: 15px;
             margin-bottom: 5px;
             border-radius: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-left: 3px solid #ff0000;
+        }
+        
+        .admin-aula-info {
+            flex: 1;
+        }
+        
+        .admin-aula-nome {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ff0000;
+        }
+        
+        .admin-aula-link {
+            font-size: 12px;
+            color: #888;
+            word-break: break-all;
+            margin-bottom: 3px;
+        }
+        
+        .admin-aula-valor {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        
+        .admin-aula-video {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 5px;
         }
         
         .admin-delete {
@@ -733,6 +812,32 @@
             height: 30px;
             border-radius: 50%;
             cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        /* Seção de Compras Pendentes */
+        .pendentes-section {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #ff0000;
+        }
+        
+        .pendentes-section h3 {
+            color: #ff0000;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        
+        .pendente-item {
+            background: #000;
+            border-left: 4px solid #ff0000;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            position: relative;
         }
         
         /* Modal de Perfil */
@@ -788,11 +893,6 @@
         .avatar-option:hover {
             border-color: #ff0000;
             transform: scale(1.1);
-        }
-        
-        .avatar-option.selected {
-            border-color: #ff0000;
-            box-shadow: 0 0 15px #ff0000;
         }
         
         /* Seção de Pedidos */
@@ -861,7 +961,6 @@
         .pedido-info h4 {
             color: #333;
             margin-bottom: 5px;
-            font-size: 18px;
         }
         
         .pedido-meta {
@@ -1005,10 +1104,26 @@
                 width: 100%;
                 justify-content: center;
             }
+            .aula-item {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            .comprar-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5581996183625?text=Olá! Gostaria do meu código da aula" 
+       target="_blank" 
+       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); z-index: 9999; transition: all 0.3s; text-decoration: none;">
+        📱
+    </a>
+    
     <!-- TELA DE ESCOLHA INICIAL -->
     <div class="choice-screen" id="choiceScreen">
         <div class="choice-box">
@@ -1122,26 +1237,54 @@
                 
                 <!-- Área de vídeo -->
                 <div class="video-section">
-                    <!-- PAINEL ADMIN (só aparece para professor) -->
+                    <!-- PAINEL ADMIN (SÓ APARECE QUANDO É PROFESSOR) -->
                     <div id="adminPanel" class="hidden">
                         <div class="admin-panel">
-                            <h3>➕ ADICIONAR NOVA AULA</h3>
+                            <h3>⚙️ PAINEL DO PROFESSOR</h3>
+                            
+                            <!-- SEÇÃO 1: LINK DO VÍDEO (Drive/YouTube) -->
+                            <div class="admin-subtitle">📹 1. ADICIONAR VÍDEO DA AULA</div>
                             <div class="admin-form">
-                                <select id="moduloSelect">
+                                <select id="moduloSelectVideo">
                                     <option value="1">MÓDULO 1 - BLACKPINK</option>
                                     <option value="2">MÓDULO 2 - TWICE</option>
                                     <option value="3">MÓDULO 3 - BTS</option>
                                 </select>
-                                <input type="text" id="aulaNome" placeholder="Nome da aula">
-                                <input type="text" id="aulaLink" placeholder="Link do vídeo (Drive ou YouTube)">
-                                <button onclick="adicionarAula()">ADICIONAR</button>
+                                
+                                <input type="text" id="aulaNomeVideo" placeholder="Nome da aula (ex: BOOMBAYAH)">
+                                <input type="url" id="aulaLinkVideo" placeholder="Link do vídeo (Drive ou YouTube)">
+                                
+                                <button onclick="adicionarLinkVideo()">SALVAR VÍDEO DA AULA</button>
                             </div>
                             
-                            <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
+                            <!-- SEÇÃO 2: LINK DE PAGAMENTO (Mercado Pago) -->
+                            <div class="admin-subtitle">💰 2. ADICIONAR LINK DE PAGAMENTO</div>
+                            <div class="admin-form">
+                                <select id="moduloSelectPagamento">
+                                    <option value="1">MÓDULO 1 - BLACKPINK</option>
+                                    <option value="2">MÓDULO 2 - TWICE</option>
+                                    <option value="3">MÓDULO 3 - BTS</option>
+                                </select>
+                                
+                                <input type="text" id="aulaNomePagamento" placeholder="Nome da aula (ex: BOOMBAYAH)">
+                                <input type="url" id="aulaLinkPagamento" placeholder="Link do Mercado Pago">
+                                <input type="number" id="aulaValor" placeholder="Valor da aula (ex: 25.00)" step="0.01" min="0">
+                                
+                                <button onclick="adicionarLinkPagamento()">SALVAR LINK DE PAGAMENTO</button>
+                            </div>
+                            
+                            <!-- SEÇÃO 3: COMPRAS PENDENTES -->
+                            <div class="pendentes-section">
+                                <h3>⏳ COMPRAS PENDENTES</h3>
+                                <div id="pendentesList"></div>
+                            </div>
+                            
+                            <h3 style="margin-top: 30px;">📋 AULAS CADASTRADAS</h3>
                             <div class="admin-list" id="adminAulasList"></div>
                         </div>
                     </div>
                     
+                    <!-- PLAYER DE VÍDEO -->
                     <div class="video-container">
                         <iframe id="videoPlayer" src="" style="display: none;" allowfullscreen></iframe>
                         <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -1187,16 +1330,12 @@
                     <h2>PEDIDOS DE MÚSICAS</h2>
                 </div>
                 
-                <!-- Formulário para novo pedido -->
                 <div class="pedido-input">
-                    <input type="text" id="musicaPedido" placeholder="Qual música você quer aprender? (Ex: Super Shy - NewJeans)">
+                    <input type="text" id="musicaPedido" placeholder="Qual música você quer aprender?">
                     <button onclick="enviarPedido()">ENVIAR PEDIDO</button>
                 </div>
                 
-                <!-- Lista de pedidos -->
-                <div id="pedidosList">
-                    <!-- Pedidos serão carregados aqui -->
-                </div>
+                <div id="pedidosList"></div>
             </div>
         </div>
     </div>
@@ -1205,50 +1344,28 @@
         // SENHA DO PROFESSOR
         const SENHA_PROFESSOR = "rob2026";
         
-        // DADOS DAS AULAS - Carregar do localStorage
+        // NÚMERO DO WHATSAPP
+        const WHATSAPP_NUMERO = "5581996183625";
+        
+        // LINKS DAS AULAS (vídeo + pagamento)
         let aulas = JSON.parse(localStorage.getItem('aulas')) || [
-            { modulo: 1, nome: "BOOMBAYAH", link: "" },
-            { modulo: 1, nome: "HOW YOU LIKE THAT", link: "" },
-            { modulo: 1, nome: "LOVESICK GIRLS", link: "" },
-            { modulo: 2, nome: "T.T", link: "" },
-            { modulo: 2, nome: "CHEER UP", link: "" },
-            { modulo: 2, nome: "FANCY", link: "" },
-            { modulo: 3, nome: "ANPANMAN", link: "" },
-            { modulo: 3, nome: "DYNAMITE", link: "" },
-            { modulo: 3, nome: "BUTTER", link: "" }
+            { id: 'aula1', modulo: 1, nome: "BOOMBAYAH", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula2', modulo: 1, nome: "HOW YOU LIKE THAT", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula3', modulo: 1, nome: "LOVESICK GIRLS", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula4', modulo: 2, nome: "T.T", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula5', modulo: 2, nome: "CHEER UP", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula6', modulo: 2, nome: "FANCY", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula7', modulo: 3, nome: "ANPANMAN", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula8', modulo: 3, nome: "DYNAMITE", linkVideo: "", linkPagamento: "", valor: "" },
+            { id: 'aula9', modulo: 3, nome: "BUTTER", linkVideo: "", linkPagamento: "", valor: "" }
         ];
         
-        // PEDIDOS - Carregar do localStorage
+        // PEDIDOS
         let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [
-            { 
-                id: 1,
-                musica: "Super Shy - NewJeans", 
-                votos: 5, 
-                autor: "Ana Silva 1234",
-                quemVotou: ["maria_5678", "julia_9012"]
-            },
-            { 
-                id: 2,
-                musica: "Seven - Jungkook", 
-                votos: 3, 
-                autor: "Maria Oliveira 5678",
-                quemVotou: ["ana_1234"]
-            },
-            { 
-                id: 3,
-                musica: "Eve Psyche - LE SSERAFIM", 
-                votos: 2, 
-                autor: "Julia Santos 9012",
-                quemVotou: []
-            }
+            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva 1234", quemVotou: ["maria_5678"] }
         ];
         
-        // NOMES DOS MÓDULOS
-        const nomesModulos = {
-            1: "BLACKPINK",
-            2: "TWICE",
-            3: "BTS"
-        };
+        const nomesModulos = { 1: "BLACKPINK", 2: "TWICE", 3: "BTS" };
         
         // Variáveis de controle
         let isProfessor = false;
@@ -1278,8 +1395,6 @@
             document.getElementById('professorSenha').value = '';
         }
         
-        // ========== FUNÇÕES DE ABA ==========
-        
         function mudarAba(aba) {
             document.getElementById('tabAulas').classList.remove('active');
             document.getElementById('tabPedidos').classList.remove('active');
@@ -1296,23 +1411,14 @@
             }
         }
         
-        // ========== LOGOUT ==========
-        
         function fazerLogout() {
             if (confirm('Deseja sair da sua conta?')) {
-                // Limpar dados da sessão
                 isProfessor = false;
                 nomeAluno = "";
                 idUnico = "";
                 aulasConcluidas = [];
-                
-                // Esconder conteúdo principal
                 document.getElementById('mainContent').style.display = 'none';
-                
-                // Mostrar tela de escolha
                 document.getElementById('choiceScreen').style.display = 'flex';
-                
-                // Limpar campos
                 document.getElementById('alunoNome').value = '';
                 document.getElementById('alunoCpf').value = '';
                 document.getElementById('professorSenha').value = '';
@@ -1338,18 +1444,17 @@
             idUnico = nome + '_' + cpf;
             nomeAluno = nome;
             
-            // Carregar dados do aluno
             let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {
                 nome: nome,
                 cpf: cpf,
                 avatar: "👤",
-                aulasConcluidas: []
+                aulasConcluidas: [],
+                aulasCompradas: []
             };
             
-            aulasConcluidas = dadosAluno.aulasConcluidas;
-            avatarAluno = dadosAluno.avatar;
+            aulasConcluidas = dadosAluno.aulasConcluidas || [];
+            avatarAluno = dadosAluno.avatar || "👤";
             
-            // Atualizar interface
             document.getElementById('nomeUsuario').textContent = nome;
             document.getElementById('userAvatar').innerHTML = avatarAluno;
             
@@ -1364,7 +1469,422 @@
             alert(`🎉 Bem-vindo(a), ${nome}!`);
         }
         
-        // ========== PERFIL E AVATAR ==========
+        // ========== LOGIN DO PROFESSOR ==========
+        
+        function loginProfessor() {
+            let senha = document.getElementById('professorSenha').value;
+            
+            if (senha === SENHA_PROFESSOR) {
+                document.getElementById('professorLoginScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                
+                isProfessor = true;
+                document.getElementById('nomeUsuario').textContent = "Professor";
+                document.getElementById('userAvatar').innerHTML = "👨‍🏫";
+                
+                document.getElementById('adminPanel').classList.remove('hidden');
+                
+                carregarModulos();
+                atualizarAdminLista();
+                atualizarComprasPendentes();
+                atualizarPedidos();
+                atualizarComentarios();
+                
+                alert('👨‍🏫 Bem-vindo, Professor!');
+            } else {
+                alert('Senha incorreta!');
+            }
+        }
+        
+        // ========== FUNÇÕES DO PROFESSOR (ADMIN) ==========
+        
+        function adicionarLinkVideo() {
+            if (!isProfessor) {
+                alert('🚫 Apenas o professor pode adicionar vídeos!');
+                return;
+            }
+            
+            let modulo = document.getElementById('moduloSelectVideo').value;
+            let nomeAula = document.getElementById('aulaNomeVideo').value.trim();
+            let linkVideo = document.getElementById('aulaLinkVideo').value.trim();
+            
+            if (nomeAula === '' || linkVideo === '') {
+                alert('Preencha todos os campos!');
+                return;
+            }
+            
+            let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
+            
+            if (!aula) {
+                alert('Aula não encontrada! Verifique o nome e o módulo.');
+                return;
+            }
+            
+            aula.linkVideo = linkVideo;
+            localStorage.setItem('aulas', JSON.stringify(aulas));
+            
+            document.getElementById('aulaNomeVideo').value = '';
+            document.getElementById('aulaLinkVideo').value = '';
+            
+            atualizarAdminLista();
+            carregarModulos();
+            
+            alert('✅ Vídeo da aula salvo com sucesso!');
+        }
+        
+        function adicionarLinkPagamento() {
+            if (!isProfessor) {
+                alert('🚫 Apenas o professor pode adicionar links de pagamento!');
+                return;
+            }
+            
+            let modulo = document.getElementById('moduloSelectPagamento').value;
+            let nomeAula = document.getElementById('aulaNomePagamento').value.trim();
+            let linkPagamento = document.getElementById('aulaLinkPagamento').value.trim();
+            let valor = parseFloat(document.getElementById('aulaValor').value);
+            
+            if (nomeAula === '' || linkPagamento === '' || isNaN(valor)) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+            
+            let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
+            
+            if (!aula) {
+                alert('Aula não encontrada! Verifique o nome e o módulo.');
+                return;
+            }
+            
+            aula.linkPagamento = linkPagamento;
+            aula.valor = valor.toFixed(2);
+            
+            localStorage.setItem('aulas', JSON.stringify(aulas));
+            
+            document.getElementById('aulaNomePagamento').value = '';
+            document.getElementById('aulaLinkPagamento').value = '';
+            document.getElementById('aulaValor').value = '';
+            
+            atualizarAdminLista();
+            carregarModulos();
+            
+            alert('✅ Link de pagamento salvo com sucesso!');
+        }
+        
+        function removerAula(aulaId, tipo) {
+            if (!isProfessor) {
+                alert('🚫 Apenas o professor pode remover!');
+                return;
+            }
+            
+            let aula = aulas.find(a => a.id === aulaId);
+            if (!aula) return;
+            
+            if (tipo === 'video') {
+                if (confirm(`Remover vídeo da aula "${aula.nome}"?`)) {
+                    aula.linkVideo = '';
+                }
+            } else if (tipo === 'pagamento') {
+                if (confirm(`Remover link de pagamento da aula "${aula.nome}"?`)) {
+                    aula.linkPagamento = '';
+                    aula.valor = '';
+                }
+            } else if (tipo === 'tudo') {
+                if (confirm(`Remover TODOS os dados da aula "${aula.nome}"?`)) {
+                    aula.linkVideo = '';
+                    aula.linkPagamento = '';
+                    aula.valor = '';
+                }
+            }
+            
+            localStorage.setItem('aulas', JSON.stringify(aulas));
+            atualizarAdminLista();
+            carregarModulos();
+        }
+        
+        function atualizarAdminLista() {
+            if (!isProfessor) return;
+            
+            let html = '';
+            
+            for (let aula of aulas) {
+                html += `
+                    <div class="admin-aula-item">
+                        <div class="admin-aula-info">
+                            <div class="admin-aula-nome">${aula.nome} (Módulo ${aula.modulo})</div>
+                            
+                            ${aula.linkVideo ? `
+                                <div class="admin-aula-link">📹 Vídeo: ${aula.linkVideo}</div>
+                                <button class="admin-delete" onclick="removerAula('${aula.id}', 'video')" style="background: #ff9900; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 5px;">🗑️ Remover vídeo</button>
+                            ` : `
+                                <div class="admin-aula-link" style="color: #666;">📹 Nenhum vídeo cadastrado</div>
+                            `}
+                            
+                            ${aula.linkPagamento ? `
+                                <div class="admin-aula-link">💰 Pagamento: ${aula.linkPagamento}</div>
+                                <div class="admin-aula-valor">R$ ${aula.valor}</div>
+                                <button class="admin-delete" onclick="removerAula('${aula.id}', 'pagamento')" style="background: #ff9900; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 5px;">🗑️ Remover pagamento</button>
+                            ` : `
+                                <div class="admin-aula-link" style="color: #666;">💰 Nenhum link de pagamento</div>
+                            `}
+                            
+                            <button class="admin-delete" onclick="removerAula('${aula.id}', 'tudo')" style="background: #ff0000; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 10px;">🗑️ Remover tudo</button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('adminAulasList').innerHTML = html;
+        }
+        
+        // ========== SISTEMA DE COMPRAS PENDENTES ==========
+        
+        function comprarAula(nomeAula, linkPagamento, valor) {
+            if (isProfessor) {
+                alert('👨‍🏫 Professor não compra aulas!');
+                return;
+            }
+            
+            window.open(linkPagamento, '_blank');
+            
+            let comprasPendentes = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
+            
+            let existe = comprasPendentes.some(c => c.idUnico === idUnico && c.aula === nomeAula);
+            
+            if (!existe) {
+                comprasPendentes.push({
+                    id: Date.now(),
+                    aluno: nomeAluno,
+                    idUnico: idUnico,
+                    aula: nomeAula,
+                    valor: valor,
+                    data: new Date().toLocaleString(),
+                    link: linkPagamento
+                });
+                localStorage.setItem('comprasPendentes', JSON.stringify(comprasPendentes));
+            }
+            
+            alert(`✅ Link do Mercado Pago aberto!\n\nApós o pagamento, clique no ícone do WhatsApp 📱 para avisar a professora.`);
+        }
+        
+        function atualizarComprasPendentes() {
+            if (!isProfessor) return;
+            
+            let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
+            
+            if (compras.length === 0) {
+                document.getElementById('pendentesList').innerHTML = '<p style="color: #888; text-align: center;">Nenhuma compra pendente</p>';
+                return;
+            }
+            
+            let html = '';
+            compras.forEach(compra => {
+                html += `
+                    <div class="pendente-item">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div style="flex: 1;">
+                                <div style="color: #ff0000; font-weight: bold; margin-bottom: 5px;">👤 ${compra.aluno}</div>
+                                <div style="color: white; margin-bottom: 5px;">📚 Aula: ${compra.aula}</div>
+                                <div style="color: #00ff00; font-weight: bold; margin-bottom: 5px;">💰 R$ ${compra.valor}</div>
+                                <div style="color: #888; font-size: 12px; margin-bottom: 10px;">⏰ ${compra.data}</div>
+                            </div>
+                            <button onclick="excluirCompraPendente(${compra.id})" 
+                                    style="background: none; border: none; color: #ff0000; font-size: 20px; cursor: pointer; padding: 5px;" 
+                                    title="Excluir">
+                                🗑️
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <a href="https://wa.me/${WHATSAPP_NUMERO}?text=Olá! Recebi seu pagamento da aula ${compra.aula} - ${compra.aluno}" 
+                               target="_blank" 
+                               style="flex: 1; background: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                                <span style="font-size: 18px;">📱</span> WhatsApp
+                            </a>
+                            <button class="liberar-btn" onclick="liberarCompra(${compra.id})" 
+                                    style="flex: 1; background: #00ff00; color: black; border: none; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                                <span>✅</span> Liberar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('pendentesList').innerHTML = html;
+        }
+        
+        function excluirCompraPendente(compraId) {
+            if (!isProfessor) {
+                alert('🚫 Apenas o professor pode excluir!');
+                return;
+            }
+            
+            if (confirm('Tem certeza que deseja excluir esta compra pendente?')) {
+                let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
+                compras = compras.filter(c => c.id !== compraId);
+                localStorage.setItem('comprasPendentes', JSON.stringify(compras));
+                
+                atualizarComprasPendentes();
+                alert('✅ Compra pendente excluída!');
+            }
+        }
+        
+        function liberarCompra(compraId) {
+            let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
+            let compra = compras.find(c => c.id === compraId);
+            
+            if (!compra) return;
+            
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + compra.idUnico)) || {};
+            if (!dadosAluno.aulasCompradas) dadosAluno.aulasCompradas = [];
+            
+            if (!dadosAluno.aulasCompradas.includes(compra.aula)) {
+                dadosAluno.aulasCompradas.push(compra.aula);
+                localStorage.setItem('aluno_' + compra.idUnico, JSON.stringify(dadosAluno));
+            }
+            
+            compras = compras.filter(c => c.id !== compraId);
+            localStorage.setItem('comprasPendentes', JSON.stringify(compras));
+            
+            let historico = JSON.parse(localStorage.getItem('historicoCompras')) || [];
+            historico.push({
+                aluna: compra.aluno,
+                aula: compra.aula,
+                valor: compra.valor,
+                data: new Date().toLocaleString(),
+                liberadoPor: 'Professor'
+            });
+            localStorage.setItem('historicoCompras', JSON.stringify(historico));
+            
+            atualizarComprasPendentes();
+            carregarModulos();
+            
+            alert(`✅ Aula "${compra.aula}" liberada para ${compra.aluno}!`);
+        }
+        
+        // ========== FUNÇÕES DO SITE (ALUNOS) ==========
+        
+        function carregarModulos() {
+            let html = '';
+            
+            for (let m = 1; m <= 3; m++) {
+                let aulasModulo = aulas.filter(a => a.modulo === m);
+                
+                html += `
+                    <div class="modulo-btn" onclick="toggleModulo(${m})" id="modulo${m}">
+                        MÓDULO ${m} - ${nomesModulos[m]}
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="aulas-container" id="aulasModulo${m}">
+                `;
+                
+                for (let aula of aulasModulo) {
+                    let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+                    let aulasCompradas = dadosAluno.aulasCompradas || [];
+                    let temAcesso = isProfessor ? true : (aulasCompradas.includes(aula.nome) || aulasConcluidas.includes(aula.nome));
+                    let concluida = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
+                    let temPagamento = aula.linkPagamento && aula.valor;
+                    
+                    html += `
+                        <div class="aula-item ${concluida} ${!temAcesso && !isProfessor && !temPagamento ? 'bloqueada' : ''}" 
+                             onclick="${temAcesso ? `selecionarAula(this, '${aula.linkVideo}')` : ''}">
+                            <span>🎵 ${aula.nome}</span>
+                            ${!temAcesso && !isProfessor && temPagamento ? `
+                                <button class="comprar-btn" onclick="comprarAula('${aula.nome}', '${aula.linkPagamento}', '${aula.valor}'); event.stopPropagation();">
+                                    COMPRAR R$ ${aula.valor}
+                                </button>
+                            ` : ''}
+                            ${!temAcesso && !isProfessor && !temPagamento ? `
+                                <span style="color: #666; font-size: 12px;">🔒 Em breve</span>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                
+                html += `</div>`;
+            }
+            
+            document.getElementById('modulosContainer').innerHTML = html;
+        }
+        
+        function toggleModulo(numero) {
+            let container = document.getElementById('aulasModulo' + numero);
+            let botao = document.getElementById('modulo' + numero);
+            container.classList.toggle('show');
+            botao.classList.toggle('active');
+        }
+        
+        function selecionarAula(elemento, linkVideo) {
+            document.querySelectorAll('.aula-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            elemento.classList.add('active');
+            
+            let nomeAula = elemento.querySelector('span').textContent.replace('🎵 ', '');
+            document.getElementById('videoTitle').innerHTML = `<span>🔥</span> ${nomeAula}`;
+            
+            if (linkVideo) {
+                let embedLink = linkVideo;
+                if (linkVideo.includes('drive.google.com')) {
+                    let fileId = linkVideo.match(/[-\w]{25,}/);
+                    if (fileId) {
+                        embedLink = `https://drive.google.com/file/d/${fileId[0]}/preview`;
+                    }
+                }
+                
+                document.getElementById('videoPlayer').src = embedLink;
+                document.getElementById('videoPlayer').style.display = 'block';
+                document.getElementById('videoPlaceholder').style.display = 'none';
+            } else {
+                document.getElementById('videoPlayer').style.display = 'none';
+                document.getElementById('videoPlaceholder').style.display = 'block';
+                document.getElementById('videoPlaceholder').innerHTML = `
+                    <h3>🎥 ${nomeAula}</h3>
+                    <p style="color: #999;">Vídeo será adicionado em breve</p>
+                `;
+            }
+        }
+        
+        function marcarConcluido() {
+            if (isProfessor) {
+                alert('👨‍🏫 Professor não marca progresso!');
+                return;
+            }
+            
+            let aulaAtiva = document.querySelector('.aula-item.active');
+            if (!aulaAtiva) {
+                alert('Selecione uma aula!');
+                return;
+            }
+            
+            let nomeAula = aulaAtiva.querySelector('span').textContent.replace('🎵 ', '');
+            
+            if (!aulasConcluidas.includes(nomeAula)) {
+                aulasConcluidas.push(nomeAula);
+                
+                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+                dadosAluno.aulasConcluidas = aulasConcluidas;
+                localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
+                
+                aulaAtiva.classList.add('completed');
+                aulaAtiva.classList.remove('bloqueada');
+                atualizarProgresso();
+                
+                alert('🎉 Aula concluída!');
+            }
+        }
+        
+        function atualizarProgresso() {
+            let totalAulas = document.querySelectorAll('.aula-item').length;
+            let percentual = Math.round((aulasConcluidas.length / totalAulas) * 100) || 0;
+            document.getElementById('progressFill').style.width = percentual + '%';
+            document.getElementById('progressPercent').textContent = percentual + '%';
+        }
+        
+        function salvarAula() {
+            alert('❤️ Aula salva nos favoritos!');
+        }
+        
+        // ========== PERFIL ==========
         
         function abrirPerfil() {
             document.getElementById('profileModal').style.display = 'flex';
@@ -1388,93 +1908,9 @@
             document.getElementById('profileModal').style.display = 'none';
             document.getElementById('userAvatar').innerHTML = avatarAluno;
             
-            // Salvar no localStorage
-            let dadosAluno = {
-                nome: nomeAluno,
-                cpf: document.getElementById('alunoCpf').value,
-                avatar: avatarAluno,
-                aulasConcluidas: aulasConcluidas
-            };
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+            dadosAluno.avatar = avatarAluno;
             localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
-        }
-        
-        // ========== LOGIN DO PROFESSOR ==========
-        
-        function loginProfessor() {
-            let senha = document.getElementById('professorSenha').value;
-            
-            if (senha === SENHA_PROFESSOR) {
-                document.getElementById('professorLoginScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                
-                isProfessor = true;
-                document.getElementById('nomeUsuario').textContent = "Professor";
-                document.getElementById('userAvatar').innerHTML = "👨‍🏫";
-                
-                document.getElementById('adminPanel').classList.remove('hidden');
-                
-                carregarModulos();
-                atualizarAdminLista();
-                atualizarPedidos();
-                atualizarComentarios();
-            } else {
-                alert('Senha incorreta!');
-            }
-        }
-        
-        // ========== FUNÇÕES DO ADMIN ==========
-        
-        function adicionarAula() {
-            if (!isProfessor) return;
-            
-            let modulo = document.getElementById('moduloSelect').value;
-            let nome = document.getElementById('aulaNome').value.trim();
-            let link = document.getElementById('aulaLink').value.trim();
-            
-            if (nome === '') {
-                alert('Digite o nome da aula!');
-                return;
-            }
-            
-            aulas.push({ modulo: parseInt(modulo), nome: nome, link: link });
-            
-            // Salvar no localStorage
-            localStorage.setItem('aulas', JSON.stringify(aulas));
-            
-            document.getElementById('aulaNome').value = '';
-            document.getElementById('aulaLink').value = '';
-            
-            atualizarAdminLista();
-            carregarModulos();
-            alert('✅ Aula adicionada!');
-        }
-        
-        function removerAula(index) {
-            if (!isProfessor) return;
-            if (confirm('Remover esta aula?')) {
-                aulas.splice(index, 1);
-                
-                // Salvar no localStorage
-                localStorage.setItem('aulas', JSON.stringify(aulas));
-                
-                atualizarAdminLista();
-                carregarModulos();
-            }
-        }
-        
-        function atualizarAdminLista() {
-            if (!isProfessor) return;
-            
-            let html = '';
-            aulas.forEach((aula, index) => {
-                html += `
-                    <div class="admin-aula-item">
-                        <span>M${aula.modulo} - ${aula.nome}</span>
-                        <button class="admin-delete" onclick="removerAula(${index})">🗑️</button>
-                    </div>
-                `;
-            });
-            document.getElementById('adminAulasList').innerHTML = html;
         }
         
         // ========== PEDIDOS ==========
@@ -1492,17 +1928,6 @@
                 return;
             }
             
-            // Verificar se já existe pedido igual
-            let existe = pedidos.some(p => p.musica.toLowerCase() === musica.toLowerCase());
-            
-            if (existe) {
-                alert('Esta música já foi pedida! Você pode votar nela.');
-                document.getElementById('musicaPedido').value = '';
-                mudarAba('pedidos');
-                return;
-            }
-            
-            // Criar novo pedido
             let novoPedido = {
                 id: Date.now(),
                 musica: musica,
@@ -1512,12 +1937,9 @@
             };
             
             pedidos.push(novoPedido);
-            
-            // Salvar no localStorage
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             
             document.getElementById('musicaPedido').value = '';
-            
             atualizarPedidos();
             mudarAba('pedidos');
             
@@ -1526,27 +1948,21 @@
         
         function votarPedido(id) {
             if (isProfessor) {
-                alert('👨‍🏫 Professor não vota nos pedidos!');
+                alert('👨‍🏫 Professor não vota!');
                 return;
             }
             
             let pedido = pedidos.find(p => p.id === id);
-            
             if (!pedido) return;
             
-            // Verificar se já votou
             if (pedido.quemVotou.includes(idUnico)) {
-                alert('Você já votou neste pedido! Apenas um voto por pessoa.');
+                alert('Você já votou neste pedido!');
                 return;
             }
             
-            // Adicionar voto
             pedido.votos++;
             pedido.quemVotou.push(idUnico);
-            
-            // Salvar no localStorage
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
-            
             atualizarPedidos();
         }
         
@@ -1555,7 +1971,7 @@
             
             let html = '';
             
-            pedidos.forEach((pedido) => {
+            for (let pedido of pedidos) {
                 let jaVotou = !isProfessor && pedido.quemVotou.includes(idUnico);
                 
                 html += `
@@ -1565,7 +1981,7 @@
                             <div class="pedido-meta">Pedido por: ${pedido.autor}</div>
                         </div>
                         <div class="pedido-votos">
-                            <span class="voto-contador">${pedido.votos} ${pedido.votos === 1 ? 'voto' : 'votos'}</span>
+                            <span class="voto-contador">${pedido.votos} votos</span>
                             ${!isProfessor ? `
                                 <button class="votar-btn ${jaVotou ? 'votado' : ''}" 
                                         onclick="votarPedido(${pedido.id})"
@@ -1576,132 +1992,19 @@
                         </div>
                     </div>
                 `;
-            });
+            }
             
             if (pedidos.length === 0) {
-                html = '<p style="text-align: center; color: #888;">Nenhum pedido ainda. Seja a primeira a pedir uma música!</p>';
+                html = '<p style="text-align: center; color: #888;">Nenhum pedido ainda. Seja a primeira a pedir!</p>';
             }
             
             document.getElementById('pedidosList').innerHTML = html;
         }
         
-        // ========== FUNÇÕES DO SITE ==========
-        
-        function carregarModulos() {
-            let html = '';
-            
-            for (let m = 1; m <= 3; m++) {
-                let aulasModulo = aulas.filter(a => a.modulo === m);
-                
-                html += `
-                    <div class="modulo-btn" onclick="toggleModulo(${m})" id="modulo${m}">
-                        MÓDULO ${m} - ${nomesModulos[m]}
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="aulas-container" id="aulasModulo${m}">
-                `;
-                
-                aulasModulo.forEach(aula => {
-                    let concluida = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
-                    html += `
-                        <div class="aula-item ${concluida}" onclick="selecionarAula(this, '${aula.link}')">
-                            🎵 ${aula.nome}
-                        </div>
-                    `;
-                });
-                
-                html += `</div>`;
-            }
-            
-            document.getElementById('modulosContainer').innerHTML = html;
-        }
-        
-        function toggleModulo(numero) {
-            let container = document.getElementById('aulasModulo' + numero);
-            let botao = document.getElementById('modulo' + numero);
-            container.classList.toggle('show');
-            botao.classList.toggle('active');
-        }
-        
-        function selecionarAula(elemento, link) {
-            document.querySelectorAll('.aula-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            elemento.classList.add('active');
-            
-            let nomeAula = elemento.textContent.replace('🎵 ', '');
-            document.getElementById('videoTitle').innerHTML = `<span>🔥</span> ${nomeAula}`;
-            
-            if (link) {
-                // Converter link do Drive para formato embed
-                let embedLink = link;
-                if (link.includes('drive.google.com')) {
-                    // Extrair ID do arquivo do Drive
-                    let fileId = link.match(/[-\w]{25,}/);
-                    if (fileId) {
-                        embedLink = `https://drive.google.com/file/d/${fileId[0]}/preview`;
-                    }
-                }
-                
-                document.getElementById('videoPlayer').src = embedLink;
-                document.getElementById('videoPlayer').style.display = 'block';
-                document.getElementById('videoPlaceholder').style.display = 'none';
-            } else {
-                document.getElementById('videoPlayer').style.display = 'none';
-                document.getElementById('videoPlaceholder').style.display = 'block';
-                document.getElementById('videoPlaceholder').innerHTML = `
-                    <h3>🎥 ${nomeAula}</h3>
-                    <p style="color: #999;">Link do vídeo será adicionado em breve</p>
-                `;
-            }
-        }
-        
-        function marcarConcluido() {
-            if (isProfessor) {
-                alert('👨‍🏫 Professor não marca progresso!');
-                return;
-            }
-            
-            let aulaAtiva = document.querySelector('.aula-item.active');
-            if (!aulaAtiva) {
-                alert('Selecione uma aula!');
-                return;
-            }
-            
-            let nomeAula = aulaAtiva.textContent.replace('🎵 ', '');
-            
-            if (!aulasConcluidas.includes(nomeAula)) {
-                aulasConcluidas.push(nomeAula);
-                
-                // Salvar progresso
-                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
-                dadosAluno.aulasConcluidas = aulasConcluidas;
-                localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
-                
-                aulaAtiva.classList.add('completed');
-                atualizarProgresso();
-                
-                alert('🎉 Aula concluída!');
-            }
-        }
-        
-        function atualizarProgresso() {
-            let total = document.querySelectorAll('.aula-item').length;
-            let percentual = Math.round((aulasConcluidas.length / total) * 100) || 0;
-            document.getElementById('progressFill').style.width = percentual + '%';
-            document.getElementById('progressPercent').textContent = percentual + '%';
-        }
-        
-        function salvarAula() {
-            alert('❤️ Aula salva nos favoritos! (Em breve você verá suas aulas favoritas)');
-        }
-        
         // ========== COMENTÁRIOS ==========
         
         let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [
-            { autor: "Ana Silva 1234", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" },
-            { autor: "Maria Oliveira 5678", texto: "Estou amando as coreografias 🔥", avatar: "👤", tempo: "há 5 horas" }
+            { autor: "Ana Silva 1234", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
         ];
         
         function atualizarComentarios() {
@@ -1740,32 +2043,8 @@
             
             comentarios.unshift(novoComentario);
             localStorage.setItem('comentarios', JSON.stringify(comentarios));
-            
             atualizarComentarios();
             document.getElementById('commentInput').value = '';
-        }
-        
-        // ========== CARREGAR DADOS SALVOS ==========
-        
-        // Verificar se já estava logado
-        window.onload = function() {
-            // Recuperar últimas aulas salvas
-            let aulasSalvas = localStorage.getItem('aulas');
-            if (aulasSalvas) {
-                aulas = JSON.parse(aulasSalvas);
-            }
-            
-            // Recuperar pedidos salvos
-            let pedidosSalvos = localStorage.getItem('pedidos');
-            if (pedidosSalvos) {
-                pedidos = JSON.parse(pedidosSalvos);
-            }
-            
-            // Recuperar comentários
-            let comentariosSalvos = localStorage.getItem('comentarios');
-            if (comentariosSalvos) {
-                comentarios = JSON.parse(comentariosSalvos);
-            }
         }
     </script>
 </body>
