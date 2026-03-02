@@ -349,6 +349,23 @@
             object-fit: cover;
         }
         
+        .logout-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-left: 15px;
+        }
+        
+        .logout-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+        
         .avatar-upload {
             position: relative;
             width: 100px;
@@ -778,7 +795,7 @@
             box-shadow: 0 0 15px #ff0000;
         }
         
-        /* Seção de Pedidos (aba separada) */
+        /* Seção de Pedidos */
         .pedidos-section {
             background: white;
             border-radius: 15px;
@@ -1068,9 +1085,12 @@
                 <span class="class">CLASS</span>
             </div>
             
-            <div class="user-info" onclick="abrirPerfil()">
-                <span>Olá, <span id="nomeUsuario" class="user-name">...</span></span>
-                <div class="avatar" id="userAvatar">👤</div>
+            <div style="display: flex; align-items: center;">
+                <div class="user-info" onclick="abrirPerfil()">
+                    <span>Olá, <span id="nomeUsuario" class="user-name">...</span></span>
+                    <div class="avatar" id="userAvatar">👤</div>
+                </div>
+                <button class="logout-btn" onclick="fazerLogout()">🚪 SAIR</button>
             </div>
         </header>
         
@@ -1113,7 +1133,7 @@
                                     <option value="3">MÓDULO 3 - BTS</option>
                                 </select>
                                 <input type="text" id="aulaNome" placeholder="Nome da aula">
-                                <input type="text" id="aulaLink" placeholder="Link do vídeo">
+                                <input type="text" id="aulaLink" placeholder="Link do vídeo (Drive ou YouTube)">
                                 <button onclick="adicionarAula()">ADICIONAR</button>
                             </div>
                             
@@ -1123,7 +1143,7 @@
                     </div>
                     
                     <div class="video-container">
-                        <iframe id="videoPlayer" src="" style="display: none;"></iframe>
+                        <iframe id="videoPlayer" src="" style="display: none;" allowfullscreen></iframe>
                         <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                             <h3>🎥 Selecione uma aula</h3>
                         </div>
@@ -1185,8 +1205,8 @@
         // SENHA DO PROFESSOR
         const SENHA_PROFESSOR = "rob2026";
         
-        // DADOS DAS AULAS
-        let aulas = [
+        // DADOS DAS AULAS - Carregar do localStorage
+        let aulas = JSON.parse(localStorage.getItem('aulas')) || [
             { modulo: 1, nome: "BOOMBAYAH", link: "" },
             { modulo: 1, nome: "HOW YOU LIKE THAT", link: "" },
             { modulo: 1, nome: "LOVESICK GIRLS", link: "" },
@@ -1198,14 +1218,14 @@
             { modulo: 3, nome: "BUTTER", link: "" }
         ];
         
-        // PEDIDOS DE MÚSICAS (agora com controle de votos por pessoa)
+        // PEDIDOS - Carregar do localStorage
         let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [
             { 
                 id: 1,
                 musica: "Super Shy - NewJeans", 
                 votos: 5, 
                 autor: "Ana Silva 1234",
-                quemVotou: ["maria_5678", "julia_9012"] // IDs de quem já votou
+                quemVotou: ["maria_5678", "julia_9012"]
             },
             { 
                 id: 2,
@@ -1261,7 +1281,6 @@
         // ========== FUNÇÕES DE ABA ==========
         
         function mudarAba(aba) {
-            // Atualizar abas
             document.getElementById('tabAulas').classList.remove('active');
             document.getElementById('tabPedidos').classList.remove('active');
             document.getElementById('tabAulasContent').classList.remove('active');
@@ -1273,7 +1292,30 @@
             } else {
                 document.getElementById('tabPedidos').classList.add('active');
                 document.getElementById('tabPedidosContent').classList.add('active');
-                atualizarPedidos(); // Atualiza lista de pedidos ao entrar na aba
+                atualizarPedidos();
+            }
+        }
+        
+        // ========== LOGOUT ==========
+        
+        function fazerLogout() {
+            if (confirm('Deseja sair da sua conta?')) {
+                // Limpar dados da sessão
+                isProfessor = false;
+                nomeAluno = "";
+                idUnico = "";
+                aulasConcluidas = [];
+                
+                // Esconder conteúdo principal
+                document.getElementById('mainContent').style.display = 'none';
+                
+                // Mostrar tela de escolha
+                document.getElementById('choiceScreen').style.display = 'flex';
+                
+                // Limpar campos
+                document.getElementById('alunoNome').value = '';
+                document.getElementById('alunoCpf').value = '';
+                document.getElementById('professorSenha').value = '';
             }
         }
         
@@ -1317,6 +1359,7 @@
             carregarModulos();
             atualizarProgresso();
             atualizarPedidos();
+            atualizarComentarios();
             
             alert(`🎉 Bem-vindo(a), ${nome}!`);
         }
@@ -1373,6 +1416,7 @@
                 carregarModulos();
                 atualizarAdminLista();
                 atualizarPedidos();
+                atualizarComentarios();
             } else {
                 alert('Senha incorreta!');
             }
@@ -1394,6 +1438,9 @@
             
             aulas.push({ modulo: parseInt(modulo), nome: nome, link: link });
             
+            // Salvar no localStorage
+            localStorage.setItem('aulas', JSON.stringify(aulas));
+            
             document.getElementById('aulaNome').value = '';
             document.getElementById('aulaLink').value = '';
             
@@ -1406,6 +1453,10 @@
             if (!isProfessor) return;
             if (confirm('Remover esta aula?')) {
                 aulas.splice(index, 1);
+                
+                // Salvar no localStorage
+                localStorage.setItem('aulas', JSON.stringify(aulas));
+                
                 atualizarAdminLista();
                 carregarModulos();
             }
@@ -1426,9 +1477,14 @@
             document.getElementById('adminAulasList').innerHTML = html;
         }
         
-        // ========== PEDIDOS (COM VOTO ÚNICO) ==========
+        // ========== PEDIDOS ==========
         
         function enviarPedido() {
+            if (isProfessor) {
+                alert('👨‍🏫 Professor não faz pedidos!');
+                return;
+            }
+            
             let musica = document.getElementById('musicaPedido').value.trim();
             
             if (musica === '') {
@@ -1452,20 +1508,17 @@
                 musica: musica,
                 votos: 1,
                 autor: nomeAluno + ' ' + document.getElementById('alunoCpf').value,
-                quemVotou: [idUnico] // Já adiciona o criador como primeiro voto
+                quemVotou: [idUnico]
             };
             
             pedidos.push(novoPedido);
             
-            document.getElementById('musicaPedido').value = '';
-            
-            // Salvar
+            // Salvar no localStorage
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             
-            // Atualizar lista
-            atualizarPedidos();
+            document.getElementById('musicaPedido').value = '';
             
-            // Mudar para aba de pedidos
+            atualizarPedidos();
             mudarAba('pedidos');
             
             alert('✅ Pedido enviado!');
@@ -1491,15 +1544,13 @@
             pedido.votos++;
             pedido.quemVotou.push(idUnico);
             
-            // Salvar
+            // Salvar no localStorage
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             
-            // Atualizar lista
             atualizarPedidos();
         }
         
         function atualizarPedidos() {
-            // Ordenar por votos (maior para menor)
             pedidos.sort((a, b) => b.votos - a.votos);
             
             let html = '';
@@ -1583,7 +1634,17 @@
             document.getElementById('videoTitle').innerHTML = `<span>🔥</span> ${nomeAula}`;
             
             if (link) {
-                document.getElementById('videoPlayer').src = link;
+                // Converter link do Drive para formato embed
+                let embedLink = link;
+                if (link.includes('drive.google.com')) {
+                    // Extrair ID do arquivo do Drive
+                    let fileId = link.match(/[-\w]{25,}/);
+                    if (fileId) {
+                        embedLink = `https://drive.google.com/file/d/${fileId[0]}/preview`;
+                    }
+                }
+                
+                document.getElementById('videoPlayer').src = embedLink;
                 document.getElementById('videoPlayer').style.display = 'block';
                 document.getElementById('videoPlaceholder').style.display = 'none';
             } else {
@@ -1633,7 +1694,29 @@
         }
         
         function salvarAula() {
-            alert('❤️ Aula salva!');
+            alert('❤️ Aula salva nos favoritos! (Em breve você verá suas aulas favoritas)');
+        }
+        
+        // ========== COMENTÁRIOS ==========
+        
+        let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [
+            { autor: "Ana Silva 1234", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" },
+            { autor: "Maria Oliveira 5678", texto: "Estou amando as coreografias 🔥", avatar: "👤", tempo: "há 5 horas" }
+        ];
+        
+        function atualizarComentarios() {
+            let html = '';
+            comentarios.slice(0, 10).forEach(com => {
+                html += `
+                    <div class="comment-item">
+                        <div class="comment-author">${com.avatar || '👤'} ${com.autor}</div>
+                        <div class="comment-text">${com.texto}</div>
+                        <div class="comment-time">${com.tempo}</div>
+                    </div>
+                `;
+            });
+            document.getElementById('commentList').innerHTML = html;
+            document.getElementById('comentariosCount').textContent = comentarios.length;
         }
         
         function enviarComentario() {
@@ -1645,24 +1728,43 @@
             let comment = document.getElementById('commentInput').value.trim();
             if (comment === '') return;
             
-            let commentList = document.getElementById('commentList');
-            let newComment = document.createElement('div');
-            newComment.className = 'comment-item';
+            let autor = isProfessor ? 'Professor' : nomeAluno + ' ' + document.getElementById('alunoCpf').value;
+            let avatar = isProfessor ? '👨‍🏫' : avatarAluno;
             
-            let autor = isProfessor ? '👨‍🏫 Professor' : `${avatarAluno} ${nomeAluno}`;
+            let novoComentario = {
+                autor: autor,
+                texto: comment,
+                avatar: avatar,
+                tempo: 'agora mesmo'
+            };
             
-            newComment.innerHTML = `
-                <div class="comment-author">${autor}</div>
-                <div class="comment-text">${comment}</div>
-                <div class="comment-time">agora mesmo</div>
-            `;
+            comentarios.unshift(novoComentario);
+            localStorage.setItem('comentarios', JSON.stringify(comentarios));
             
-            commentList.insertBefore(newComment, commentList.firstChild);
+            atualizarComentarios();
             document.getElementById('commentInput').value = '';
+        }
+        
+        // ========== CARREGAR DADOS SALVOS ==========
+        
+        // Verificar se já estava logado
+        window.onload = function() {
+            // Recuperar últimas aulas salvas
+            let aulasSalvas = localStorage.getItem('aulas');
+            if (aulasSalvas) {
+                aulas = JSON.parse(aulasSalvas);
+            }
             
-            // Limitar número de comentários mostrados
-            if (commentList.children.length > 10) {
-                commentList.removeChild(commentList.lastChild);
+            // Recuperar pedidos salvos
+            let pedidosSalvos = localStorage.getItem('pedidos');
+            if (pedidosSalvos) {
+                pedidos = JSON.parse(pedidosSalvos);
+            }
+            
+            // Recuperar comentários
+            let comentariosSalvos = localStorage.getItem('comentarios');
+            if (comentariosSalvos) {
+                comentarios = JSON.parse(comentariosSalvos);
             }
         }
     </script>
