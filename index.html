@@ -29,6 +29,247 @@
             border: 2px solid #ff0000;
         }
         
+        /* TELA DE ESCOLHA INICIAL */
+        .choice-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .choice-box {
+            background: #1a1a1a;
+            padding: 50px;
+            border-radius: 40px;
+            border: 4px solid #ff0000;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            width: 500px;
+            text-align: center;
+        }
+        
+        .choice-box h1 {
+            color: #ff0000;
+            font-size: 48px;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+        
+        .choice-box h1 span {
+            color: white;
+        }
+        
+        .choice-box p {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .choice-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .choice-btn {
+            flex: 1;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .aluno-btn {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .aluno-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+        
+        .professor-btn {
+            background: #000;
+            color: white;
+            border: 2px solid #ff0000;
+        }
+        
+        .professor-btn:hover {
+            background: #1a1a1a;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+        
+        /* TELA DE LOGIN DO ALUNO(A) */
+        .aluno-login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2100;
+        }
+        
+        .aluno-login-box {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 30px;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            width: 450px;
+            text-align: center;
+        }
+        
+        .aluno-login-box h2 {
+            color: #ff0000;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .aluno-login-box h2 span {
+            color: white;
+        }
+        
+        .aviso-cpf {
+            background: #333;
+            color: #ff9999;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin: 20px 0;
+            border-left: 4px solid #ff0000;
+            text-align: left;
+        }
+        
+        .aviso-cpf i {
+            color: #ff0000;
+            margin-right: 5px;
+        }
+        
+        .aluno-login-box input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #000;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .aluno-login-box input:focus {
+            border-color: #ff0000;
+        }
+        
+        .aluno-login-box button {
+            width: 100%;
+            padding: 15px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .aluno-login-box button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        
+        .back-btn {
+            background: #333 !important;
+            margin-top: 10px;
+        }
+        
+        .back-btn:hover {
+            background: #444 !important;
+        }
+        
+        /* TELA DE LOGIN DO PROFESSOR */
+        .professor-login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2200;
+        }
+        
+        .professor-login-box {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 30px;
+            border: 3px solid #ff0000;
+            width: 400px;
+            text-align: center;
+        }
+        
+        .professor-login-box h2 {
+            color: #ff0000;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .professor-login-box input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #000;
+            color: white;
+            font-size: 18px;
+            outline: none;
+        }
+        
+        .professor-login-box input:focus {
+            border-color: #ff0000;
+        }
+        
+        .professor-login-box button {
+            width: 100%;
+            padding: 15px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .professor-login-box button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        
         /* Header */
         header {
             background: #000000;
@@ -60,22 +301,6 @@
         .logo .class {
             color: #ff0000;
             font-style: italic;
-        }
-        
-        .admin-badge {
-            background: #ff0000;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .admin-badge:hover {
-            transform: scale(1.05);
-            background: #cc0000;
         }
         
         .user-info {
@@ -352,6 +577,82 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
         
+        /* Admin Panel (só aparece para professor) */
+        .admin-panel {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #ff0000;
+        }
+        
+        .admin-panel h3 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .admin-form select,
+        .admin-form input {
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #000;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .admin-form button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-form button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        
+        .admin-list {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .admin-aula-item {
+            background: #000;
+            color: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid #ff0000;
+        }
+        
+        .admin-delete {
+            background: #ff0000;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
         /* Comments Section */
         .comments-section {
             margin-top: 30px;
@@ -453,7 +754,6 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid #ff0000;
         }
         
         .send-btn:hover {
@@ -461,138 +761,8 @@
             transform: scale(1.05);
         }
         
-        /* Admin Panel (escondido das alunas) */
-        .admin-panel {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 2px solid #ff0000;
-        }
-        
-        .admin-panel h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-transform: uppercase;
-        }
-        
-        .admin-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .admin-form select,
-        .admin-form input {
-            padding: 12px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            background: #000;
-            color: white;
-            font-size: 16px;
-        }
-        
-        .admin-form select option {
-            background: #000;
-            color: white;
-        }
-        
-        .admin-form button {
-            background: #ff0000;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .admin-form button:hover {
-            background: #cc0000;
-            transform: scale(1.02);
-        }
-        
-        .admin-list {
-            margin-top: 20px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        
-        .admin-aula-item {
-            background: #000;
-            color: white;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid #ff0000;
-        }
-        
-        .admin-delete {
-            background: #ff0000;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        
         .hidden {
             display: none;
-        }
-        
-        /* Modal de login admin */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        
-        .modal-content {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 20px;
-            border: 3px solid #ff0000;
-            width: 400px;
-        }
-        
-        .modal-content h2 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .modal-content input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            background: #000;
-            color: white;
-        }
-        
-        .modal-content button {
-            width: 100%;
-            padding: 15px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
         }
         
         @media (max-width: 1024px) {
@@ -602,41 +772,60 @@
             .sidebar {
                 width: 100%;
             }
+            .choice-box {
+                width: 90%;
+                padding: 30px;
+            }
+            .choice-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- MODAL DE LOGIN ADMIN (só aparece quando clicar no botão) -->
-    <div id="adminModal" class="modal hidden">
-        <div class="modal-content">
-            <h2>🔐 ÁREA DA PROFESSORA</h2>
-            <input type="password" id="adminPassword" placeholder="Digite a senha">
-            <button onclick="loginAdmin()">ENTRAR</button>
-            <p style="color: #666; text-align: center; margin-top: 15px;">Senha: rob2024</p>
+    <!-- TELA DE ESCOLHA INICIAL -->
+    <div class="choice-screen" id="choiceScreen">
+        <div class="choice-box">
+            <h1><span>ROB</span> DANCE</h1>
+            <p>Escolha seu perfil</p>
+            <div class="choice-buttons">
+                <button class="choice-btn aluno-btn" onclick="escolherAluno()">👤 ALUNO(A)</button>
+                <button class="choice-btn professor-btn" onclick="escolherProfessor()">👨‍🏫 PROFESSOR</button>
+            </div>
         </div>
     </div>
     
-    <!-- PAINEL ADMIN (aparece só depois do login) -->
-    <div id="adminPanel" class="hidden">
-        <div class="admin-panel">
-            <h3>➕ ADICIONAR NOVA AULA</h3>
-            <div class="admin-form">
-                <select id="moduloSelect">
-                    <option value="1">MÓDULO 1 - BLACKPINK</option>
-                    <option value="2">MÓDULO 2 - TWICE</option>
-                    <option value="3">MÓDULO 3 - BTS</option>
-                </select>
-                <input type="text" id="aulaNome" placeholder="Nome da aula (ex: KILL THIS LOVE)">
-                <input type="text" id="aulaLink" placeholder="Link do vídeo (opcional)">
-                <button onclick="adicionarAula()">ADICIONAR AULA</button>
+    <!-- TELA DE LOGIN DO ALUNO(A) -->
+    <div class="aluno-login-screen" id="alunoLoginScreen">
+        <div class="aluno-login-box">
+            <h2><span>ROB</span> DANCE</h2>
+            <p style="color: #888; margin-bottom: 20px;">Login do Aluno(a)</p>
+            
+            <div class="aviso-cpf">
+                <i>⚠️</i> <strong>Importante:</strong> Use seu nome + os 4 últimos dígitos do CPF<br>
+                <small style="color: #999;">Ex: Ana Silva 1234</small>
             </div>
             
-            <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
-            <div class="admin-list" id="adminAulasList"></div>
+            <input type="text" id="alunoNome" placeholder="Seu nome completo">
+            <input type="text" id="alunoCpf" placeholder="4 últimos dígitos do CPF" maxlength="4">
+            
+            <button onclick="loginAluno()">ENTRAR</button>
+            <button class="back-btn" onclick="voltarParaEscolha()">← VOLTAR</button>
         </div>
     </div>
     
-    <div class="container">
+    <!-- TELA DE LOGIN DO PROFESSOR -->
+    <div class="professor-login-screen" id="professorLoginScreen">
+        <div class="professor-login-box">
+            <h2>👨‍🏫 PROFESSOR</h2>
+            <input type="password" id="professorSenha" placeholder="Digite a senha">
+            <button onclick="loginProfessor()">ENTRAR</button>
+            <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
+        </div>
+    </div>
+    
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container" id="mainContent" style="display: none;">
         <header>
             <div class="logo">
                 <span class="rob">ROB</span>
@@ -644,17 +833,14 @@
                 <span class="class">CLASS</span>
             </div>
             
-            <!-- BOTÃO PARA ABRIR PAINEL ADMIN -->
-            <div class="admin-badge" onclick="abrirAdmin()">👑 PROFESSORA</div>
-            
             <div class="user-info">
-                <span>Olá, <span id="nomeUsuario" class="user-name">Aluna</span></span>
-                <div class="avatar" id="userAvatar">A</div>
+                <span>Olá, <span id="nomeUsuario" class="user-name">...</span></span>
+                <div class="avatar" id="userAvatar">👤</div>
             </div>
         </header>
         
         <div class="main-content">
-            <!-- Sidebar com módulos -->
+            <!-- Sidebar -->
             <div class="sidebar">
                 <h3>🔥 MÓDULOS</h3>
                 
@@ -668,13 +854,31 @@
                     </div>
                 </div>
                 
-                <div class="modulo-buttons" id="modulosContainer">
-                    <!-- Os módulos serão carregados aqui pelo JavaScript -->
-                </div>
+                <div class="modulo-buttons" id="modulosContainer"></div>
             </div>
             
             <!-- Área de vídeo -->
             <div class="video-section">
+                <!-- PAINEL ADMIN (só aparece para professor) -->
+                <div id="adminPanel" class="hidden">
+                    <div class="admin-panel">
+                        <h3>➕ ADICIONAR NOVA AULA</h3>
+                        <div class="admin-form">
+                            <select id="moduloSelect">
+                                <option value="1">MÓDULO 1 - BLACKPINK</option>
+                                <option value="2">MÓDULO 2 - TWICE</option>
+                                <option value="3">MÓDULO 3 - BTS</option>
+                            </select>
+                            <input type="text" id="aulaNome" placeholder="Nome da aula (ex: KILL THIS LOVE)">
+                            <input type="text" id="aulaLink" placeholder="Link do vídeo (opcional)">
+                            <button onclick="adicionarAula()">ADICIONAR AULA</button>
+                        </div>
+                        
+                        <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
+                        <div class="admin-list" id="adminAulasList"></div>
+                    </div>
+                </div>
+                
                 <div class="video-container">
                     <iframe id="videoPlayer" src="" style="display: none;"></iframe>
                     <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -703,9 +907,14 @@
                     
                     <div class="comment-list" id="commentList">
                         <div class="comment-item">
-                            <div class="comment-author">👤 Ana Silva</div>
+                            <div class="comment-author">👤 Ana Silva 1234</div>
                             <div class="comment-text">Adorei as aulas!</div>
                             <div class="comment-time">há 2 horas</div>
+                        </div>
+                        <div class="comment-item">
+                            <div class="comment-author">👤 Maria Oliveira 5678</div>
+                            <div class="comment-text">Estou amando as coreografias 🔥</div>
+                            <div class="comment-time">há 5 horas</div>
                         </div>
                     </div>
                     
@@ -719,8 +928,8 @@
     </div>
 
     <script>
-        // SENHA DO ADMIN
-        const SENHA_ADMIN = "rob2024";
+        // SENHA SECRETA DO PROFESSOR (só você sabe)
+        const SENHA_PROFESSOR = "rob2026";
         
         // DADOS DAS AULAS
         let aulas = [
@@ -742,29 +951,116 @@
             3: "BTS"
         };
         
-        // Progresso da aluna
+        // Variáveis de controle
+        let isProfessor = false;
+        let nomeAluno = "";
+        let idUnico = "";
         let aulasConcluidas = [];
-        let nomeAluna = "Aluna";
         
-        // ========== FUNÇÕES DO ADMIN ==========
+        // ========== FUNÇÕES DE ESCOLHA ==========
         
-        function abrirAdmin() {
-            document.getElementById('adminModal').classList.remove('hidden');
+        function escolherAluno() {
+            document.getElementById('choiceScreen').style.display = 'none';
+            document.getElementById('alunoLoginScreen').style.display = 'flex';
         }
         
-        function loginAdmin() {
-            let senha = document.getElementById('adminPassword').value;
+        function escolherProfessor() {
+            document.getElementById('choiceScreen').style.display = 'none';
+            document.getElementById('professorLoginScreen').style.display = 'flex';
+        }
+        
+        function voltarParaEscolha() {
+            document.getElementById('alunoLoginScreen').style.display = 'none';
+            document.getElementById('professorLoginScreen').style.display = 'none';
+            document.getElementById('choiceScreen').style.display = 'flex';
             
-            if (senha === SENHA_ADMIN) {
-                document.getElementById('adminModal').classList.add('hidden');
+            // Limpar campos
+            document.getElementById('alunoNome').value = '';
+            document.getElementById('alunoCpf').value = '';
+            document.getElementById('professorSenha').value = '';
+        }
+        
+        // ========== LOGIN DO ALUNO(A) ==========
+        
+        function loginAluno() {
+            let nome = document.getElementById('alunoNome').value.trim();
+            let cpf = document.getElementById('alunoCpf').value.trim();
+            
+            if (nome === '' || cpf === '') {
+                alert('Preencha todos os campos!');
+                return;
+            }
+            
+            if (cpf.length !== 4 || isNaN(cpf)) {
+                alert('Digite exatamente 4 números do CPF!');
+                return;
+            }
+            
+            // Criar ID único
+            idUnico = nome + '_' + cpf;
+            nomeAluno = nome;
+            isProfessor = false;
+            
+            // Salvar dados
+            localStorage.setItem('dadosAluno_' + idUnico, JSON.stringify({
+                nome: nome,
+                cpf: cpf
+            }));
+            
+            // Carregar progresso
+            let progresso = localStorage.getItem('progresso_' + idUnico);
+            if (progresso) {
+                aulasConcluidas = JSON.parse(progresso);
+            }
+            
+            // Atualizar interface
+            document.getElementById('nomeUsuario').textContent = nome;
+            document.getElementById('userAvatar').textContent = nome.charAt(0).toUpperCase();
+            
+            // Esconder login e mostrar conteúdo
+            document.getElementById('alunoLoginScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            
+            // Carregar módulos e progresso
+            carregarModulos();
+            atualizarProgresso();
+            
+            // Mensagem de boas-vindas
+            alert(`🎉 Bem-vindo(a), ${nome}!`);
+        }
+        
+        // ========== LOGIN DO PROFESSOR ==========
+        
+        function loginProfessor() {
+            let senha = document.getElementById('professorSenha').value;
+            
+            if (senha === SENHA_PROFESSOR) {
+                document.getElementById('professorLoginScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                
+                isProfessor = true;
+                nomeAluno = "Professor";
+                
+                document.getElementById('nomeUsuario').textContent = "Professor";
+                document.getElementById('userAvatar').textContent = "👨‍🏫";
+                
+                // Mostrar painel admin
                 document.getElementById('adminPanel').classList.remove('hidden');
+                
+                carregarModulos();
                 atualizarAdminLista();
+                
+                alert('👨‍🏫 Bem-vindo, Professor!');
             } else {
-                alert('Senha incorreta! Tente: rob2024');
+                alert('Senha incorreta!');
             }
         }
         
+        // ========== FUNÇÕES DO ADMIN ==========
+        
         function adicionarAula() {
+            if (!isProfessor) return;
+            
             let modulo = document.getElementById('moduloSelect').value;
             let nome = document.getElementById('aulaNome').value.trim();
             let link = document.getElementById('aulaLink').value.trim();
@@ -784,20 +1080,24 @@
             document.getElementById('aulaLink').value = '';
             
             atualizarAdminLista();
-            carregarModulos(); // Atualiza o site das alunas na hora!
+            carregarModulos();
             
             alert('✅ Aula adicionada com sucesso!');
         }
         
         function removerAula(index) {
+            if (!isProfessor) return;
+            
             if (confirm('Remover esta aula?')) {
                 aulas.splice(index, 1);
                 atualizarAdminLista();
-                carregarModulos(); // Atualiza o site das alunas na hora!
+                carregarModulos();
             }
         }
         
         function atualizarAdminLista() {
+            if (!isProfessor) return;
+            
             let html = '';
             
             aulas.forEach((aula, index) => {
@@ -812,7 +1112,7 @@
             document.getElementById('adminAulasList').innerHTML = html;
         }
         
-        // ========== FUNÇÕES DO SITE (ALUNAS) ==========
+        // ========== FUNÇÕES DO SITE ==========
         
         function carregarModulos() {
             let html = '';
@@ -829,8 +1129,11 @@
                 `;
                 
                 aulasModulo.forEach(aula => {
+                    // Verificar se a aula está concluída
+                    let aulaCompleta = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
+                    
                     html += `
-                        <div class="aula-item" onclick="selecionarAula(this, '${aula.link || ''}')">
+                        <div class="aula-item ${aulaCompleta}" onclick="selecionarAula(this, '${aula.link || ''}')">
                             🎵 ${aula.nome}
                         </div>
                     `;
@@ -867,10 +1170,19 @@
             } else {
                 document.getElementById('videoPlayer').style.display = 'none';
                 document.getElementById('videoPlaceholder').style.display = 'block';
+                document.getElementById('videoPlaceholder').innerHTML = `
+                    <h3>🎥 ${nomeAula}</h3>
+                    <p style="color: #999;">Link do vídeo será adicionado em breve</p>
+                `;
             }
         }
         
         function marcarConcluido() {
+            if (isProfessor) {
+                alert('👨‍🏫 Você é o professor! Os alunos é que marcam progresso.');
+                return;
+            }
+            
             let aulaAtiva = document.querySelector('.aula-item.active');
             
             if (!aulaAtiva) {
@@ -878,11 +1190,18 @@
                 return;
             }
             
-            if (!aulaAtiva.classList.contains('completed')) {
+            let nomeAula = aulaAtiva.textContent.replace('🎵 ', '');
+            
+            if (!aulasConcluidas.includes(nomeAula)) {
+                aulasConcluidas.push(nomeAula);
+                localStorage.setItem('progresso_' + idUnico, JSON.stringify(aulasConcluidas));
+                
                 aulaAtiva.classList.add('completed');
-                aulasConcluidas.push(aulaAtiva.textContent);
                 atualizarProgresso();
-                alert('🎉 Aula concluída!');
+                
+                alert('🎉 Aula concluída! Parabéns!');
+            } else {
+                alert('Você já concluiu esta aula!');
             }
         }
         
@@ -895,7 +1214,7 @@
         }
         
         function salvarAula() {
-            alert('❤️ Aula salva!');
+            alert('❤️ Aula salva nos favoritos!');
         }
         
         function enviarComentario() {
@@ -905,27 +1224,20 @@
                 let commentList = document.getElementById('commentList');
                 let newComment = document.createElement('div');
                 newComment.className = 'comment-item';
+                
+                let identificador = isProfessor ? '👨‍🏫 Professor' : `${nomeAluno} ${document.getElementById('alunoCpf').value}`;
+                
                 newComment.innerHTML = `
-                    <div class="comment-author">👤 ${nomeAluna}</div>
+                    <div class="comment-author">👤 ${identificador}</div>
                     <div class="comment-text">${comment}</div>
                     <div class="comment-time">agora mesmo</div>
                 `;
                 
                 commentList.insertBefore(newComment, commentList.firstChild);
                 document.getElementById('commentInput').value = '';
-            }
-        }
-        
-        // Inicializar
-        window.onload = function() {
-            carregarModulos();
-            
-            // Verificar se tem nome salvo
-            let nome = localStorage.getItem('nomeAluna');
-            if (nome) {
-                nomeAluna = nome;
-                document.getElementById('nomeUsuario').textContent = nome;
-                document.getElementById('userAvatar').textContent = nome.charAt(0).toUpperCase();
+                
+                let count = parseInt(document.getElementById('comentariosCount').textContent) + 1;
+                document.getElementById('comentariosCount').textContent = count;
             }
         }
     </script>
