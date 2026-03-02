@@ -29,129 +29,6 @@
             border: 2px solid #ff0000;
         }
         
-        /* TELA DE LOGIN */
-        .login-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .login-box {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 30px;
-            border: 3px solid #ff0000;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            width: 450px;
-            text-align: center;
-        }
-        
-        .login-box h2 {
-            color: #ff0000;
-            font-size: 32px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
-        .login-box h2 span {
-            color: white;
-        }
-        
-        .login-box p {
-            color: #ccc;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .aviso-cpf {
-            background: #333;
-            color: #ff9999;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 14px;
-            margin-bottom: 25px;
-            border-left: 4px solid #ff0000;
-            text-align: left;
-        }
-        
-        .aviso-cpf i {
-            color: #ff0000;
-            margin-right: 5px;
-        }
-        
-        .login-box input {
-            width: 100%;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border: 2px solid #333;
-            border-radius: 50px;
-            background: #000;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s;
-        }
-        
-        .login-box input:focus {
-            border-color: #ff0000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-        }
-        
-        .login-box input::placeholder {
-            color: #666;
-        }
-        
-        .login-box button {
-            width: 100%;
-            padding: 15px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #ff0000;
-            margin-top: 10px;
-        }
-        
-        .login-box button:hover {
-            background: #cc0000;
-            transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
-        }
-        
-        .login-footer {
-            margin-top: 25px;
-            color: #666;
-            font-size: 14px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .login-footer a {
-            color: #ff0000;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .login-footer a:hover {
-            color: white;
-        }
-        
         /* Header */
         header {
             background: #000000;
@@ -185,6 +62,22 @@
             font-style: italic;
         }
         
+        .admin-badge {
+            background: #ff0000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-badge:hover {
+            transform: scale(1.05);
+            background: #cc0000;
+        }
+        
         .user-info {
             display: flex;
             align-items: center;
@@ -215,71 +108,6 @@
             font-weight: bold;
             color: white;
             font-size: 18px;
-            text-transform: uppercase;
-        }
-        
-        /* Ícones de contato */
-        .contact-icons {
-            display: flex;
-            gap: 15px;
-            margin: 0 20px;
-        }
-        
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        
-        .whatsapp-icon {
-            background: #25D366;
-            color: white;
-        }
-        
-        .whatsapp-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #25D366;
-        }
-        
-        .instagram-icon {
-            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
-            color: white;
-        }
-        
-        .instagram-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #d62976;
-        }
-        
-        /* Mensagem de boas-vindas */
-        .welcome-message {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            background: #ff0000;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
-            z-index: 100;
-            animation: slideIn 0.5s ease, fadeOut 0.5s ease 3s forwards;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-            to { transform: translateX(100%); opacity: 0; }
         }
         
         /* Main layout */
@@ -306,12 +134,11 @@
             padding-bottom: 10px;
         }
         
-        /* Progresso - só porcentagem */
         .progress-section {
             background: #1a1a1a;
             padding: 20px;
             border-radius: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border: 1px solid #ff0000;
         }
         
@@ -346,7 +173,6 @@
             transition: width 0.3s;
         }
         
-        /* Botões de módulos */
         .modulo-buttons {
             display: flex;
             flex-direction: column;
@@ -362,11 +188,8 @@
             border-radius: 12px;
             font-size: 18px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s;
-            text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -390,7 +213,6 @@
             transform: rotate(90deg);
         }
         
-        /* Lista de aulas (aparece ao clicar) */
         .aulas-container {
             margin-top: 15px;
             margin-bottom: 20px;
@@ -410,9 +232,6 @@
             cursor: pointer;
             transition: all 0.3s;
             border-left: 4px solid transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
         .aula-item:hover {
@@ -433,12 +252,8 @@
         .aula-item.completed::after {
             content: "✓";
             color: #00ff00;
-            margin-left: auto;
-            font-weight: bold;
-        }
-        
-        .aula-item.active.completed::after {
-            color: white;
+            margin-left: 10px;
+            float: right;
         }
         
         /* Video area */
@@ -467,19 +282,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-        
-        .drive-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            background: rgba(255, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
         }
         
         .video-info {
@@ -659,64 +461,182 @@
             transform: scale(1.05);
         }
         
-        /* Responsive */
+        /* Admin Panel (escondido das alunas) */
+        .admin-panel {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #ff0000;
+        }
+        
+        .admin-panel h3 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .admin-form select,
+        .admin-form input {
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #000;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .admin-form select option {
+            background: #000;
+            color: white;
+        }
+        
+        .admin-form button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-form button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        
+        .admin-list {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .admin-aula-item {
+            background: #000;
+            color: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid #ff0000;
+        }
+        
+        .admin-delete {
+            background: #ff0000;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Modal de login admin */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #ff0000;
+            width: 400px;
+        }
+        
+        .modal-content h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .modal-content input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #000;
+            color: white;
+        }
+        
+        .modal-content button {
+            width: 100%;
+            padding: 15px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
         @media (max-width: 1024px) {
             .main-content {
                 flex-direction: column;
             }
-            
             .sidebar {
                 width: 100%;
-                border-right: none;
-                border-bottom: 3px solid #ff0000;
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .contact-icons {
-                margin: 10px 0;
-            }
-            
-            .login-box {
-                width: 90%;
-                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- TELA DE LOGIN -->
-    <div class="login-overlay" id="loginOverlay">
-        <div class="login-box">
-            <h2><span>ROB</span> DANCE</h2>
-            <h2>CLASS</h2>
-            <p>Entre com seus dados</p>
-            
-            <!-- AVISO DO CPF -->
-            <div class="aviso-cpf">
-                <i>⚠️</i> <strong>IMPORTANTE:</strong> Use seu nome + os 4 últimos dígitos do CPF<br>
-                <small>(Ex: Ana Silva 1234)</small>
-            </div>
-            
-            <input type="text" id="nomeCompleto" placeholder="Seu nome completo...">
-            <input type="text" id="cpfDigitos" placeholder="4 últimos dígitos do CPF" maxlength="4">
-            
-            <button onclick="fazerLogin()">ENTRAR</button>
-            
-            <div class="login-footer">
-                <a href="#" target="_blank" onclick="alert('WhatsApp: (11) 99999-9999')">📱 WhatsApp</a>
-                <a href="#" target="_blank" onclick="alert('Instagram: @robdanceclass')">📸 Instagram</a>
-            </div>
+    <!-- MODAL DE LOGIN ADMIN (só aparece quando clicar no botão) -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🔐 ÁREA DA PROFESSORA</h2>
+            <input type="password" id="adminPassword" placeholder="Digite a senha">
+            <button onclick="loginAdmin()">ENTRAR</button>
+            <p style="color: #666; text-align: center; margin-top: 15px;">Senha: rob2024</p>
         </div>
     </div>
-
-    <!-- MENSAGEM DE BOAS-VINDAS -->
-    <div id="welcomeMessage" class="welcome-message" style="display: none;"></div>
-
-    <div class="container" id="conteudoSite" style="display: none;">
+    
+    <!-- PAINEL ADMIN (aparece só depois do login) -->
+    <div id="adminPanel" class="hidden">
+        <div class="admin-panel">
+            <h3>➕ ADICIONAR NOVA AULA</h3>
+            <div class="admin-form">
+                <select id="moduloSelect">
+                    <option value="1">MÓDULO 1 - BLACKPINK</option>
+                    <option value="2">MÓDULO 2 - TWICE</option>
+                    <option value="3">MÓDULO 3 - BTS</option>
+                </select>
+                <input type="text" id="aulaNome" placeholder="Nome da aula (ex: KILL THIS LOVE)">
+                <input type="text" id="aulaLink" placeholder="Link do vídeo (opcional)">
+                <button onclick="adicionarAula()">ADICIONAR AULA</button>
+            </div>
+            
+            <h3 style="margin-top: 20px;">📋 AULAS CADASTRADAS</h3>
+            <div class="admin-list" id="adminAulasList"></div>
+        </div>
+    </div>
+    
+    <div class="container">
         <header>
             <div class="logo">
                 <span class="rob">ROB</span>
@@ -724,27 +644,23 @@
                 <span class="class">CLASS</span>
             </div>
             
-            <!-- ÍCONES DE CONTATO -->
-            <div class="contact-icons">
-                <a href="https://wa.me/5511999999999" class="contact-icon whatsapp-icon" target="_blank" title="Falar no WhatsApp">📱</a>
-                <a href="https://instagram.com/robdanceclass" class="contact-icon instagram-icon" target="_blank" title="Instagram">📸</a>
-            </div>
+            <!-- BOTÃO PARA ABRIR PAINEL ADMIN -->
+            <div class="admin-badge" onclick="abrirAdmin()">👑 PROFESSORA</div>
             
-            <div class="user-info" id="userInfo">
-                <span>Olá, <span id="nomeUsuario" class="user-name"></span></span>
-                <div class="avatar" id="userAvatar"></div>
+            <div class="user-info">
+                <span>Olá, <span id="nomeUsuario" class="user-name">Aluna</span></span>
+                <div class="avatar" id="userAvatar">A</div>
             </div>
         </header>
         
         <div class="main-content">
-            <!-- Sidebar -->
+            <!-- Sidebar com módulos -->
             <div class="sidebar">
                 <h3>🔥 MÓDULOS</h3>
                 
-                <!-- Progresso - só porcentagem -->
                 <div class="progress-section">
                     <p>
-                        <span>Progresso total</span>
+                        <span>Progresso</span>
                         <span class="progress-percent" id="progressPercent">0%</span>
                     </p>
                     <div class="progress-bar">
@@ -752,56 +668,24 @@
                     </div>
                 </div>
                 
-                <!-- Botões dos módulos -->
-                <div class="modulo-buttons">
-                    <div class="modulo-btn" onclick="toggleModulo(1)" id="modulo1">
-                        MÓDULO 1 - BLACKPINK
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="aulas-container" id="aulasModulo1">
-                        <div class="aula-item" onclick="selecionarAula(this, '1a')">🎵 BOOMBAYAH</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '1b')">🎵 HOW YOU LIKE THAT</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '1c')">🎵 LOVESICK GIRLS</div>
-                    </div>
-                    
-                    <div class="modulo-btn" onclick="toggleModulo(2)" id="modulo2">
-                        MÓDULO 2 - TWICE
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="aulas-container" id="aulasModulo2">
-                        <div class="aula-item" onclick="selecionarAula(this, '2a')">🎵 T.T</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '2b')">🎵 CHEER UP</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '2c')">🎵 FANCY</div>
-                    </div>
-                    
-                    <div class="modulo-btn" onclick="toggleModulo(3)" id="modulo3">
-                        MÓDULO 3 - BTS
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="aulas-container" id="aulasModulo3">
-                        <div class="aula-item" onclick="selecionarAula(this, '3a')">🎵 ANPANMAN</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '3b')">🎵 DYNAMITE</div>
-                        <div class="aula-item" onclick="selecionarAula(this, '3c')">🎵 BUTTER</div>
-                    </div>
+                <div class="modulo-buttons" id="modulosContainer">
+                    <!-- Os módulos serão carregados aqui pelo JavaScript -->
                 </div>
             </div>
             
             <!-- Área de vídeo -->
             <div class="video-section">
                 <div class="video-container">
-                    <!-- AQUI VÃO OS VÍDEOS DO DRIVE -->
-                    <div class="drive-message" id="videoPlaceholder">
-                        <h3>📹 AULA BLOQUEADA</h3>
-                        <p>Esta aula será liberada em breve no Google Drive</p>
-                        <small>Fale com a professora no WhatsApp para mais informações</small>
+                    <iframe id="videoPlayer" src="" style="display: none;"></iframe>
+                    <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <h3>🎥 Selecione uma aula</h3>
                     </div>
-                    <iframe id="videoPlayer" style="display: none;"></iframe>
                 </div>
                 
                 <div class="video-info">
-                    <h2 class="video-title" id="videoTitle"><span>🔥</span> Selecione uma aula</h2>
+                    <h2 class="video-title" id="videoTitle"><span>🔥</span> Selecione uma aula para começar</h2>
                     <div class="video-meta">
-                        <span><i>📅</i> Aula disponível em breve</span>
+                        <span><i>📅</i> Clique em uma aula ao lado</span>
                     </div>
                 </div>
                 
@@ -819,23 +703,9 @@
                     
                     <div class="comment-list" id="commentList">
                         <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Ana Silva 1234
-                            </div>
-                            <div class="comment-text">
-                                Adorei a coreografia! Quando vão liberar os vídeos? ❤️
-                            </div>
+                            <div class="comment-author">👤 Ana Silva</div>
+                            <div class="comment-text">Adorei as aulas!</div>
                             <div class="comment-time">há 2 horas</div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="comment-author">
-                                <i>👤</i> Maria Oliveira 5678
-                            </div>
-                            <div class="comment-text">
-                                Ansiosa para as aulas do BTS! 🔥
-                            </div>
-                            <div class="comment-time">há 5 horas</div>
                         </div>
                     </div>
                     
@@ -849,95 +719,127 @@
     </div>
 
     <script>
-        // Dados da aluna
-        let nomeAlunaAtual = '';
-        let idUnico = '';
+        // SENHA DO ADMIN
+        const SENHA_ADMIN = "rob2024";
         
-        // Aulas concluídas
+        // DADOS DAS AULAS
+        let aulas = [
+            { modulo: 1, nome: "BOOMBAYAH", link: "" },
+            { modulo: 1, nome: "HOW YOU LIKE THAT", link: "" },
+            { modulo: 1, nome: "LOVESICK GIRLS", link: "" },
+            { modulo: 2, nome: "T.T", link: "" },
+            { modulo: 2, nome: "CHEER UP", link: "" },
+            { modulo: 2, nome: "FANCY", link: "" },
+            { modulo: 3, nome: "ANPANMAN", link: "" },
+            { modulo: 3, nome: "DYNAMITE", link: "" },
+            { modulo: 3, nome: "BUTTER", link: "" }
+        ];
+        
+        // NOMES DOS MÓDULOS
+        const nomesModulos = {
+            1: "BLACKPINK",
+            2: "TWICE",
+            3: "BTS"
+        };
+        
+        // Progresso da aluna
         let aulasConcluidas = [];
+        let nomeAluna = "Aluna";
         
-        // Total de aulas
-        const TOTAL_AULAS = 9;
+        // ========== FUNÇÕES DO ADMIN ==========
         
-        // Verificar login salvo
-        window.onload = function() {
-            let dadosSalvos = localStorage.getItem('dadosAluna');
-            if (dadosSalvos) {
-                let dados = JSON.parse(dadosSalvos);
-                nomeAlunaAtual = dados.nome;
-                idUnico = dados.id;
-                document.getElementById('nomeUsuario').textContent = nomeAlunaAtual;
-                document.getElementById('userAvatar').textContent = nomeAlunaAtual.charAt(0).toUpperCase();
-                document.getElementById('loginOverlay').style.display = 'none';
-                document.getElementById('conteudoSite').style.display = 'block';
-                
-                // Carregar progresso
-                let progresso = localStorage.getItem('progresso_' + idUnico);
-                if (progresso) {
-                    aulasConcluidas = JSON.parse(progresso);
-                    atualizarProgresso();
-                }
+        function abrirAdmin() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+        
+        function loginAdmin() {
+            let senha = document.getElementById('adminPassword').value;
+            
+            if (senha === SENHA_ADMIN) {
+                document.getElementById('adminModal').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                atualizarAdminLista();
+            } else {
+                alert('Senha incorreta! Tente: rob2024');
             }
         }
         
-        function fazerLogin() {
-            let nome = document.getElementById('nomeCompleto').value.trim();
-            let digitos = document.getElementById('cpfDigitos').value.trim();
+        function adicionarAula() {
+            let modulo = document.getElementById('moduloSelect').value;
+            let nome = document.getElementById('aulaNome').value.trim();
+            let link = document.getElementById('aulaLink').value.trim();
             
-            if (nome === '' || digitos === '') {
-                alert('Por favor, preencha todos os campos!');
+            if (nome === '') {
+                alert('Digite o nome da aula!');
                 return;
             }
             
-            if (digitos.length !== 4 || isNaN(digitos)) {
-                alert('Digite exatamente 4 números do CPF!');
-                return;
-            }
-            
-            // Criar ID único
-            idUnico = nome + '_' + digitos;
-            nomeAlunaAtual = nome;
-            
-            // Salvar dados
-            localStorage.setItem('dadosAluna', JSON.stringify({
+            aulas.push({
+                modulo: parseInt(modulo),
                 nome: nome,
-                id: idUnico
-            }));
+                link: link
+            });
             
-            // Mostrar nome no cabeçalho
-            document.getElementById('nomeUsuario').textContent = nome;
-            document.getElementById('userAvatar').textContent = nome.charAt(0).toUpperCase();
+            document.getElementById('aulaNome').value = '';
+            document.getElementById('aulaLink').value = '';
             
-            // Esconder login
-            document.getElementById('loginOverlay').style.display = 'none';
-            document.getElementById('conteudoSite').style.display = 'block';
+            atualizarAdminLista();
+            carregarModulos(); // Atualiza o site das alunas na hora!
             
-            // Verificar se é primeira vez
-            let progresso = localStorage.getItem('progresso_' + idUnico);
-            if (!progresso) {
-                mostrarBoasVindas(nome, true);
-                localStorage.setItem('progresso_' + idUnico, JSON.stringify([]));
-            } else {
-                mostrarBoasVindas(nome, false);
-                aulasConcluidas = JSON.parse(progresso);
-                atualizarProgresso();
+            alert('✅ Aula adicionada com sucesso!');
+        }
+        
+        function removerAula(index) {
+            if (confirm('Remover esta aula?')) {
+                aulas.splice(index, 1);
+                atualizarAdminLista();
+                carregarModulos(); // Atualiza o site das alunas na hora!
             }
         }
         
-        function mostrarBoasVindas(nome, primeiraVez) {
-            let msg = document.getElementById('welcomeMessage');
+        function atualizarAdminLista() {
+            let html = '';
             
-            if (primeiraVez) {
-                msg.textContent = `🎉 Bem-vinda, ${nome}! Que bom ter você aqui!`;
-            } else {
-                msg.textContent = `👋 Olá, ${nome}! Vamos dançar?`;
+            aulas.forEach((aula, index) => {
+                html += `
+                    <div class="admin-aula-item">
+                        <span>M${aula.modulo} - ${aula.nome}</span>
+                        <button class="admin-delete" onclick="removerAula(${index})">🗑️</button>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('adminAulasList').innerHTML = html;
+        }
+        
+        // ========== FUNÇÕES DO SITE (ALUNAS) ==========
+        
+        function carregarModulos() {
+            let html = '';
+            
+            for (let m = 1; m <= 3; m++) {
+                let aulasModulo = aulas.filter(a => a.modulo === m);
+                
+                html += `
+                    <div class="modulo-btn" onclick="toggleModulo(${m})" id="modulo${m}">
+                        MÓDULO ${m} - ${nomesModulos[m]}
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="aulas-container" id="aulasModulo${m}">
+                `;
+                
+                aulasModulo.forEach(aula => {
+                    html += `
+                        <div class="aula-item" onclick="selecionarAula(this, '${aula.link || ''}')">
+                            🎵 ${aula.nome}
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`;
             }
             
-            msg.style.display = 'block';
-            
-            setTimeout(() => {
-                msg.style.display = 'none';
-            }, 3500);
+            document.getElementById('modulosContainer').innerHTML = html;
         }
         
         function toggleModulo(numero) {
@@ -948,22 +850,24 @@
             botao.classList.toggle('active');
         }
         
-        function selecionarAula(elemento, aulaId) {
-            // Remover active de todas as aulas
+        function selecionarAula(elemento, link) {
             document.querySelectorAll('.aula-item').forEach(item => {
                 item.classList.remove('active');
             });
             
-            // Adicionar active na selecionada
             elemento.classList.add('active');
             
-            // Atualizar título
             let nomeAula = elemento.textContent.replace('🎵 ', '');
             document.getElementById('videoTitle').innerHTML = `<span>🔥</span> ${nomeAula}`;
             
-            // Mostrar placeholder do Drive
-            document.getElementById('videoPlaceholder').style.display = 'block';
-            document.getElementById('videoPlayer').style.display = 'none';
+            if (link) {
+                document.getElementById('videoPlayer').src = link;
+                document.getElementById('videoPlayer').style.display = 'block';
+                document.getElementById('videoPlaceholder').style.display = 'none';
+            } else {
+                document.getElementById('videoPlayer').style.display = 'none';
+                document.getElementById('videoPlaceholder').style.display = 'block';
+            }
         }
         
         function marcarConcluido() {
@@ -974,29 +878,24 @@
                 return;
             }
             
-            let aulaNome = aulaAtiva.textContent.replace('🎵 ', '');
-            
-            if (!aulasConcluidas.includes(aulaNome)) {
-                aulasConcluidas.push(aulaNome);
-                localStorage.setItem('progresso_' + idUnico, JSON.stringify(aulasConcluidas));
-                
+            if (!aulaAtiva.classList.contains('completed')) {
                 aulaAtiva.classList.add('completed');
+                aulasConcluidas.push(aulaAtiva.textContent);
                 atualizarProgresso();
-                
-                alert('🎉 Aula marcada como concluída!');
-            } else {
-                alert('Você já concluiu esta aula!');
+                alert('🎉 Aula concluída!');
             }
         }
         
         function atualizarProgresso() {
-            let percentual = Math.round((aulasConcluidas.length / TOTAL_AULAS) * 100);
+            let total = document.querySelectorAll('.aula-item').length;
+            let percentual = Math.round((aulasConcluidas.length / total) * 100) || 0;
+            
             document.getElementById('progressFill').style.width = percentual + '%';
             document.getElementById('progressPercent').textContent = percentual + '%';
         }
         
         function salvarAula() {
-            alert('❤️ Aula salva! (Em breve você verá suas aulas favoritas)');
+            alert('❤️ Aula salva!');
         }
         
         function enviarComentario() {
@@ -1007,20 +906,26 @@
                 let newComment = document.createElement('div');
                 newComment.className = 'comment-item';
                 newComment.innerHTML = `
-                    <div class="comment-author">
-                        <i>👤</i> ${nomeAlunaAtual} ${document.getElementById('cpfDigitos').value}
-                    </div>
-                    <div class="comment-text">
-                        ${comment}
-                    </div>
+                    <div class="comment-author">👤 ${nomeAluna}</div>
+                    <div class="comment-text">${comment}</div>
                     <div class="comment-time">agora mesmo</div>
                 `;
                 
                 commentList.insertBefore(newComment, commentList.firstChild);
                 document.getElementById('commentInput').value = '';
-                
-                let count = parseInt(document.getElementById('comentariosCount').textContent) + 1;
-                document.getElementById('comentariosCount').textContent = count;
+            }
+        }
+        
+        // Inicializar
+        window.onload = function() {
+            carregarModulos();
+            
+            // Verificar se tem nome salvo
+            let nome = localStorage.getItem('nomeAluna');
+            if (nome) {
+                nomeAluna = nome;
+                document.getElementById('nomeUsuario').textContent = nome;
+                document.getElementById('userAvatar').textContent = nome.charAt(0).toUpperCase();
             }
         }
     </script>
