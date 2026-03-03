@@ -169,7 +169,7 @@
             font-size: 24px;
         }
         
-        .aviso-cpf {
+        .aviso-login {
             background: #333;
             color: #ff9999;
             padding: 15px;
@@ -180,7 +180,7 @@
             text-align: left;
         }
         
-        .aviso-cpf i { color: #ff0000; margin-right: 5px; }
+        .aviso-login i { color: #ff0000; margin-right: 5px; }
         
         .aluno-login-box input {
             width: 100%;
@@ -872,14 +872,17 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
         
-        /* Admin Panel - AGORA SÓ VISÍVEL PARA PROFESSOR */
+        /* Admin Panel - SÓ PROFESSOR */
         .admin-panel {
             background: #1a1a1a;
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
             border: 2px solid #ff0000;
+            display: none;
         }
+        
+        .admin-panel.visible { display: block; }
         
         .admin-panel h3 {
             color: #ff0000;
@@ -1331,14 +1334,12 @@
             
             <!-- Formulário de Login -->
             <div class="login-form" id="formLogin">
-                <div class="aviso-cpf">
-                    <i>⚠️</i> <strong>Importante:</strong> Use seu nome + os 4 últimos dígitos do CPF e sua senha<br>
-                    <small>Ex: Ana Silva 1234</small>
+                <div class="aviso-login">
+                    <i>🔐</i> <strong>Faça login com seu e-mail e senha</strong>
                 </div>
                 
-                <input type="text" id="alunoNome" placeholder="Seu nome completo">
-                <input type="text" id="alunoCpf" placeholder="4 últimos dígitos do CPF" maxlength="4">
-                <input type="password" id="alunoSenha" placeholder="Sua senha">
+                <input type="email" id="loginEmail" placeholder="Seu e-mail">
+                <input type="password" id="loginSenha" placeholder="Sua senha">
                 
                 <button onclick="loginAluno()">ENTRAR</button>
                 <p style="color: #888; margin: 15px 0;">ou</p>
@@ -1348,14 +1349,13 @@
             
             <!-- Formulário de Cadastro -->
             <div class="login-form hidden" id="formCadastro">
-                <div class="aviso-cpf" style="background: #004d00; color: #ccffcc;">
-                    <i>✨</i> <strong>Bem-vinda!</strong> Preencha seus dados para criar sua conta
+                <div class="aviso-login" style="background: #004d00; color: #ccffcc;">
+                    <i>✨</i> <strong>Crie sua conta</strong> Preencha os dados abaixo
                 </div>
                 
                 <input type="text" id="cadastroNome" placeholder="Nome completo">
                 <input type="email" id="cadastroEmail" placeholder="E-mail">
                 <input type="text" id="cadastroWhatsapp" placeholder="WhatsApp (com DDD)">
-                <input type="text" id="cadastroCpf" placeholder="CPF completo (apenas números)">
                 <input type="password" id="cadastroSenha" placeholder="Crie uma senha">
                 <input type="password" id="cadastroConfirmarSenha" placeholder="Confirme sua senha">
                 
@@ -1418,7 +1418,7 @@
             <p class="subtitle">🔥 Especialista em K-pop</p>
             
             <div class="info-list">
-                <p>✓ <strong>10 ano de kpop</strong> de experiência em K-pop</p>
+                <p>✓ <strong>10 anos de kpop</strong> de experiência em K-pop</p>
                 <p>✓ <strong>+50 aulas</strong> gravadas</p>
                 <p>✓ Graduando em Dança - UFPE</p>
                 <p>✓ Mais de <strong>15 anos</strong> de dança</p>
@@ -1510,58 +1510,56 @@
                 <!-- Área de vídeo -->
                 <div class="video-section">
                     <!-- PAINEL ADMIN (SÓ APARECE QUANDO É PROFESSOR) -->
-                    <div id="adminPanel" class="hidden">
-                        <div class="admin-panel">
-                            <h3>⚙️ PAINEL DO PROFESSOR</h3>
-                            
-                            <div class="admin-subtitle">📁 0. ADICIONAR NOVO MÓDULO</div>
-                            <div class="admin-form">
-                                <input type="text" id="novoModuloNome" placeholder="Nome do módulo (ex: NEWJEANS)">
-                                <button onclick="adicionarModulo()">ADICIONAR MÓDULO</button>
-                            </div>
-                            
-                            <div class="admin-subtitle">📹 1. ADICIONAR VÍDEO DA AULA</div>
-                            <div class="admin-form">
-                                <select id="moduloSelectVideo"></select>
-                                <input type="text" id="aulaNomeVideo" placeholder="Nome da aula (ex: BOOMBAYAH)">
-                                <input type="url" id="aulaLinkVideo" placeholder="Link do vídeo (Drive ou YouTube)">
-                                <button onclick="adicionarLinkVideo()">SALVAR VÍDEO DA AULA</button>
-                            </div>
-                            
-                            <div class="admin-subtitle">💰 2. ADICIONAR LINK DE PAGAMENTO</div>
-                            <div class="admin-form">
-                                <select id="moduloSelectPagamento"></select>
-                                <input type="text" id="aulaNomePagamento" placeholder="Nome da aula (ex: BOOMBAYAH)">
-                                <input type="url" id="aulaLinkPagamento" placeholder="Link do Mercado Pago">
-                                <input type="number" id="aulaValor" placeholder="Valor da aula (ex: 25.00)" step="0.01" min="0">
-                                <button onclick="adicionarLinkPagamento()">SALVAR LINK DE PAGAMENTO</button>
-                            </div>
-                            
-                            <div class="pendentes-section">
-                                <h3>⏳ COMPRAS PENDENTES</h3>
-                                <div id="pendentesList"></div>
-                            </div>
-                            
-                            <div class="alunas-section">
-                                <h3>👥 ALUNAS CADASTRADAS</h3>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                                    <button class="btn btn-primary" onclick="verTodasAlunas()" style="background: #ff0000; padding: 12px; font-size: 14px;">📋 VER TODAS</button>
-                                    <button class="btn btn-secondary" onclick="buscarAluna()" style="background: #000; padding: 12px; font-size: 14px;">🔍 BUSCAR ALUNA</button>
-                                </div>
-                                <div style="background: #000; padding: 15px; border-radius: 10px;">
-                                    <p style="color: #ff0000; margin-bottom: 5px;">📊 RESUMO:</p>
-                                    <p style="color: white;">Total de alunas: <span id="totalAlunas">0</span></p>
-                                    <p style="color: white;">Último cadastro: <span id="ultimoCadastro">-</span></p>
-                                    <p style="color: white;">Aulas compradas: <span id="totalCompras">0</span></p>
-                                </div>
-                            </div>
-                            
-                            <h3 style="margin-top: 30px;">📋 AULAS CADASTRADAS</h3>
-                            <div class="admin-list" id="adminAulasList"></div>
-                            
-                            <h3 style="margin-top: 30px;">📋 MÓDULOS CADASTRADOS</h3>
-                            <div class="admin-list" id="adminModulosList"></div>
+                    <div id="adminPanel" class="admin-panel">
+                        <h3>⚙️ PAINEL DO PROFESSOR</h3>
+                        
+                        <div class="admin-subtitle">📁 0. ADICIONAR NOVO MÓDULO</div>
+                        <div class="admin-form">
+                            <input type="text" id="novoModuloNome" placeholder="Nome do módulo (ex: NEWJEANS)">
+                            <button onclick="adicionarModulo()">ADICIONAR MÓDULO</button>
                         </div>
+                        
+                        <div class="admin-subtitle">📹 1. ADICIONAR VÍDEO DA AULA</div>
+                        <div class="admin-form">
+                            <select id="moduloSelectVideo"></select>
+                            <input type="text" id="aulaNomeVideo" placeholder="Nome da aula (ex: BOOMBAYAH)">
+                            <input type="url" id="aulaLinkVideo" placeholder="Link do vídeo (Drive ou YouTube)">
+                            <button onclick="adicionarLinkVideo()">SALVAR VÍDEO DA AULA</button>
+                        </div>
+                        
+                        <div class="admin-subtitle">💰 2. ADICIONAR LINK DE PAGAMENTO</div>
+                        <div class="admin-form">
+                            <select id="moduloSelectPagamento"></select>
+                            <input type="text" id="aulaNomePagamento" placeholder="Nome da aula (ex: BOOMBAYAH)">
+                            <input type="url" id="aulaLinkPagamento" placeholder="Link do Mercado Pago">
+                            <input type="number" id="aulaValor" placeholder="Valor da aula (ex: 25.00)" step="0.01" min="0">
+                            <button onclick="adicionarLinkPagamento()">SALVAR LINK DE PAGAMENTO</button>
+                        </div>
+                        
+                        <div class="pendentes-section">
+                            <h3>⏳ COMPRAS PENDENTES</h3>
+                            <div id="pendentesList"></div>
+                        </div>
+                        
+                        <div class="alunas-section">
+                            <h3>👥 ALUNAS CADASTRADAS</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                                <button class="btn btn-primary" onclick="verTodasAlunas()" style="background: #ff0000; padding: 12px; font-size: 14px;">📋 VER TODAS</button>
+                                <button class="btn btn-secondary" onclick="buscarAluna()" style="background: #000; padding: 12px; font-size: 14px;">🔍 BUSCAR ALUNA</button>
+                            </div>
+                            <div style="background: #000; padding: 15px; border-radius: 10px;">
+                                <p style="color: #ff0000; margin-bottom: 5px;">📊 RESUMO:</p>
+                                <p style="color: white;">Total de alunas: <span id="totalAlunas">0</span></p>
+                                <p style="color: white;">Último cadastro: <span id="ultimoCadastro">-</span></p>
+                                <p style="color: white;">Aulas compradas: <span id="totalCompras">0</span></p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 30px;">📋 AULAS CADASTRADAS</h3>
+                        <div class="admin-list" id="adminAulasList"></div>
+                        
+                        <h3 style="margin-top: 30px;">📋 MÓDULOS CADASTRADOS</h3>
+                        <div class="admin-list" id="adminModulosList"></div>
                     </div>
                     
                     <!-- PLAYER DE VÍDEO -->
@@ -1652,13 +1650,13 @@
             { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva 1234", quemVotou: ["maria_5678"] }
         ];
         
-        // CADASTRO DE ALUNOS
+        // CADASTRO DE ALUNOS (por email)
         let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
         
         // Variáveis de controle
         let isProfessor = false;
         let nomeAluno = "";
-        let idUnico = "";
+        let emailAluno = "";
         let aulasConcluidas = [];
         let avatarAluno = "👤";
         
@@ -1678,8 +1676,8 @@
             document.getElementById('alunoLoginScreen').style.display = 'none';
             document.getElementById('professorLoginScreen').style.display = 'none';
             document.getElementById('choiceScreen').style.display = 'flex';
-            document.getElementById('alunoNome').value = '';
-            document.getElementById('alunoCpf').value = '';
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginSenha').value = '';
             document.getElementById('professorSenha').value = '';
         }
         
@@ -1713,14 +1711,14 @@
             if (confirm('Deseja sair da sua conta?')) {
                 isProfessor = false;
                 nomeAluno = "";
-                idUnico = "";
+                emailAluno = "";
                 aulasConcluidas = [];
                 document.getElementById('mainContent').style.display = 'none';
                 document.getElementById('choiceScreen').style.display = 'flex';
-                document.getElementById('alunoNome').value = '';
-                document.getElementById('alunoCpf').value = '';
-                document.getElementById('alunoSenha').value = '';
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginSenha').value = '';
                 document.getElementById('professorSenha').value = '';
+                document.getElementById('adminPanel').classList.remove('visible');
             }
         }
         
@@ -1999,14 +1997,14 @@
             let mensagem = "👥 ALUNAS CADASTRADAS:\n\n";
             let totalCompras = 0;
             
-            for (let id in alunas) {
-                let aluna = alunas[id];
-                let dados = JSON.parse(localStorage.getItem('aluno_' + id)) || {};
+            for (let email in alunas) {
+                let aluna = alunas[email];
+                let dados = JSON.parse(localStorage.getItem('aluno_' + email)) || {};
                 let compras = dados.aulasCompradas?.length || 0;
                 totalCompras += compras;
                 
                 mensagem += `👤 ${aluna.nome}\n`;
-                mensagem += `   📧 ${aluna.email || 'Não informado'}\n`;
+                mensagem += `   📧 ${email}\n`;
                 mensagem += `   📱 ${aluna.whatsapp || 'Não informado'}\n`;
                 mensagem += `   📚 Aulas: ${compras} compradas | ${dados.aulasConcluidas?.length || 0} concluídas\n`;
                 mensagem += `   📅 Último acesso: ${aluna.ultimoAcesso || 'Nunca'}\n`;
@@ -2031,43 +2029,31 @@
                 return;
             }
             
-            let listaNomes = '';
-            for (let id in alunas) {
-                listaNomes += `• ${alunas[id].nome}\n`;
-            }
+            let emailBusca = prompt('Digite o e-mail da aluna:');
+            if (!emailBusca) return;
             
-            let nomeBusca = prompt(`Digite o nome da aluna:\n\n${listaNomes}`);
-            if (!nomeBusca) return;
+            let aluna = alunas[emailBusca];
             
-            let encontrou = false;
-            
-            for (let id in alunas) {
-                if (alunas[id].nome.toLowerCase().includes(nomeBusca.toLowerCase())) {
-                    let aluna = alunas[id];
-                    let dados = JSON.parse(localStorage.getItem('aluno_' + id)) || {};
-                    
-                    let detalhes = `👤 ${aluna.nome}\n`;
-                    detalhes += `📧 E-mail: ${aluna.email || 'Não informado'}\n`;
-                    detalhes += `📱 WhatsApp: ${aluna.whatsapp || 'Não informado'}\n`;
-                    detalhes += `🆔 CPF: ${aluna.cpf || 'Não informado'}\n`;
-                    detalhes += `📅 Cadastro: ${aluna.dataCadastro || 'N/A'}\n`;
-                    detalhes += `🕐 Último acesso: ${aluna.ultimoAcesso || 'N/A'}\n`;
-                    detalhes += `━━━━━━━━━━━━━━━━━━\n`;
-                    detalhes += `📚 Aulas compradas: ${dados.aulasCompradas?.length || 0}\n`;
-                    detalhes += `✅ Aulas concluídas: ${dados.aulasConcluidas?.length || 0}\n`;
-                    
-                    if (dados.aulasCompradas?.length > 0) {
-                        detalhes += `📋 Lista: ${dados.aulasCompradas.join(', ')}\n`;
-                    }
-                    
-                    detalhes += `⭐ Progresso: ${Math.round((dados.aulasConcluidas?.length || 0) / aulas.length * 100)}%`;
-                    
-                    alert(detalhes);
-                    encontrou = true;
+            if (aluna) {
+                let dados = JSON.parse(localStorage.getItem('aluno_' + emailBusca)) || {};
+                
+                let detalhes = `👤 ${aluna.nome}\n`;
+                detalhes += `📧 E-mail: ${emailBusca}\n`;
+                detalhes += `📱 WhatsApp: ${aluna.whatsapp || 'Não informado'}\n`;
+                detalhes += `📅 Cadastro: ${aluna.dataCadastro || 'N/A'}\n`;
+                detalhes += `🕐 Último acesso: ${aluna.ultimoAcesso || 'N/A'}\n`;
+                detalhes += `━━━━━━━━━━━━━━━━━━\n`;
+                detalhes += `📚 Aulas compradas: ${dados.aulasCompradas?.length || 0}\n`;
+                detalhes += `✅ Aulas concluídas: ${dados.aulasConcluidas?.length || 0}\n`;
+                
+                if (dados.aulasCompradas?.length > 0) {
+                    detalhes += `📋 Lista: ${dados.aulasCompradas.join(', ')}\n`;
                 }
-            }
-            
-            if (!encontrou) {
+                
+                detalhes += `⭐ Progresso: ${Math.round((dados.aulasConcluidas?.length || 0) / aulas.length * 100)}%`;
+                
+                alert(detalhes);
+            } else {
                 alert('❌ Aluna não encontrada!');
             }
         }
@@ -2090,8 +2076,8 @@
                 
                 // Calcular total de compras
                 let totalCompras = 0;
-                for (let id in alunas) {
-                    let dados = JSON.parse(localStorage.getItem('aluno_' + id)) || {};
+                for (let email in alunas) {
+                    let dados = JSON.parse(localStorage.getItem('aluno_' + email)) || {};
                     totalCompras += dados.aulasCompradas?.length || 0;
                 }
                 document.getElementById('totalCompras').textContent = totalCompras;
@@ -2110,13 +2096,13 @@
             
             let comprasPendentes = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
             
-            let existe = comprasPendentes.some(c => c.idUnico === idUnico && c.aula === nomeAula);
+            let existe = comprasPendentes.some(c => c.email === emailAluno && c.aula === nomeAula);
             
             if (!existe) {
                 comprasPendentes.push({
                     id: Date.now(),
                     aluno: nomeAluno,
-                    idUnico: idUnico,
+                    email: emailAluno,
                     aula: nomeAula,
                     valor: valor,
                     data: new Date().toLocaleString(),
@@ -2195,12 +2181,12 @@
             
             if (!compra) return;
             
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + compra.idUnico)) || {};
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + compra.email)) || {};
             if (!dadosAluno.aulasCompradas) dadosAluno.aulasCompradas = [];
             
             if (!dadosAluno.aulasCompradas.includes(compra.aula)) {
                 dadosAluno.aulasCompradas.push(compra.aula);
-                localStorage.setItem('aluno_' + compra.idUnico, JSON.stringify(dadosAluno));
+                localStorage.setItem('aluno_' + compra.email, JSON.stringify(dadosAluno));
             }
             
             compras = compras.filter(c => c.id !== compraId);
@@ -2243,7 +2229,7 @@
                 `;
                 
                 for (let aula of aulasModulo) {
-                    let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+                    let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
                     let aulasCompradas = dadosAluno.aulasCompradas || [];
                     let temAcesso = isProfessor ? true : (aulasCompradas.includes(aula.nome) || aulasConcluidas.includes(aula.nome));
                     let concluida = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
@@ -2327,9 +2313,9 @@
             if (!aulasConcluidas.includes(nomeAula)) {
                 aulasConcluidas.push(nomeAula);
                 
-                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
                 dadosAluno.aulasConcluidas = aulasConcluidas;
-                localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
+                localStorage.setItem('aluno_' + emailAluno, JSON.stringify(dadosAluno));
                 
                 aulaAtiva.classList.add('completed');
                 aulaAtiva.classList.remove('bloqueada');
@@ -2374,9 +2360,9 @@
             document.getElementById('profileModal').style.display = 'none';
             document.getElementById('userAvatar').innerHTML = avatarAluno;
             
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico)) || {};
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
             dadosAluno.avatar = avatarAluno;
-            localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
+            localStorage.setItem('aluno_' + emailAluno, JSON.stringify(dadosAluno));
         }
         
         // ========== PEDIDOS ==========
@@ -2398,8 +2384,9 @@
                 id: Date.now(),
                 musica: musica,
                 votos: 1,
-                autor: nomeAluno + ' ' + document.getElementById('alunoCpf').value,
-                quemVotou: [idUnico]
+                autor: nomeAluno,
+                email: emailAluno,
+                quemVotou: [emailAluno]
             };
             
             pedidos.push(novoPedido);
@@ -2421,13 +2408,13 @@
             let pedido = pedidos.find(p => p.id === id);
             if (!pedido) return;
             
-            if (pedido.quemVotou.includes(idUnico)) {
+            if (pedido.quemVotou.includes(emailAluno)) {
                 alert('Você já votou neste pedido!');
                 return;
             }
             
             pedido.votos++;
-            pedido.quemVotou.push(idUnico);
+            pedido.quemVotou.push(emailAluno);
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             atualizarPedidos();
         }
@@ -2438,7 +2425,7 @@
             let html = '';
             
             for (let pedido of pedidos) {
-                let jaVotou = !isProfessor && pedido.quemVotou.includes(idUnico);
+                let jaVotou = !isProfessor && pedido.quemVotou.includes(emailAluno);
                 
                 html += `
                     <div class="pedido-item">
@@ -2470,7 +2457,7 @@
         // ========== COMENTÁRIOS ==========
         
         let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [
-            { autor: "Ana Silva 1234", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
+            { autor: "Ana Silva", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
         ];
         
         function atualizarComentarios() {
@@ -2497,7 +2484,7 @@
             let comment = document.getElementById('commentInput').value.trim();
             if (comment === '') return;
             
-            let autor = isProfessor ? 'Professor' : nomeAluno + ' ' + document.getElementById('alunoCpf').value;
+            let autor = isProfessor ? 'Professor' : nomeAluno;
             let avatar = isProfessor ? '👨‍🏫' : avatarAluno;
             
             let novoComentario = {
@@ -2513,31 +2500,22 @@
             document.getElementById('commentInput').value = '';
         }
         
-        // ========== LOGIN DO ALUNO (COM SENHA) ==========
+        // ========== LOGIN DO ALUNO (COM E-MAIL E SENHA) ==========
         
         function loginAluno() {
-            let nome = document.getElementById('alunoNome').value.trim();
-            let cpf = document.getElementById('alunoCpf').value.trim();
-            let senha = document.getElementById('alunoSenha').value;
+            let email = document.getElementById('loginEmail').value.trim();
+            let senha = document.getElementById('loginSenha').value;
             
-            if (nome === '' || cpf === '' || senha === '') {
+            if (email === '' || senha === '') {
                 alert('Preencha todos os campos!');
                 return;
             }
             
-            if (cpf.length !== 4 || isNaN(cpf)) {
-                alert('Digite exatamente 4 números do CPF!');
-                return;
-            }
-            
-            idUnico = nome + '_' + cpf;
-            
-            // VERIFICAR SE A ALUNA EXISTE NO CADASTRO
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + idUnico));
+            // VERIFICAR SE O ALUNO EXISTE NO CADASTRO
+            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + email));
             
             if (!dadosAluno) {
-                alert('❌ Aluna não encontrada! Você precisa se cadastrar primeiro.');
-                mostrarCadastro();
+                alert('❌ Aluno não encontrado! Verifique seu e-mail ou faça cadastro.');
                 return;
             }
             
@@ -2547,22 +2525,22 @@
                 return;
             }
             
-            nomeAluno = nome;
+            nomeAluno = dadosAluno.nome;
+            emailAluno = email;
             aulasConcluidas = dadosAluno.aulasConcluidas || [];
             avatarAluno = dadosAluno.avatar || "👤";
             
             // Salvar no cadastro geral
             let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
-            alunos[idUnico] = {
-                nome: nome,
-                cpf: cpf,
-                email: dadosAluno.email,
+            alunos[email] = {
+                nome: nomeAluno,
                 whatsapp: dadosAluno.whatsapp,
-                ultimoAcesso: new Date().toLocaleString()
+                ultimoAcesso: new Date().toLocaleString(),
+                dataCadastro: dadosAluno.dataCadastro
             };
             localStorage.setItem('alunos', JSON.stringify(alunos));
             
-            document.getElementById('nomeUsuario').textContent = nome;
+            document.getElementById('nomeUsuario').textContent = nomeAluno;
             document.getElementById('userAvatar').innerHTML = avatarAluno;
             
             document.getElementById('alunoLoginScreen').style.display = 'none';
@@ -2572,9 +2550,8 @@
             atualizarProgresso();
             atualizarPedidos();
             atualizarComentarios();
-            if (isProfessor) atualizarResumoAlunas();
             
-            alert(`🎉 Bem-vindo(a), ${nome}!`);
+            alert(`🎉 Bem-vindo(a), ${nomeAluno}!`);
         }
         
         // ========== CADASTRO DE NOVO ALUNO ==========
@@ -2583,12 +2560,11 @@
             let nome = document.getElementById('cadastroNome').value.trim();
             let email = document.getElementById('cadastroEmail').value.trim();
             let whatsapp = document.getElementById('cadastroWhatsapp').value.trim();
-            let cpf = document.getElementById('cadastroCpf').value.trim();
             let senha = document.getElementById('cadastroSenha').value;
             let confirmarSenha = document.getElementById('cadastroConfirmarSenha').value;
             let termos = document.getElementById('termos').checked;
             
-            if (nome === '' || email === '' || whatsapp === '' || cpf === '' || senha === '') {
+            if (nome === '' || email === '' || whatsapp === '' || senha === '') {
                 alert('Preencha todos os campos!');
                 return;
             }
@@ -2608,20 +2584,9 @@
                 return;
             }
             
-            // Validar CPF (apenas números)
-            cpf = cpf.replace(/\D/g, '');
-            if (cpf.length !== 11) {
-                alert('CPF deve ter 11 dígitos!');
-                return;
-            }
-            
-            // Gerar ID único (nome + 4 últimos dígitos do CPF)
-            let ultimos4 = cpf.substring(cpf.length - 4);
-            idUnico = nome + '_' + ultimos4;
-            
             // Verificar se já existe
-            if (localStorage.getItem('aluno_' + idUnico)) {
-                alert('Já existe uma conta com esses dados! Faça login.');
+            if (localStorage.getItem('aluno_' + email)) {
+                alert('Já existe uma conta com este e-mail! Faça login.');
                 mostrarLogin();
                 return;
             }
@@ -2629,7 +2594,6 @@
             // Criar novo aluno
             let dadosAluno = {
                 nome: nome,
-                cpf: cpf,
                 email: email,
                 whatsapp: whatsapp,
                 senha: senha,
@@ -2639,14 +2603,12 @@
                 dataCadastro: new Date().toLocaleString()
             };
             
-            localStorage.setItem('aluno_' + idUnico, JSON.stringify(dadosAluno));
+            localStorage.setItem('aluno_' + email, JSON.stringify(dadosAluno));
             
             // Salvar no cadastro geral
             let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
-            alunos[idUnico] = {
+            alunos[email] = {
                 nome: nome,
-                cpf: cpf,
-                email: email,
                 whatsapp: whatsapp,
                 dataCadastro: new Date().toLocaleString()
             };
@@ -2658,15 +2620,13 @@
             document.getElementById('cadastroNome').value = '';
             document.getElementById('cadastroEmail').value = '';
             document.getElementById('cadastroWhatsapp').value = '';
-            document.getElementById('cadastroCpf').value = '';
             document.getElementById('cadastroSenha').value = '';
             document.getElementById('cadastroConfirmarSenha').value = '';
             document.getElementById('termos').checked = false;
             
             // Preencher automaticamente os campos de login
-            document.getElementById('alunoNome').value = nome;
-            document.getElementById('alunoCpf').value = ultimos4;
-            document.getElementById('alunoSenha').value = '';
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginSenha').value = '';
             
             mostrarLogin();
         }
@@ -2684,7 +2644,7 @@
                 document.getElementById('nomeUsuario').textContent = "Professor";
                 document.getElementById('userAvatar').innerHTML = "👨‍🏫";
                 
-                document.getElementById('adminPanel').classList.remove('hidden');
+                document.getElementById('adminPanel').classList.add('visible');
                 
                 carregarModulosSelect();
                 carregarModulos();
