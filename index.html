@@ -457,7 +457,7 @@
             padding-bottom: 10px;
         }
         
-        /* CARD DO PROFESSOR */
+        /* CARD DO PROFESSOR ROBSON CORREIA */
         .professor-card {
             background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
             border-radius: 15px;
@@ -583,6 +583,7 @@
         .professor-modal-content h2 {
             color: #ff0000;
             margin-bottom: 10px;
+            font-size: 28px;
         }
         
         .professor-modal-content .subtitle {
@@ -599,6 +600,7 @@
         
         .professor-modal-content .info-list p {
             margin-bottom: 10px;
+            font-size: 16px;
         }
         
         .professor-modal-content .social-buttons {
@@ -1285,21 +1287,25 @@
     </style>
 </head>
 <body>
-    <!-- BOTÕES WHATSAPP E INSTAGRAM FLUTUANTES COM AS NOVAS IMAGENS DO DRIVE -->
+    <!-- BOTÕES WHATSAPP E INSTAGRAM FLUTUANTES -->
     <div style="position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999;">
         
-        <!-- BOTÃO WHATSAPP (IMAGEM DO DRIVE) -->
+        <!-- BOTÃO WHATSAPP COM LOGO OFICIAL -->
         <a href="https://wa.me/5581996183625?text=Olá! Gostaria do meu código da aula" 
            target="_blank" 
            style="background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); transition: all 0.3s; text-decoration: none;">
-            <img src="https://drive.google.com/thumbnail?id=1ygQiR4pcp1GX9klK1VXa5E3iwX8fCv_O&sz=w1000" alt="WhatsApp" style="width: 45px; height: 45px; object-fit: contain;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
+                <path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.2-99.6 224.2-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54.5-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/>
+            </svg>
         </a>
         
-        <!-- BOTÃO INSTAGRAM (IMAGEM DO DRIVE) -->
+        <!-- BOTÃO INSTAGRAM COM LOGO OFICIAL -->
         <a href="https://instagram.com/robdanceclass" 
            target="_blank" 
            style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(225, 48, 108, 0.5); transition: all 0.3s; text-decoration: none;">
-            <img src="https://drive.google.com/thumbnail?id=1EG7777O9LuWxGjSKhWDHJRP3nT3PlJpa&sz=w1000" alt="Instagram" style="width: 45px; height: 45px; object-fit: contain;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
+                <path fill="white" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+            </svg>
         </a>
     </div>
     
@@ -1405,6 +1411,7 @@
         <div class="professor-modal-content">
             <button class="close" onclick="fecharModalProfessor()">&times;</button>
             
+            <!-- FOTO DO PROFESSOR ROBSON CORREIA -->
             <img src="https://drive.google.com/thumbnail?id=1yPXTBg-mPXSOZTKaoAXgsrBTq2OZMSVv&sz=w1000" alt="Professor Robson Correia">
             
             <h2>Professor Robson Correia</h2>
@@ -1414,6 +1421,7 @@
                 <p>✓ <strong>10 anos</strong> de experiência em K-pop</p>
                 <p>✓ <strong>+50 aulas</strong> coreografadas</p>
                 <p>✓ Graduando em Dança - UFPE</p>
+                <p>✓ Mais de <strong>15 anos</strong> de dança</p>
                 <p>✓ Oficinas de Frevo, Vogue e Contemporâneo</p>
             </div>
             
@@ -1454,7 +1462,7 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     
-                    <!-- CARD DO PROFESSOR - VISÍVEL PARA TODAS -->
+                    <!-- CARD DO PROFESSOR ROBSON CORREIA -->
                     <div class="professor-card">
                         <div style="position: relative; display: inline-block;">
                             <img src="https://drive.google.com/thumbnail?id=1yPXTBg-mPXSOZTKaoAXgsrBTq2OZMSVv&sz=w1000" alt="Professor Robson Correia">
@@ -1506,14 +1514,14 @@
                         <div class="admin-panel">
                             <h3>⚙️ PAINEL DO PROFESSOR</h3>
                             
-                            <!-- SEÇÃO 1: ADICIONAR MÓDULO -->
+                            <!-- SEÇÃO 0: ADICIONAR MÓDULO (NOVO) -->
                             <div class="admin-subtitle">📁 0. ADICIONAR NOVO MÓDULO</div>
                             <div class="admin-form">
                                 <input type="text" id="novoModuloNome" placeholder="Nome do módulo (ex: NEWJEANS)">
                                 <button onclick="adicionarModulo()">ADICIONAR MÓDULO</button>
                             </div>
                             
-                            <!-- SEÇÃO 2: LINK DO VÍDEO -->
+                            <!-- SEÇÃO 1: LINK DO VÍDEO -->
                             <div class="admin-subtitle">📹 1. ADICIONAR VÍDEO DA AULA</div>
                             <div class="admin-form">
                                 <select id="moduloSelectVideo">
@@ -1526,7 +1534,7 @@
                                 <button onclick="adicionarLinkVideo()">SALVAR VÍDEO DA AULA</button>
                             </div>
                             
-                            <!-- SEÇÃO 3: LINK DE PAGAMENTO -->
+                            <!-- SEÇÃO 2: LINK DE PAGAMENTO -->
                             <div class="admin-subtitle">💰 2. ADICIONAR LINK DE PAGAMENTO</div>
                             <div class="admin-form">
                                 <select id="moduloSelectPagamento">
@@ -1540,13 +1548,13 @@
                                 <button onclick="adicionarLinkPagamento()">SALVAR LINK DE PAGAMENTO</button>
                             </div>
                             
-                            <!-- SEÇÃO 4: COMPRAS PENDENTES -->
+                            <!-- SEÇÃO 3: COMPRAS PENDENTES -->
                             <div class="pendentes-section">
                                 <h3>⏳ COMPRAS PENDENTES</h3>
                                 <div id="pendentesList"></div>
                             </div>
                             
-                            <!-- SEÇÃO 5: ALUNAS CADASTRADAS -->
+                            <!-- SEÇÃO 4: ALUNAS CADASTRADAS -->
                             <div class="alunas-section">
                                 <h3>👥 ALUNAS CADASTRADAS</h3>
                                 
