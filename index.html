@@ -1287,6 +1287,48 @@
         }
         
         .hidden { display: none; }
+        
+        /* Código de Acesso */
+        .codigo-acesso {
+            background: #000;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .codigo-acesso p {
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .codigo-valor {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff0000;
+            letter-spacing: 5px;
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        
+        .copiar-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .copiar-btn:hover {
+            background: #ff0000;
+        }
     </style>
 </head>
 <body>
@@ -1332,14 +1374,13 @@
             <!-- TÍTULO ENTRAR -->
             <h3>ENTRAR</h3>
             
-            <!-- Formulário de Login -->
+            <!-- Formulário de Login por Código -->
             <div class="login-form" id="formLogin">
                 <div class="aviso-login">
-                    <i>🔐</i> <strong>Faça login com seu e-mail e senha</strong>
+                    <i>🔐</i> <strong>Use seu código de acesso</strong> (você recebeu no cadastro)
                 </div>
                 
-                <input type="email" id="loginEmail" placeholder="Seu e-mail">
-                <input type="password" id="loginSenha" placeholder="Sua senha">
+                <input type="text" id="loginCodigo" placeholder="Digite seu código de acesso" maxlength="8">
                 
                 <button onclick="loginAluno()">ENTRAR</button>
                 <p style="color: #888; margin: 15px 0;">ou</p>
@@ -1404,6 +1445,23 @@
             </div>
             
             <button class="btn btn-primary" style="margin-top: 20px;" onclick="salvarPerfil()">SALVAR PERFIL</button>
+        </div>
+    </div>
+    
+    <!-- MODAL COM CÓDIGO DE ACESSO -->
+    <div class="professor-modal" id="codigoModal">
+        <div class="professor-modal-content">
+            <button class="close" onclick="fecharCodigoModal()">&times;</button>
+            
+            <h2 style="color: #ff0000;">🔑 SEU CÓDIGO DE ACESSO</h2>
+            
+            <div class="codigo-acesso">
+                <p>Guarde este código! Use-o para acessar sua conta em qualquer dispositivo:</p>
+                <div class="codigo-valor" id="codigoGerado">ABC123</div>
+                <button class="copiar-btn" onclick="copiarCodigo()">📋 COPIAR CÓDIGO</button>
+            </div>
+            
+            <p style="color: #888; margin-top: 20px;">Com este código você pode acessar sua conta de qualquer lugar!</p>
         </div>
     </div>
     
@@ -1625,6 +1683,9 @@
         // NÚMERO DO WHATSAPP
         const WHATSAPP_NUMERO = "5581996183625";
         
+        // BANCO DE DADOS DE ALUNOS (por código)
+        let alunosDB = JSON.parse(localStorage.getItem('alunosDB')) || {};
+        
         // MÓDULOS
         let modulos = JSON.parse(localStorage.getItem('modulos')) || [
             { id: 1, nome: "BLACKPINK" },
@@ -1647,18 +1708,13 @@
         
         // PEDIDOS
         let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [
-            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva 1234", quemVotou: ["maria_5678"] }
+            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva", codigo: "ABC123", quemVotou: [] }
         ];
-        
-        // CADASTRO DE ALUNOS (por email)
-        let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
         
         // Variáveis de controle
         let isProfessor = false;
-        let nomeAluno = "";
-        let emailAluno = "";
-        let aulasConcluidas = [];
-        let avatarAluno = "👤";
+        let alunoAtual = null;
+        let codigoAtual = "";
         
         // ========== FUNÇÕES DE ESCOLHA ==========
         
@@ -1676,8 +1732,7 @@
             document.getElementById('alunoLoginScreen').style.display = 'none';
             document.getElementById('professorLoginScreen').style.display = 'none';
             document.getElementById('choiceScreen').style.display = 'flex';
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginSenha').value = '';
+            document.getElementById('loginCodigo').value = '';
             document.getElementById('professorSenha').value = '';
         }
         
@@ -1710,13 +1765,11 @@
         function fazerLogout() {
             if (confirm('Deseja sair da sua conta?')) {
                 isProfessor = false;
-                nomeAluno = "";
-                emailAluno = "";
-                aulasConcluidas = [];
+                alunoAtual = null;
+                codigoAtual = "";
                 document.getElementById('mainContent').style.display = 'none';
                 document.getElementById('choiceScreen').style.display = 'flex';
-                document.getElementById('loginEmail').value = '';
-                document.getElementById('loginSenha').value = '';
+                document.getElementById('loginCodigo').value = '';
                 document.getElementById('professorSenha').value = '';
                 document.getElementById('adminPanel').classList.remove('visible');
             }
@@ -1730,6 +1783,24 @@
         
         function fecharModalProfessor() {
             document.getElementById('professorModal').style.display = 'none';
+        }
+        
+        function mostrarCodigoModal(codigo) {
+            document.getElementById('codigoGerado').textContent = codigo;
+            document.getElementById('codigoModal').style.display = 'flex';
+        }
+        
+        function fecharCodigoModal() {
+            document.getElementById('codigoModal').style.display = 'none';
+        }
+        
+        function copiarCodigo() {
+            let codigo = document.getElementById('codigoGerado').textContent;
+            navigator.clipboard.writeText(codigo).then(() => {
+                alert('✅ Código copiado! Guarde-o em um lugar seguro.');
+            }).catch(() => {
+                alert('❌ Erro ao copiar. Selecione e copie manualmente.');
+            });
         }
         
         // ========== FUNÇÕES DE MÓDULOS ==========
@@ -1987,9 +2058,7 @@
                 return;
             }
             
-            let alunas = JSON.parse(localStorage.getItem('alunos')) || {};
-            
-            if (Object.keys(alunas).length === 0) {
+            if (Object.keys(alunosDB).length === 0) {
                 alert('📭 Nenhuma aluna cadastrada ainda.');
                 return;
             }
@@ -1997,21 +2066,21 @@
             let mensagem = "👥 ALUNAS CADASTRADAS:\n\n";
             let totalCompras = 0;
             
-            for (let email in alunas) {
-                let aluna = alunas[email];
-                let dados = JSON.parse(localStorage.getItem('aluno_' + email)) || {};
-                let compras = dados.aulasCompradas?.length || 0;
+            for (let codigo in alunosDB) {
+                let aluna = alunosDB[codigo];
+                let compras = aluna.aulasCompradas?.length || 0;
                 totalCompras += compras;
                 
                 mensagem += `👤 ${aluna.nome}\n`;
-                mensagem += `   📧 ${email}\n`;
+                mensagem += `   📧 ${aluna.email || 'Não informado'}\n`;
                 mensagem += `   📱 ${aluna.whatsapp || 'Não informado'}\n`;
-                mensagem += `   📚 Aulas: ${compras} compradas | ${dados.aulasConcluidas?.length || 0} concluídas\n`;
-                mensagem += `   📅 Último acesso: ${aluna.ultimoAcesso || 'Nunca'}\n`;
+                mensagem += `   🔑 Código: ${codigo}\n`;
+                mensagem += `   📚 Aulas: ${compras} compradas | ${aluna.aulasConcluidas?.length || 0} concluídas\n`;
+                mensagem += `   📅 Cadastro: ${aluna.dataCadastro || 'Nunca'}\n`;
                 mensagem += `━━━━━━━━━━━━━━━━━━\n\n`;
             }
             
-            mensagem += `📊 TOTAL: ${Object.keys(alunas).length} alunas | ${totalCompras} aulas compradas`;
+            mensagem += `📊 TOTAL: ${Object.keys(alunosDB).length} alunas | ${totalCompras} aulas compradas`;
             
             alert(mensagem);
         }
@@ -2022,35 +2091,31 @@
                 return;
             }
             
-            let alunas = JSON.parse(localStorage.getItem('alunos')) || {};
-            
-            if (Object.keys(alunas).length === 0) {
+            if (Object.keys(alunosDB).length === 0) {
                 alert('📭 Nenhuma aluna cadastrada ainda.');
                 return;
             }
             
-            let emailBusca = prompt('Digite o e-mail da aluna:');
-            if (!emailBusca) return;
+            let codigoBusca = prompt('Digite o código de acesso da aluna:');
+            if (!codigoBusca) return;
             
-            let aluna = alunas[emailBusca];
+            let aluna = alunosDB[codigoBusca];
             
             if (aluna) {
-                let dados = JSON.parse(localStorage.getItem('aluno_' + emailBusca)) || {};
-                
                 let detalhes = `👤 ${aluna.nome}\n`;
-                detalhes += `📧 E-mail: ${emailBusca}\n`;
+                detalhes += `📧 E-mail: ${aluna.email || 'Não informado'}\n`;
                 detalhes += `📱 WhatsApp: ${aluna.whatsapp || 'Não informado'}\n`;
+                detalhes += `🔑 Código: ${codigoBusca}\n`;
                 detalhes += `📅 Cadastro: ${aluna.dataCadastro || 'N/A'}\n`;
-                detalhes += `🕐 Último acesso: ${aluna.ultimoAcesso || 'N/A'}\n`;
                 detalhes += `━━━━━━━━━━━━━━━━━━\n`;
-                detalhes += `📚 Aulas compradas: ${dados.aulasCompradas?.length || 0}\n`;
-                detalhes += `✅ Aulas concluídas: ${dados.aulasConcluidas?.length || 0}\n`;
+                detalhes += `📚 Aulas compradas: ${aluna.aulasCompradas?.length || 0}\n`;
+                detalhes += `✅ Aulas concluídas: ${aluna.aulasConcluidas?.length || 0}\n`;
                 
-                if (dados.aulasCompradas?.length > 0) {
-                    detalhes += `📋 Lista: ${dados.aulasCompradas.join(', ')}\n`;
+                if (aluna.aulasCompradas?.length > 0) {
+                    detalhes += `📋 Lista: ${aluna.aulasCompradas.join(', ')}\n`;
                 }
                 
-                detalhes += `⭐ Progresso: ${Math.round((dados.aulasConcluidas?.length || 0) / aulas.length * 100)}%`;
+                detalhes += `⭐ Progresso: ${Math.round((aluna.aulasConcluidas?.length || 0) / aulas.length * 100)}%`;
                 
                 alert(detalhes);
             } else {
@@ -2061,14 +2126,13 @@
         function atualizarResumoAlunas() {
             if (!isProfessor) return;
             
-            let alunas = JSON.parse(localStorage.getItem('alunos')) || {};
-            let total = Object.keys(alunas).length;
+            let total = Object.keys(alunosDB).length;
             
             document.getElementById('totalAlunas').textContent = total;
             
             if (total > 0) {
                 // Pegar último cadastro
-                let valores = Object.values(alunas);
+                let valores = Object.values(alunosDB);
                 let ultima = valores.sort((a, b) => {
                     return new Date(b.dataCadastro) - new Date(a.dataCadastro);
                 })[0];
@@ -2076,9 +2140,8 @@
                 
                 // Calcular total de compras
                 let totalCompras = 0;
-                for (let email in alunas) {
-                    let dados = JSON.parse(localStorage.getItem('aluno_' + email)) || {};
-                    totalCompras += dados.aulasCompradas?.length || 0;
+                for (let codigo in alunosDB) {
+                    totalCompras += alunosDB[codigo].aulasCompradas?.length || 0;
                 }
                 document.getElementById('totalCompras').textContent = totalCompras;
             }
@@ -2096,13 +2159,13 @@
             
             let comprasPendentes = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
             
-            let existe = comprasPendentes.some(c => c.email === emailAluno && c.aula === nomeAula);
+            let existe = comprasPendentes.some(c => c.codigo === codigoAtual && c.aula === nomeAula);
             
             if (!existe) {
                 comprasPendentes.push({
                     id: Date.now(),
-                    aluno: nomeAluno,
-                    email: emailAluno,
+                    aluno: alunoAtual.nome,
+                    codigo: codigoAtual,
                     aula: nomeAula,
                     valor: valor,
                     data: new Date().toLocaleString(),
@@ -2181,26 +2244,19 @@
             
             if (!compra) return;
             
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + compra.email)) || {};
-            if (!dadosAluno.aulasCompradas) dadosAluno.aulasCompradas = [];
+            let aluno = alunosDB[compra.codigo];
+            if (!aluno) return;
             
-            if (!dadosAluno.aulasCompradas.includes(compra.aula)) {
-                dadosAluno.aulasCompradas.push(compra.aula);
-                localStorage.setItem('aluno_' + compra.email, JSON.stringify(dadosAluno));
+            if (!aluno.aulasCompradas) aluno.aulasCompradas = [];
+            
+            if (!aluno.aulasCompradas.includes(compra.aula)) {
+                aluno.aulasCompradas.push(compra.aula);
+                alunosDB[compra.codigo] = aluno;
+                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
             }
             
             compras = compras.filter(c => c.id !== compraId);
             localStorage.setItem('comprasPendentes', JSON.stringify(compras));
-            
-            let historico = JSON.parse(localStorage.getItem('historicoCompras')) || [];
-            historico.push({
-                aluna: compra.aluno,
-                aula: compra.aula,
-                valor: compra.valor,
-                data: new Date().toLocaleString(),
-                liberadoPor: 'Professor'
-            });
-            localStorage.setItem('historicoCompras', JSON.stringify(historico));
             
             atualizarComprasPendentes();
             atualizarResumoAlunas();
@@ -2229,10 +2285,8 @@
                 `;
                 
                 for (let aula of aulasModulo) {
-                    let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
-                    let aulasCompradas = dadosAluno.aulasCompradas || [];
-                    let temAcesso = isProfessor ? true : (aulasCompradas.includes(aula.nome) || aulasConcluidas.includes(aula.nome));
-                    let concluida = aulasConcluidas.includes(aula.nome) ? 'completed' : '';
+                    let temAcesso = isProfessor ? true : (alunoAtual?.aulasCompradas?.includes(aula.nome) || alunoAtual?.aulasConcluidas?.includes(aula.nome));
+                    let concluida = alunoAtual?.aulasConcluidas?.includes(aula.nome) ? 'completed' : '';
                     let temPagamento = aula.linkPagamento && aula.valor;
                     
                     html += `
@@ -2310,12 +2364,12 @@
             
             let nomeAula = aulaAtiva.querySelector('span').textContent.replace('🎵 ', '');
             
-            if (!aulasConcluidas.includes(nomeAula)) {
-                aulasConcluidas.push(nomeAula);
+            if (!alunoAtual.aulasConcluidas.includes(nomeAula)) {
+                alunoAtual.aulasConcluidas.push(nomeAula);
                 
-                let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
-                dadosAluno.aulasConcluidas = aulasConcluidas;
-                localStorage.setItem('aluno_' + emailAluno, JSON.stringify(dadosAluno));
+                // Atualizar no banco de dados
+                alunosDB[codigoAtual] = alunoAtual;
+                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
                 
                 aulaAtiva.classList.add('completed');
                 aulaAtiva.classList.remove('bloqueada');
@@ -2327,7 +2381,7 @@
         
         function atualizarProgresso() {
             let totalAulas = document.querySelectorAll('.aula-item').length;
-            let percentual = Math.round((aulasConcluidas.length / totalAulas) * 100) || 0;
+            let percentual = Math.round((alunoAtual?.aulasConcluidas?.length || 0) / totalAulas * 100) || 0;
             document.getElementById('progressFill').style.width = percentual + '%';
             document.getElementById('progressPercent').textContent = percentual + '%';
         }
@@ -2353,16 +2407,22 @@
         
         function escolherEmoji(emoji) {
             document.getElementById('avatarPreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E" + emoji + "%3C/text%3E%3C/svg%3E";
-            avatarAluno = emoji;
+            if (alunoAtual) {
+                alunoAtual.avatar = emoji;
+                alunosDB[codigoAtual] = alunoAtual;
+                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+            }
+            document.getElementById('userAvatar').innerHTML = emoji;
         }
         
         function salvarPerfil() {
             document.getElementById('profileModal').style.display = 'none';
-            document.getElementById('userAvatar').innerHTML = avatarAluno;
-            
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + emailAluno)) || {};
-            dadosAluno.avatar = avatarAluno;
-            localStorage.setItem('aluno_' + emailAluno, JSON.stringify(dadosAluno));
+            if (alunoAtual) {
+                alunoAtual.avatar = document.getElementById('avatarPreview').src;
+                alunosDB[codigoAtual] = alunoAtual;
+                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+                document.getElementById('userAvatar').innerHTML = '<img src="' + alunoAtual.avatar + '">';
+            }
         }
         
         // ========== PEDIDOS ==========
@@ -2384,9 +2444,9 @@
                 id: Date.now(),
                 musica: musica,
                 votos: 1,
-                autor: nomeAluno,
-                email: emailAluno,
-                quemVotou: [emailAluno]
+                autor: alunoAtual.nome,
+                codigo: codigoAtual,
+                quemVotou: [codigoAtual]
             };
             
             pedidos.push(novoPedido);
@@ -2408,13 +2468,13 @@
             let pedido = pedidos.find(p => p.id === id);
             if (!pedido) return;
             
-            if (pedido.quemVotou.includes(emailAluno)) {
+            if (pedido.quemVotou.includes(codigoAtual)) {
                 alert('Você já votou neste pedido!');
                 return;
             }
             
             pedido.votos++;
-            pedido.quemVotou.push(emailAluno);
+            pedido.quemVotou.push(codigoAtual);
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             atualizarPedidos();
         }
@@ -2425,7 +2485,7 @@
             let html = '';
             
             for (let pedido of pedidos) {
-                let jaVotou = !isProfessor && pedido.quemVotou.includes(emailAluno);
+                let jaVotou = !isProfessor && pedido.quemVotou.includes(codigoAtual);
                 
                 html += `
                     <div class="pedido-item">
@@ -2476,7 +2536,7 @@
         }
         
         function enviarComentario() {
-            if (!nomeAluno && !isProfessor) {
+            if (!alunoAtual && !isProfessor) {
                 alert('Faça login primeiro!');
                 return;
             }
@@ -2484,8 +2544,8 @@
             let comment = document.getElementById('commentInput').value.trim();
             if (comment === '') return;
             
-            let autor = isProfessor ? 'Professor' : nomeAluno;
-            let avatar = isProfessor ? '👨‍🏫' : avatarAluno;
+            let autor = isProfessor ? 'Professor' : alunoAtual.nome;
+            let avatar = isProfessor ? '👨‍🏫' : (alunoAtual.avatar || '👤');
             
             let novoComentario = {
                 autor: autor,
@@ -2500,48 +2560,29 @@
             document.getElementById('commentInput').value = '';
         }
         
-        // ========== LOGIN DO ALUNO (COM E-MAIL E SENHA) ==========
+        // ========== LOGIN DO ALUNO (POR CÓDIGO) ==========
         
         function loginAluno() {
-            let email = document.getElementById('loginEmail').value.trim();
-            let senha = document.getElementById('loginSenha').value;
+            let codigo = document.getElementById('loginCodigo').value.trim().toUpperCase();
             
-            if (email === '' || senha === '') {
-                alert('Preencha todos os campos!');
+            if (codigo === '') {
+                alert('Digite seu código de acesso!');
                 return;
             }
             
-            // VERIFICAR SE O ALUNO EXISTE NO CADASTRO
-            let dadosAluno = JSON.parse(localStorage.getItem('aluno_' + email));
+            // VERIFICAR SE O ALUNO EXISTE NO BANCO DE DADOS
+            let aluno = alunosDB[codigo];
             
-            if (!dadosAluno) {
-                alert('❌ Aluno não encontrado! Verifique seu e-mail ou faça cadastro.');
+            if (!aluno) {
+                alert('❌ Código inválido! Verifique se digitou corretamente.');
                 return;
             }
             
-            // VERIFICAR SENHA
-            if (dadosAluno.senha !== senha) {
-                alert('❌ Senha incorreta!');
-                return;
-            }
+            alunoAtual = aluno;
+            codigoAtual = codigo;
             
-            nomeAluno = dadosAluno.nome;
-            emailAluno = email;
-            aulasConcluidas = dadosAluno.aulasConcluidas || [];
-            avatarAluno = dadosAluno.avatar || "👤";
-            
-            // Salvar no cadastro geral
-            let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
-            alunos[email] = {
-                nome: nomeAluno,
-                whatsapp: dadosAluno.whatsapp,
-                ultimoAcesso: new Date().toLocaleString(),
-                dataCadastro: dadosAluno.dataCadastro
-            };
-            localStorage.setItem('alunos', JSON.stringify(alunos));
-            
-            document.getElementById('nomeUsuario').textContent = nomeAluno;
-            document.getElementById('userAvatar').innerHTML = avatarAluno;
+            document.getElementById('nomeUsuario').textContent = alunoAtual.nome;
+            document.getElementById('userAvatar').innerHTML = alunoAtual.avatar || '👤';
             
             document.getElementById('alunoLoginScreen').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
@@ -2551,10 +2592,19 @@
             atualizarPedidos();
             atualizarComentarios();
             
-            alert(`🎉 Bem-vindo(a), ${nomeAluno}!`);
+            alert(`🎉 Bem-vindo(a), ${alunoAtual.nome}!`);
         }
         
         // ========== CADASTRO DE NOVO ALUNO ==========
+        
+        function gerarCodigoUnico() {
+            let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let codigo = '';
+            for (let i = 0; i < 8; i++) {
+                codigo += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+            }
+            return codigo;
+        }
         
         function cadastrarAluno() {
             let nome = document.getElementById('cadastroNome').value.trim();
@@ -2584,15 +2634,14 @@
                 return;
             }
             
-            // Verificar se já existe
-            if (localStorage.getItem('aluno_' + email)) {
-                alert('Já existe uma conta com este e-mail! Faça login.');
-                mostrarLogin();
-                return;
-            }
+            // Gerar código único
+            let codigo;
+            do {
+                codigo = gerarCodigoUnico();
+            } while (alunosDB[codigo]);
             
             // Criar novo aluno
-            let dadosAluno = {
+            let novoAluno = {
                 nome: nome,
                 email: email,
                 whatsapp: whatsapp,
@@ -2603,20 +2652,15 @@
                 dataCadastro: new Date().toLocaleString()
             };
             
-            localStorage.setItem('aluno_' + email, JSON.stringify(dadosAluno));
+            alunosDB[codigo] = novoAluno;
+            localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
             
-            // Salvar no cadastro geral
-            let alunos = JSON.parse(localStorage.getItem('alunos')) || {};
-            alunos[email] = {
-                nome: nome,
-                whatsapp: whatsapp,
-                dataCadastro: new Date().toLocaleString()
-            };
-            localStorage.setItem('alunos', JSON.stringify(alunos));
+            alert('✅ Conta criada com sucesso!');
             
-            alert('✅ Conta criada com sucesso! Agora você pode fazer login.');
+            // Mostrar código de acesso
+            mostrarCodigoModal(codigo);
             
-            // Limpar campos e mostrar login
+            // Limpar campos
             document.getElementById('cadastroNome').value = '';
             document.getElementById('cadastroEmail').value = '';
             document.getElementById('cadastroWhatsapp').value = '';
@@ -2624,9 +2668,8 @@
             document.getElementById('cadastroConfirmarSenha').value = '';
             document.getElementById('termos').checked = false;
             
-            // Preencher automaticamente os campos de login
-            document.getElementById('loginEmail').value = email;
-            document.getElementById('loginSenha').value = '';
+            // Preencher código no login
+            document.getElementById('loginCodigo').value = codigo;
             
             mostrarLogin();
         }
