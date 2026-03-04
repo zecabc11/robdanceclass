@@ -20,7 +20,6 @@
             position: relative;
         }
         
-        /* AJUSTES RESPONSIVOS */
         @media (max-width: 768px) {
             body { padding: 8px; }
             h1 { font-size: 28px !important; }
@@ -50,7 +49,6 @@
             border: 2px solid #ff0000;
         }
         
-        /* TELA DE ESCOLHA INICIAL */
         .choice-screen {
             position: fixed;
             top: 0;
@@ -127,7 +125,6 @@
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
         }
         
-        /* TELA DE CADASTRO/LOGIN DO ALUNO(A) */
         .aluno-login-screen {
             position: fixed;
             top: 0;
@@ -162,7 +159,6 @@
         
         .aluno-login-box h2 span { color: white; }
         
-        /* TÍTULO ENTRAR */
         .aluno-login-box h3 {
             color: #ff0000;
             margin-bottom: 20px;
@@ -225,7 +221,6 @@
         .login-form { display: block; }
         .login-form.hidden { display: none; }
         
-        /* TELA DE LOGIN DO PROFESSOR */
         .professor-login-screen {
             position: fixed;
             top: 0;
@@ -288,7 +283,6 @@
             transform: scale(1.02);
         }
         
-        /* Header */
         header {
             background: #000000;
             color: white;
@@ -392,7 +386,6 @@
         
         .avatar-upload input { display: none; }
         
-        /* Navegação por abas */
         .tabs-container {
             display: flex;
             background: #000;
@@ -424,14 +417,12 @@
         
         .tab-content.active { display: block; }
         
-        /* Main layout */
         .main-content {
             display: flex;
             min-height: 600px;
             flex-wrap: wrap;
         }
         
-        /* Sidebar */
         .sidebar {
             width: 320px;
             background: #000000;
@@ -457,7 +448,6 @@
             padding-bottom: 10px;
         }
         
-        /* CARD DO PROFESSOR ROBSON CORREIA */
         .professor-card {
             background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
             border-radius: 15px;
@@ -535,7 +525,6 @@
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
         }
         
-        /* MODAL SOBRE O PROFESSOR */
         .professor-modal {
             display: none;
             position: fixed;
@@ -774,7 +763,6 @@
             transform: scale(1.05);
         }
         
-        /* Video area */
         .video-section {
             flex: 1;
             background: #f5f5f5;
@@ -872,7 +860,6 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
         
-        /* Admin Panel - SÓ PROFESSOR */
         .admin-panel {
             background: #1a1a1a;
             border-radius: 15px;
@@ -985,7 +972,6 @@
             margin-left: 10px;
         }
         
-        /* Seção de Compras Pendentes - SÓ PROFESSOR */
         .pendentes-section {
             background: #1a1a1a;
             border-radius: 15px;
@@ -1010,7 +996,6 @@
             position: relative;
         }
         
-        /* Seção de Alunas - SÓ PROFESSOR */
         .alunas-section {
             background: #1a1a1a;
             border-radius: 15px;
@@ -1050,7 +1035,6 @@
             font-weight: bold;
         }
         
-        /* Modal de Perfil */
         .profile-modal {
             position: fixed;
             top: 0;
@@ -1105,7 +1089,6 @@
             transform: scale(1.1);
         }
         
-        /* Seção de Pedidos */
         .pedidos-section {
             background: white;
             border-radius: 15px;
@@ -1210,7 +1193,6 @@
         
         .votar-btn.votado:hover { transform: none; }
         
-        /* Comentários */
         .comments-section {
             margin-top: 30px;
             background: white;
@@ -1288,7 +1270,6 @@
         
         .hidden { display: none; }
         
-        /* Código de Acesso */
         .codigo-acesso {
             background: #000;
             border: 2px solid #ff0000;
@@ -1329,28 +1310,31 @@
         .copiar-btn:hover {
             background: #ff0000;
         }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ff0000;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <!-- BOTÕES WHATSAPP E INSTAGRAM FLUTUANTES -->
     <div style="position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999;">
-        
-        <!-- BOTÃO WHATSAPP -->
-        <a href="https://wa.me/5581996183625?text=Olá! Gostaria do meu código da aula" 
-           target="_blank" 
-           style="background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); transition: all 0.3s; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
-                <path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.2-99.6 224.2-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54.5-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/>
-            </svg>
+        <a href="https://wa.me/5581996183625?text=Olá! Gostaria do meu código da aula" target="_blank" style="background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); transition: all 0.3s; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512"><path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.2-99.6 224.2-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54.5-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg>
         </a>
-        
-        <!-- BOTÃO INSTAGRAM -->
-        <a href="https://instagram.com/robdanceclass" 
-           target="_blank" 
-           style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(225, 48, 108, 0.5); transition: all 0.3s; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
-                <path fill="white" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-            </svg>
+        <a href="https://instagram.com/robdanceclass" target="_blank" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(225, 48, 108, 0.5); transition: all 0.3s; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512"><path fill="white" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
         </a>
     </div>
     
@@ -1370,8 +1354,6 @@
     <div class="aluno-login-screen" id="alunoLoginScreen">
         <div class="aluno-login-box">
             <h2><span>ROB</span> DANCE</h2>
-            
-            <!-- TÍTULO ENTRAR -->
             <h3>ENTRAR</h3>
             
             <!-- Formulário de Login por Código -->
@@ -1379,10 +1361,8 @@
                 <div class="aviso-login">
                     <i>🔐</i> <strong>Use seu código de acesso</strong> (você recebeu no cadastro)
                 </div>
-                
-                <input type="text" id="loginCodigo" placeholder="Digite seu código de acesso" maxlength="8">
-                
-                <button onclick="loginAluno()">ENTRAR</button>
+                <input type="text" id="loginCodigo" placeholder="Digite seu código de acesso" maxlength="6" style="text-transform: uppercase;">
+                <button onclick="loginAluno()" id="loginBtn">ENTRAR</button>
                 <p style="color: #888; margin: 15px 0;">ou</p>
                 <button class="back-btn" onclick="mostrarCadastro()">CRIAR MINHA CONTA</button>
                 <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
@@ -1404,7 +1384,7 @@
                     <input type="checkbox" id="termos"> Aceito os <a href="#" style="color: #ff0000;">Termos de Uso</a>
                 </div>
                 
-                <button onclick="cadastrarAluno()">CRIAR MINHA CONTA</button>
+                <button onclick="cadastrarAluno()" id="cadastroBtn">CRIAR MINHA CONTA</button>
                 <p style="color: #888; margin: 15px 0;">ou</p>
                 <button class="back-btn" onclick="mostrarLogin()">JÁ TENHO CONTA</button>
                 <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
@@ -1476,7 +1456,7 @@
             <p class="subtitle">🔥 Especialista em K-pop</p>
             
             <div class="info-list">
-                <p>✓ <strong>10 anos de kpop</strong> de experiência em K-pop</p>
+                <p>✓ <strong>10 ano de kpop</strong> de experiência em K-pop</p>
                 <p>✓ <strong>+50 aulas</strong> gravadas</p>
                 <p>✓ Graduando em Dança - UFPE</p>
                 <p>✓ Mais de <strong>15 anos</strong> de dança</p>
@@ -1677,38 +1657,32 @@
     </div>
 
     <script>
-        // SENHA DO PROFESSOR
-        const SENHA_PROFESSOR = "rob2026";
+        // ========== BANCO DE DADOS LOCAL ==========
+        let alunos = JSON.parse(localStorage.getItem('alunos_robdance')) || {};
+        let comentarios = JSON.parse(localStorage.getItem('comentarios_robdance')) || [
+            { autor: "Ana Silva", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
+        ];
+        let pedidos = JSON.parse(localStorage.getItem('pedidos_robdance')) || [
+            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva", codigo: "ABC123", quem_votou: [] }
+        ];
         
-        // NÚMERO DO WHATSAPP
-        const WHATSAPP_NUMERO = "5581996183625";
-        
-        // BANCO DE DADOS DE ALUNOS (por código)
-        let alunosDB = JSON.parse(localStorage.getItem('alunosDB')) || {};
-        
-        // MÓDULOS
-        let modulos = JSON.parse(localStorage.getItem('modulos')) || [
+        // MÓDULOS E AULAS
+        let modulos = [
             { id: 1, nome: "BLACKPINK" },
             { id: 2, nome: "TWICE" },
             { id: 3, nome: "BTS" }
         ];
         
-        // LINKS DAS AULAS (vídeo + pagamento)
-        let aulas = JSON.parse(localStorage.getItem('aulas')) || [
-            { id: 'aula1', modulo: 1, nome: "BOOMBAYAH", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula2', modulo: 1, nome: "HOW YOU LIKE THAT", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula3', modulo: 1, nome: "LOVESICK GIRLS", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula4', modulo: 2, nome: "T.T", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula5', modulo: 2, nome: "CHEER UP", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula6', modulo: 2, nome: "FANCY", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula7', modulo: 3, nome: "ANPANMAN", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula8', modulo: 3, nome: "DYNAMITE", linkVideo: "", linkPagamento: "", valor: "" },
-            { id: 'aula9', modulo: 3, nome: "BUTTER", linkVideo: "", linkPagamento: "", valor: "" }
-        ];
-        
-        // PEDIDOS
-        let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [
-            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva", codigo: "ABC123", quemVotou: [] }
+        let aulas = [
+            { id: 'aula1', modulo: 1, nome: "BOOMBAYAH", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula2', modulo: 1, nome: "HOW YOU LIKE THAT", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula3', modulo: 1, nome: "LOVESICK GIRLS", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula4', modulo: 2, nome: "T.T", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula5', modulo: 2, nome: "CHEER UP", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula6', modulo: 2, nome: "FANCY", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula7', modulo: 3, nome: "ANPANMAN", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula8', modulo: 3, nome: "DYNAMITE", linkVideo: "", linkPagamento: "", valor: "25.00" },
+            { id: 'aula9', modulo: 3, nome: "BUTTER", linkVideo: "", linkPagamento: "", valor: "25.00" }
         ];
         
         // Variáveis de controle
@@ -1716,7 +1690,7 @@
         let alunoAtual = null;
         let codigoAtual = "";
         
-        // ========== FUNÇÕES DE ESCOLHA ==========
+        // ========== FUNÇÕES DE TELA ==========
         
         function escolherAluno() {
             document.getElementById('choiceScreen').style.display = 'none';
@@ -1775,7 +1749,7 @@
             }
         }
         
-        // ========== FUNÇÕES DO MODAL DO PROFESSOR ==========
+        // ========== FUNÇÕES DO MODAL ==========
         
         function mostrarSobreProfessor() {
             document.getElementById('professorModal').style.display = 'flex';
@@ -1798,8 +1772,6 @@
             let codigo = document.getElementById('codigoGerado').textContent;
             navigator.clipboard.writeText(codigo).then(() => {
                 alert('✅ Código copiado! Guarde-o em um lugar seguro.');
-            }).catch(() => {
-                alert('❌ Erro ao copiar. Selecione e copie manualmente.');
             });
         }
         
@@ -1838,8 +1810,6 @@
                 nome: nomeModulo
             });
             
-            localStorage.setItem('modulos', JSON.stringify(modulos));
-            
             document.getElementById('novoModuloNome').value = '';
             
             carregarModulosSelect();
@@ -1858,9 +1828,6 @@
             if (confirm('Remover este módulo? As aulas dele também serão removidas.')) {
                 modulos = modulos.filter(m => m.id !== moduloId);
                 aulas = aulas.filter(a => a.modulo !== moduloId);
-                
-                localStorage.setItem('modulos', JSON.stringify(modulos));
-                localStorage.setItem('aulas', JSON.stringify(aulas));
                 
                 carregarModulosSelect();
                 atualizarAdminModulosLista();
@@ -1890,7 +1857,7 @@
             document.getElementById('adminModulosList').innerHTML = html;
         }
         
-        // ========== FUNÇÕES DO PROFESSOR (ADMIN) ==========
+        // ========== FUNÇÕES DO PROFESSOR ==========
         
         function adicionarLinkVideo() {
             if (!isProfessor) {
@@ -1907,11 +1874,9 @@
                 return;
             }
             
-            // Encontrar a aula pelo nome
             let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
             
             if (!aula) {
-                // Criar nova aula se não existir
                 let novoId = 'aula' + Date.now();
                 aulas.push({
                     id: novoId,
@@ -1924,8 +1889,6 @@
             } else {
                 aula.linkVideo = linkVideo;
             }
-            
-            localStorage.setItem('aulas', JSON.stringify(aulas));
             
             document.getElementById('aulaNomeVideo').value = '';
             document.getElementById('aulaLinkVideo').value = '';
@@ -1952,11 +1915,9 @@
                 return;
             }
             
-            // Encontrar a aula pelo nome
             let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
             
             if (!aula) {
-                // Criar nova aula se não existir
                 let novoId = 'aula' + Date.now();
                 aulas.push({
                     id: novoId,
@@ -1970,8 +1931,6 @@
                 aula.linkPagamento = linkPagamento;
                 aula.valor = valor.toFixed(2);
             }
-            
-            localStorage.setItem('aulas', JSON.stringify(aulas));
             
             document.getElementById('aulaNomePagamento').value = '';
             document.getElementById('aulaLinkPagamento').value = '';
@@ -2009,7 +1968,6 @@
                 }
             }
             
-            localStorage.setItem('aulas', JSON.stringify(aulas));
             atualizarAdminLista();
             carregarModulos();
         }
@@ -2058,7 +2016,7 @@
                 return;
             }
             
-            if (Object.keys(alunosDB).length === 0) {
+            if (Object.keys(alunos).length === 0) {
                 alert('📭 Nenhuma aluna cadastrada ainda.');
                 return;
             }
@@ -2066,8 +2024,8 @@
             let mensagem = "👥 ALUNAS CADASTRADAS:\n\n";
             let totalCompras = 0;
             
-            for (let codigo in alunosDB) {
-                let aluna = alunosDB[codigo];
+            for (let codigo in alunos) {
+                let aluna = alunos[codigo];
                 let compras = aluna.aulasCompradas?.length || 0;
                 totalCompras += compras;
                 
@@ -2076,11 +2034,10 @@
                 mensagem += `   📱 ${aluna.whatsapp || 'Não informado'}\n`;
                 mensagem += `   🔑 Código: ${codigo}\n`;
                 mensagem += `   📚 Aulas: ${compras} compradas | ${aluna.aulasConcluidas?.length || 0} concluídas\n`;
-                mensagem += `   📅 Cadastro: ${aluna.dataCadastro || 'Nunca'}\n`;
                 mensagem += `━━━━━━━━━━━━━━━━━━\n\n`;
             }
             
-            mensagem += `📊 TOTAL: ${Object.keys(alunosDB).length} alunas | ${totalCompras} aulas compradas`;
+            mensagem += `📊 TOTAL: ${Object.keys(alunos).length} alunas | ${totalCompras} aulas compradas`;
             
             alert(mensagem);
         }
@@ -2091,15 +2048,10 @@
                 return;
             }
             
-            if (Object.keys(alunosDB).length === 0) {
-                alert('📭 Nenhuma aluna cadastrada ainda.');
-                return;
-            }
-            
             let codigoBusca = prompt('Digite o código de acesso da aluna:');
             if (!codigoBusca) return;
             
-            let aluna = alunosDB[codigoBusca];
+            let aluna = alunos[codigoBusca];
             
             if (aluna) {
                 let detalhes = `👤 ${aluna.nome}\n`;
@@ -2126,28 +2078,26 @@
         function atualizarResumoAlunas() {
             if (!isProfessor) return;
             
-            let total = Object.keys(alunosDB).length;
+            let total = Object.keys(alunos).length;
             
             document.getElementById('totalAlunas').textContent = total;
             
             if (total > 0) {
-                // Pegar último cadastro
-                let valores = Object.values(alunosDB);
+                let valores = Object.values(alunos);
                 let ultima = valores.sort((a, b) => {
                     return new Date(b.dataCadastro) - new Date(a.dataCadastro);
                 })[0];
                 document.getElementById('ultimoCadastro').textContent = ultima.dataCadastro || '-';
                 
-                // Calcular total de compras
                 let totalCompras = 0;
-                for (let codigo in alunosDB) {
-                    totalCompras += alunosDB[codigo].aulasCompradas?.length || 0;
+                for (let codigo in alunos) {
+                    totalCompras += alunos[codigo].aulasCompradas?.length || 0;
                 }
                 document.getElementById('totalCompras').textContent = totalCompras;
             }
         }
         
-        // ========== SISTEMA DE COMPRAS PENDENTES ==========
+        // ========== SISTEMA DE COMPRAS ==========
         
         function comprarAula(nomeAula, linkPagamento, valor) {
             if (isProfessor) {
@@ -2157,24 +2107,7 @@
             
             window.open(linkPagamento, '_blank');
             
-            let comprasPendentes = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
-            
-            let existe = comprasPendentes.some(c => c.codigo === codigoAtual && c.aula === nomeAula);
-            
-            if (!existe) {
-                comprasPendentes.push({
-                    id: Date.now(),
-                    aluno: alunoAtual.nome,
-                    codigo: codigoAtual,
-                    aula: nomeAula,
-                    valor: valor,
-                    data: new Date().toLocaleString(),
-                    link: linkPagamento
-                });
-                localStorage.setItem('comprasPendentes', JSON.stringify(comprasPendentes));
-            }
-            
-            alert(`✅ Link do Mercado Pago aberto!\n\nApós o pagamento, clique no ícone do WhatsApp 📱 para avisar a professora.`);
+            alert(`✅ Link do Mercado Pago aberto!\n\nApós o pagamento, aguarde a liberação.`);
         }
         
         function atualizarComprasPendentes() {
@@ -2205,7 +2138,7 @@
                             </button>
                         </div>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
-                            <a href="https://wa.me/${WHATSAPP_NUMERO}?text=Olá! Recebi seu pagamento da aula ${compra.aula} - ${compra.aluno}" 
+                            <a href="https://wa.me/5581996183625?text=Olá! Recebi seu pagamento da aula ${compra.aula} - ${compra.aluno}" 
                                target="_blank" 
                                style="flex: 1; background: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px;">
                                 <span style="font-size: 18px;">📱</span> WhatsApp
@@ -2244,15 +2177,15 @@
             
             if (!compra) return;
             
-            let aluno = alunosDB[compra.codigo];
+            let aluno = alunos[compra.codigo];
             if (!aluno) return;
             
             if (!aluno.aulasCompradas) aluno.aulasCompradas = [];
             
             if (!aluno.aulasCompradas.includes(compra.aula)) {
                 aluno.aulasCompradas.push(compra.aula);
-                alunosDB[compra.codigo] = aluno;
-                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+                alunos[compra.codigo] = aluno;
+                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
             }
             
             compras = compras.filter(c => c.id !== compraId);
@@ -2270,7 +2203,6 @@
         function carregarModulos() {
             let html = '';
             
-            // Ordenar módulos por ID
             let modulosOrdenados = modulos.sort((a, b) => a.id - b.id);
             
             for (let modulo of modulosOrdenados) {
@@ -2367,9 +2299,8 @@
             if (!alunoAtual.aulasConcluidas.includes(nomeAula)) {
                 alunoAtual.aulasConcluidas.push(nomeAula);
                 
-                // Atualizar no banco de dados
-                alunosDB[codigoAtual] = alunoAtual;
-                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+                alunos[codigoAtual] = alunoAtual;
+                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
                 
                 aulaAtiva.classList.add('completed');
                 aulaAtiva.classList.remove('bloqueada');
@@ -2400,7 +2331,6 @@
             let reader = new FileReader();
             reader.onload = function() {
                 document.getElementById('avatarPreview').src = reader.result;
-                avatarAluno = '<img src="' + reader.result + '">';
             };
             reader.readAsDataURL(event.target.files[0]);
         }
@@ -2409,20 +2339,14 @@
             document.getElementById('avatarPreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E" + emoji + "%3C/text%3E%3C/svg%3E";
             if (alunoAtual) {
                 alunoAtual.avatar = emoji;
-                alunosDB[codigoAtual] = alunoAtual;
-                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+                alunos[codigoAtual] = alunoAtual;
+                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
+                document.getElementById('userAvatar').innerHTML = emoji;
             }
-            document.getElementById('userAvatar').innerHTML = emoji;
         }
         
         function salvarPerfil() {
             document.getElementById('profileModal').style.display = 'none';
-            if (alunoAtual) {
-                alunoAtual.avatar = document.getElementById('avatarPreview').src;
-                alunosDB[codigoAtual] = alunoAtual;
-                localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
-                document.getElementById('userAvatar').innerHTML = '<img src="' + alunoAtual.avatar + '">';
-            }
         }
         
         // ========== PEDIDOS ==========
@@ -2446,11 +2370,11 @@
                 votos: 1,
                 autor: alunoAtual.nome,
                 codigo: codigoAtual,
-                quemVotou: [codigoAtual]
+                quem_votou: [codigoAtual]
             };
             
             pedidos.push(novoPedido);
-            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            localStorage.setItem('pedidos_robdance', JSON.stringify(pedidos));
             
             document.getElementById('musicaPedido').value = '';
             atualizarPedidos();
@@ -2468,14 +2392,14 @@
             let pedido = pedidos.find(p => p.id === id);
             if (!pedido) return;
             
-            if (pedido.quemVotou.includes(codigoAtual)) {
+            if (pedido.quem_votou.includes(codigoAtual)) {
                 alert('Você já votou neste pedido!');
                 return;
             }
             
             pedido.votos++;
-            pedido.quemVotou.push(codigoAtual);
-            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            pedido.quem_votou.push(codigoAtual);
+            localStorage.setItem('pedidos_robdance', JSON.stringify(pedidos));
             atualizarPedidos();
         }
         
@@ -2485,7 +2409,7 @@
             let html = '';
             
             for (let pedido of pedidos) {
-                let jaVotou = !isProfessor && pedido.quemVotou.includes(codigoAtual);
+                let jaVotou = !isProfessor && pedido.quem_votou.includes(codigoAtual);
                 
                 html += `
                     <div class="pedido-item">
@@ -2515,10 +2439,6 @@
         }
         
         // ========== COMENTÁRIOS ==========
-        
-        let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [
-            { autor: "Ana Silva", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
-        ];
         
         function atualizarComentarios() {
             let html = '';
@@ -2555,12 +2475,12 @@
             };
             
             comentarios.unshift(novoComentario);
-            localStorage.setItem('comentarios', JSON.stringify(comentarios));
+            localStorage.setItem('comentarios_robdance', JSON.stringify(comentarios));
             atualizarComentarios();
             document.getElementById('commentInput').value = '';
         }
         
-        // ========== LOGIN DO ALUNO (POR CÓDIGO) ==========
+        // ========== LOGIN DO ALUNO ==========
         
         function loginAluno() {
             let codigo = document.getElementById('loginCodigo').value.trim().toUpperCase();
@@ -2570,40 +2490,38 @@
                 return;
             }
             
-            // VERIFICAR SE O ALUNO EXISTE NO BANCO DE DADOS
-            let aluno = alunosDB[codigo];
+            let aluno = alunos[codigo];
             
-            if (!aluno) {
-                alert('❌ Código inválido! Verifique se digitou corretamente.');
-                return;
+            if (aluno) {
+                alunoAtual = aluno;
+                codigoAtual = codigo;
+                
+                document.getElementById('nomeUsuario').textContent = alunoAtual.nome;
+                document.getElementById('userAvatar').innerHTML = alunoAtual.avatar || '👤';
+                
+                document.getElementById('alunoLoginScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                
+                carregarModulos();
+                atualizarProgresso();
+                atualizarPedidos();
+                atualizarComentarios();
+                
+                alert(`🎉 Bem-vindo(a), ${alunoAtual.nome}!`);
+            } else {
+                alert('❌ Código não encontrado!');
             }
-            
-            alunoAtual = aluno;
-            codigoAtual = codigo;
-            
-            document.getElementById('nomeUsuario').textContent = alunoAtual.nome;
-            document.getElementById('userAvatar').innerHTML = alunoAtual.avatar || '👤';
-            
-            document.getElementById('alunoLoginScreen').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-            
-            carregarModulos();
-            atualizarProgresso();
-            atualizarPedidos();
-            atualizarComentarios();
-            
-            alert(`🎉 Bem-vindo(a), ${alunoAtual.nome}!`);
         }
         
-        // ========== CADASTRO DE NOVO ALUNO ==========
+        // ========== CADASTRO ==========
         
         function gerarCodigoUnico() {
-            let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let numeros = '0123456789';
             let codigo = '';
-            for (let i = 0; i < 8; i++) {
-                codigo += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-            }
-            return codigo;
+            for (let i = 0; i < 3; i++) codigo += letras[Math.floor(Math.random() * letras.length)];
+            for (let i = 0; i < 3; i++) codigo += numeros[Math.floor(Math.random() * numeros.length)];
+            return codigo.split('').sort(() => Math.random() - 0.5).join('');
         }
         
         function cadastrarAluno() {
@@ -2624,8 +2542,8 @@
                 return;
             }
             
-            if (senha.length < 6) {
-                alert('A senha deve ter pelo menos 6 caracteres!');
+            if (senha.length < 4) {
+                alert('A senha deve ter pelo menos 4 caracteres!');
                 return;
             }
             
@@ -2634,13 +2552,11 @@
                 return;
             }
             
-            // Gerar código único
-            let codigo;
-            do {
+            let codigo = gerarCodigoUnico();
+            while (alunos[codigo]) {
                 codigo = gerarCodigoUnico();
-            } while (alunosDB[codigo]);
+            }
             
-            // Criar novo aluno
             let novoAluno = {
                 nome: nome,
                 email: email,
@@ -2652,15 +2568,13 @@
                 dataCadastro: new Date().toLocaleString()
             };
             
-            alunosDB[codigo] = novoAluno;
-            localStorage.setItem('alunosDB', JSON.stringify(alunosDB));
+            alunos[codigo] = novoAluno;
+            localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
             
-            alert('✅ Conta criada com sucesso!');
+            alert(`✅ Conta criada com sucesso!\n\nSEU CÓDIGO É: ${codigo}\n\nGuarde este código para acessar em outros dispositivos!`);
             
-            // Mostrar código de acesso
             mostrarCodigoModal(codigo);
             
-            // Limpar campos
             document.getElementById('cadastroNome').value = '';
             document.getElementById('cadastroEmail').value = '';
             document.getElementById('cadastroWhatsapp').value = '';
@@ -2668,9 +2582,7 @@
             document.getElementById('cadastroConfirmarSenha').value = '';
             document.getElementById('termos').checked = false;
             
-            // Preencher código no login
             document.getElementById('loginCodigo').value = codigo;
-            
             mostrarLogin();
         }
         
@@ -2679,7 +2591,7 @@
         function loginProfessor() {
             let senha = document.getElementById('professorSenha').value;
             
-            if (senha === SENHA_PROFESSOR) {
+            if (senha === "rob2026") {
                 document.getElementById('professorLoginScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
                 
