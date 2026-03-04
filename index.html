@@ -16,2506 +16,518 @@
             background: #000000;
             min-height: 100vh;
             padding: 10px;
-            background-image: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
-            position: relative;
         }
         
-        @media (max-width: 768px) {
-            body { padding: 8px; }
-            h1 { font-size: 28px !important; }
-            h2 { font-size: 22px !important; }
-            h3 { font-size: 18px !important; }
-            p, span, div, button, input, select, textarea { font-size: 14px !important; }
-            .btn { padding: 10px 20px !important; font-size: 13px !important; }
-        }
-        
-        @media (max-width: 480px) {
-            body { padding: 5px; }
-            h1 { font-size: 24px !important; }
-            h2 { font-size: 20px !important; }
-            h3 { font-size: 16px !important; }
-            p, span, div, button, input, select, textarea { font-size: 13px !important; }
-            .choice-box { padding: 25px !important; width: 95% !important; }
-            .choice-buttons { flex-direction: column !important; gap: 10px !important; }
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
-            border: 2px solid #ff0000;
-        }
-        
-        .choice-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .choice-box {
-            background: #1a1a1a;
-            padding: 50px;
-            border-radius: 40px;
-            border: 4px solid #ff0000;
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
-            width: 500px;
-            text-align: center;
-        }
-        
-        .choice-box h1 {
-            color: #ff0000;
-            font-size: 48px;
-            margin-bottom: 10px;
-            letter-spacing: 4px;
-        }
-        
-        .choice-box h1 span { color: white; }
-        .choice-box p { color: #888; margin-bottom: 40px; font-size: 18px; }
-        
-        .choice-buttons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .choice-btn {
-            flex: 1;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .aluno-btn {
-            background: #ff0000;
-            color: white;
-        }
-        
-        .aluno-btn:hover {
-            background: #cc0000;
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-        }
-        
-        .professor-btn {
+        /* CABEÇALHO */
+        .top-bar {
             background: #000;
             color: white;
-            border: 2px solid #ff0000;
-        }
-        
-        .professor-btn:hover {
-            background: #1a1a1a;
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
-        }
-        
-        .aluno-login-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2100;
-            overflow-y: auto;
-            padding: 20px;
-        }
-        
-        .aluno-login-box {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 30px;
-            border: 3px solid #ff0000;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
-            width: 450px;
-            max-width: 100%;
-            text-align: center;
-        }
-        
-        .aluno-login-box h2 {
-            color: #ff0000;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .aluno-login-box h2 span { color: white; }
-        
-        .aluno-login-box h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        
-        .aviso-login {
-            background: #333;
-            color: #ff9999;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            margin: 20px 0;
-            border-left: 4px solid #ff0000;
-            text-align: left;
-        }
-        
-        .aviso-login i { color: #ff0000; margin-right: 5px; }
-        
-        .aluno-login-box input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background: #000;
-            color: white;
-            font-size: 16px;
-            outline: none;
-        }
-        
-        .aluno-login-box input:focus { border-color: #ff0000; }
-        
-        .aluno-login-box button {
-            width: 100%;
-            padding: 15px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-        
-        .aluno-login-box button:hover {
-            background: #cc0000;
-            transform: scale(1.02);
-        }
-        
-        .back-btn {
-            background: #333 !important;
-            margin-top: 10px;
-        }
-        
-        .back-btn:hover { background: #444 !important; }
-        
-        .login-form { display: block; }
-        .login-form.hidden { display: none; }
-        
-        .professor-login-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.98);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2200;
-            padding: 20px;
-        }
-        
-        .professor-login-box {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 30px;
-            border: 3px solid #ff0000;
-            width: 400px;
-            max-width: 100%;
-            text-align: center;
-        }
-        
-        .professor-login-box h2 {
-            color: #ff0000;
-            font-size: 32px;
-            margin-bottom: 30px;
-        }
-        
-        .professor-login-box input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background: #000;
-            color: white;
-            font-size: 18px;
-            outline: none;
-        }
-        
-        .professor-login-box input:focus { border-color: #ff0000; }
-        
-        .professor-login-box button {
-            width: 100%;
-            padding: 15px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .professor-login-box button:hover {
-            background: #cc0000;
-            transform: scale(1.02);
-        }
-        
-        header {
-            background: #000000;
-            color: white;
-            padding: 20px 30px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid #ff0000;
-            flex-wrap: wrap;
-            gap: 15px;
+            border-bottom: 3px solid #ff0000;
+            margin-bottom: 20px;
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        
-        .logo .rob {
-            color: #ff0000;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-            font-size: 32px;
-        }
-        
-        .logo .dance { color: white; }
-        .logo .class { color: #ff0000; font-style: italic; }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #1a1a1a;
-            padding: 8px 20px;
-            border-radius: 30px;
-            border: 1px solid #ff0000;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .user-info:hover {
-            border-color: #ff0000;
-            background: #222;
-        }
-        
-        .user-info span { color: white; }
-        .user-name { color: #ff0000 !important; font-weight: bold; }
-        
-        .avatar {
-            width: 40px;
-            height: 40px;
-            background: #ff0000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            font-size: 20px;
-            overflow: hidden;
-        }
-        
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .logout-btn {
-            background: #ff0000;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            margin-left: 15px;
-        }
-        
-        .logout-btn:hover {
-            background: #cc0000;
-            transform: scale(1.05);
-        }
-        
-        .avatar-upload {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            cursor: pointer;
-        }
-        
-        .avatar-upload img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 3px solid #ff0000;
-            object-fit: cover;
-        }
-        
-        .avatar-upload input { display: none; }
-        
-        .tabs-container {
-            display: flex;
-            background: #000;
-            border-bottom: 2px solid #ff0000;
-            flex-wrap: wrap;
-        }
-        
-        .tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 120px;
-        }
-        
-        .tab:hover { background: #1a1a1a; }
-        .tab.active { background: #ff0000; color: white; }
-        
-        .tab-content {
-            display: none;
-            padding: 25px;
-            background: #f5f5f5;
-        }
-        
-        .tab-content.active { display: block; }
-        
-        .main-content {
-            display: flex;
-            min-height: 600px;
-            flex-wrap: wrap;
-        }
-        
-        .sidebar {
-            width: 320px;
-            background: #000000;
-            padding: 25px 20px;
-            border-right: 3px solid #ff0000;
-        }
-        
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 3px solid #ff0000;
-            }
-        }
-        
-        .sidebar h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 10px;
-        }
-        
-        .professor-card {
-            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
-            animation: fadeIn 1s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .professor-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            margin-bottom: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .professor-card h3 {
-            color: white;
-            margin-bottom: 5px;
-            font-size: 20px;
-        }
-        
-        .professor-card p {
-            color: rgba(255,255,255,0.9);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
-        .professor-stats {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 15px 0;
-            color: white;
-        }
-        
-        .professor-stats div {
-            text-align: center;
-        }
-        
-        .professor-stats .number {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        .professor-stats .label {
-            font-size: 11px;
-        }
-        
-        .professor-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 5px;
-        }
-        
-        .professor-social a {
-            color: white;
-            font-size: 22px;
-            text-decoration: none;
-            transition: transform 0.3s;
-        }
-        
-        .professor-social a:hover {
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-        }
-        
-        .professor-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 5000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .professor-modal-content {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 30px;
-            border: 3px solid #ff0000;
-            max-width: 500px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .professor-modal-content button.close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #ff0000;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        
-        .professor-modal-content img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #ff0000;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        
-        .professor-modal-content h2 {
-            color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .professor-modal-content .subtitle {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .professor-modal-content .info-list {
-            text-align: left;
-            color: #ccc;
-            margin: 20px 0;
-        }
-        
-        .professor-modal-content .info-list p {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        
-        .professor-modal-content .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .professor-modal-content .social-buttons a {
-            background: #ff0000;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-        }
-        
-        .professor-modal-content .social-buttons a.whatsapp {
-            background: #25D366;
-        }
-        
-        .progress-section {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid #ff0000;
-        }
-        
-        .progress-section p {
-            color: white;
-            margin-bottom: 10px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .progress-percent {
-            color: #ff0000;
             font-size: 24px;
             font-weight: 900;
         }
         
-        .progress-bar {
-            width: 100%;
-            height: 15px;
-            background: #333;
-            border-radius: 10px;
-            margin: 15px 0;
-            overflow: hidden;
-            border: 1px solid #ff0000;
-        }
+        .logo .rob { color: #ff0000; }
+        .logo .dance { color: white; }
         
-        .progress-fill {
-            height: 100%;
+        .login-btn {
             background: #ff0000;
-            border-radius: 10px;
-            transition: width 0.3s;
-        }
-        
-        .modulo-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .modulo-btn {
-            background: #1a1a1a;
-            border: 2px solid #ff0000;
             color: white;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 18px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         
-        .modulo-btn:hover {
-            background: #ff0000;
-            transform: translateX(5px);
+        /* CONTAINER PRINCIPAL */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .modulo-btn.active { background: #ff0000; }
-        .modulo-btn .arrow {
-            font-size: 20px;
+        /* CARDS DE AULA */
+        .aulas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .aula-card {
+            background: #1a1a1a;
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
             transition: transform 0.3s;
         }
         
-        .modulo-btn.active .arrow { transform: rotate(90deg); }
-        
-        .aulas-container {
-            margin-top: 15px;
-            margin-bottom: 20px;
-            display: none;
+        .aula-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
         
-        .aulas-container.show { display: block; }
-        
-        .aula-item {
-            background: #222;
-            color: white;
-            padding: 15px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-left: 4px solid transparent;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .aula-modulo {
+            color: #ff0000;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         
-        .aula-item:hover {
-            border-left-color: #ff0000;
-            background: #2a2a2a;
-            transform: translateX(5px);
+        .aula-nome {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
         }
         
-        .aula-item.active {
-            border-left-color: #ff0000;
-            background: #ff0000;
-        }
-        
-        .aula-item.completed {
-            border-left-color: #00ff00;
-        }
-        
-        .aula-item.completed::after {
-            content: "✓";
+        .aula-preco {
+            font-size: 24px;
             color: #00ff00;
-            margin-left: 10px;
-        }
-        
-        .aula-item.bloqueada {
-            background: #2a2a2a;
-            color: #666;
-            cursor: default;
-            border-left-color: #ff0000;
-        }
-        
-        .aula-item.bloqueada:hover {
-            transform: none;
-            background: #2a2a2a;
+            font-weight: bold;
+            margin: 10px 0;
         }
         
         .comprar-btn {
             background: #ff0000;
             color: white;
             border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 14px;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            white-space: nowrap;
+            font-size: 16px;
         }
         
         .comprar-btn:hover {
             background: #cc0000;
-            transform: scale(1.05);
         }
         
-        .video-section {
-            flex: 1;
-            background: #f5f5f5;
-            min-width: 300px;
-        }
-        
-        .video-container {
-            background: #000000;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            position: relative;
-            padding-top: 56.25%;
-            border: 3px solid #ff0000;
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
-        }
-        
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .video-info {
-            margin-bottom: 25px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #ff0000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .video-title {
-            font-size: 26px;
-            color: #000000;
-            margin-bottom: 10px;
-            font-weight: 900;
-            word-wrap: break-word;
-        }
-        
-        .video-title span { color: #ff0000; }
-        
-        .video-meta {
-            display: flex;
-            gap: 20px;
-            color: #666;
-            flex-wrap: wrap;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-            flex: 1 1 auto;
-        }
-        
-        .btn-primary {
-            background: #ff0000;
-            color: white;
-            border: 2px solid #ff0000;
-        }
-        
-        .btn-primary:hover {
-            background: #cc0000;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-        }
-        
-        .btn-secondary {
-            background: #000000;
-            color: white;
-            border: 2px solid #ff0000;
-        }
-        
-        .btn-secondary:hover {
-            background: #1a1a1a;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-        }
-        
-        .admin-panel {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 2px solid #ff0000;
+        /* MODAL DE LOGIN */
+        .modal {
             display: none;
-        }
-        
-        .admin-panel.visible { display: block; }
-        
-        .admin-panel h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 10px;
-        }
-        
-        .admin-subtitle {
-            color: #ff0000;
-            font-size: 18px;
-            margin: 20px 0 10px;
-            font-weight: bold;
-        }
-        
-        .admin-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: #000;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .admin-form select,
-        .admin-form input {
-            padding: 12px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            background: #1a1a1a;
-            color: white;
-            font-size: 16px;
-        }
-        
-        .admin-form button {
-            background: #ff0000;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .admin-form button:hover { background: #cc0000; }
-        
-        .admin-list {
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .admin-aula-item {
-            background: #000;
-            color: white;
-            padding: 15px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid #ff0000;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .admin-aula-info {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .admin-aula-nome {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #ff0000;
-        }
-        
-        .admin-aula-link {
-            font-size: 12px;
-            color: #888;
-            word-break: break-all;
-            margin-bottom: 3px;
-        }
-        
-        .admin-aula-valor { color: #00ff00; font-weight: bold; }
-        .admin-aula-video { color: #ff0000; font-size: 12px; margin-top: 5px; }
-        
-        .admin-delete {
-            background: #ff0000;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        
-        .pendentes-section {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border: 2px solid #ff0000;
-        }
-        
-        .pendentes-section h3 {
-            color: #ff0000;
-            margin-bottom: 15px;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-        
-        .pendente-item {
-            background: #000;
-            border-left: 4px solid #ff0000;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            position: relative;
-        }
-        
-        .alunas-section {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 2px solid #ff0000;
-        }
-        
-        .alunas-section h3 {
-            color: #ff0000;
-            margin-bottom: 20px;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-        
-        .aluna-card {
-            background: #000;
-            border-left: 4px solid #ff0000;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-        
-        .aluna-card h4 {
-            color: #ff0000;
-            margin-bottom: 10px;
-        }
-        
-        .aluna-info {
-            color: white;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        
-        .aluna-label {
-            color: #ff0000;
-            font-weight: bold;
-        }
-        
-        .profile-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
-            display: none;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
             align-items: center;
             justify-content: center;
-            z-index: 3000;
             padding: 20px;
-            overflow-y: auto;
         }
         
-        .profile-content {
+        .modal-content {
             background: #1a1a1a;
             padding: 40px;
             border-radius: 30px;
             border: 3px solid #ff0000;
-            width: 400px;
-            max-width: 100%;
+            max-width: 400px;
+            width: 100%;
             text-align: center;
         }
         
-        .profile-content h2 { color: #ff0000; margin-bottom: 20px; }
+        .modal-content h2 {
+            color: #ff0000;
+            margin-bottom: 30px;
+        }
         
-        .avatar-options {
+        .modal-content input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #000;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .modal-content button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #333;
+            color: white;
+        }
+        
+        /* ÁREA DO ALUNO LOGADO */
+        .aluno-area {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            color: white;
+        }
+        
+        .aluno-header {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
             flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .aluno-info {
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff0000;
+        }
+        
+        .meu-codigo {
+            font-size: 32px;
+            color: #ff0000;
+            letter-spacing: 3px;
+            font-family: monospace;
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .export-import {
+            display: flex;
             gap: 10px;
-            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .export-import button {
+            flex: 1;
+            padding: 12px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .export-import button:hover {
+            background: #444;
+        }
+        
+        .progresso {
+            background: #000;
+            padding: 15px;
+            border-radius: 10px;
             margin: 20px 0;
         }
         
-        .avatar-option {
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #ff0000;
+            border-radius: 5px;
+            width: 0%;
+        }
+        
+        .aula-item {
+            background: #000;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #ff0000;
+        }
+        
+        .aula-item.completa {
+            border-left-color: #00ff00;
+        }
+        
+        .badge {
+            background: #00ff00;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 12px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .tab.active {
+            background: #ff0000;
+        }
+        
+        /* PEDIDOS */
+        .pedido-item {
+            background: #000;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .votar-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .votos {
+            background: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: #333;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 30px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .avatar-option:hover {
-            border-color: #ff0000;
-            transform: scale(1.1);
-        }
-        
-        .pedidos-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
-        }
-        
-        .pedidos-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .pedidos-header h2 {
-            color: #ff0000;
-            font-size: 28px;
-        }
-        
-        .pedido-input {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .pedido-input input {
-            flex: 1;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            min-width: 200px;
-        }
-        
-        .pedido-input input:focus { border-color: #ff0000; outline: none; }
-        
-        .pedido-input button {
-            padding: 15px 30px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        .pedido-item {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border-left: 5px solid #ff0000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .pedido-info h4 { color: #333; margin-bottom: 5px; }
-        .pedido-meta { color: #888; font-size: 14px; }
-        
-        .pedido-votos {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .voto-contador {
-            background: #ff0000;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        
-        .votar-btn {
-            background: #000;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .votar-btn:hover {
-            background: #333;
-            transform: scale(1.05);
-        }
-        
-        .votar-btn.votado {
-            background: #4CAF50;
-            cursor: default;
-        }
-        
-        .votar-btn.votado:hover { transform: none; }
-        
-        .comments-section {
-            margin-top: 30px;
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ff0000;
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .section-header h3 {
-            color: #000000;
-            font-size: 20px;
-            text-transform: uppercase;
-        }
-        
-        .comment-list {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-        }
-        
-        .comment-item {
-            background: #f8f8f8;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            border-left: 4px solid #ff0000;
-        }
-        
-        .comment-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-            font-weight: bold;
-            flex-wrap: wrap;
-        }
-        
-        .comment-text { color: #333; margin-bottom: 5px; }
-        .comment-time { font-size: 12px; color: #888; }
-        
-        .input-area {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .input-area input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            min-width: 200px;
-        }
-        
-        .send-btn {
-            padding: 12px 25px;
-            background: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        
-        .hidden { display: none; }
-        
-        .codigo-acesso {
-            background: #000;
-            border: 2px solid #ff0000;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .codigo-acesso p {
-            color: #888;
-            margin-bottom: 10px;
-        }
-        
-        .codigo-valor {
-            font-size: 32px;
-            font-weight: bold;
-            color: #ff0000;
-            letter-spacing: 5px;
-            background: #1a1a1a;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-family: monospace;
-        }
-        
-        .copiar-btn {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        .copiar-btn:hover {
-            background: #ff0000;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ff0000;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
 <body>
-    <!-- BOTÕES WHATSAPP E INSTAGRAM FLUTUANTES -->
-    <div style="position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999;">
-        <a href="https://wa.me/5581996183625?text=Olá! Gostaria do meu código da aula" target="_blank" style="background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); transition: all 0.3s; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512"><path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.2-99.6 224.2-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54.5-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg>
-        </a>
-        <a href="https://instagram.com/robdanceclass" target="_blank" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(225, 48, 108, 0.5); transition: all 0.3s; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512"><path fill="white" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-        </a>
+    <!-- TOPO COM LOGIN -->
+    <div class="top-bar">
+        <div class="logo">
+            <span class="rob">ROB</span> <span class="dance">DANCE</span>
+        </div>
+        <button class="login-btn" onclick="mostrarModalLogin()">👤 ENTRAR / CADASTRAR</button>
     </div>
-    
-    <!-- TELA DE ESCOLHA INICIAL -->
-    <div class="choice-screen" id="choiceScreen">
-        <div class="choice-box">
-            <h1><span>ROB</span> DANCE</h1>
-            <p>Escolha seu perfil</p>
-            <div class="choice-buttons">
-                <button class="choice-btn aluno-btn" onclick="escolherAluno()">👤 ALUNO(A)</button>
-                <button class="choice-btn professor-btn" onclick="escolherProfessor()">👨‍🏫 PROFESSOR</button>
-            </div>
+
+    <!-- MODAL DE LOGIN/CADASTRO -->
+    <div class="modal" id="modalLogin">
+        <div class="modal-content">
+            <h2>ENTRAR</h2>
+            <input type="text" id="loginNome" placeholder="Seu nome">
+            <input type="text" id="loginNumero" placeholder="Seu WhatsApp (com DDD)">
+            <input type="password" id="loginSenha" placeholder="Sua senha">
+            <button class="btn-primary" onclick="fazerLogin()">ENTRAR</button>
+            <button class="btn-secondary" onclick="mostrarCadastro()">CRIAR CONTA</button>
+            <button class="btn-secondary" onclick="fecharModal()">FECHAR</button>
         </div>
     </div>
-    
-    <!-- TELA DE CADASTRO/LOGIN DO ALUNO(A) -->
-    <div class="aluno-login-screen" id="alunoLoginScreen">
-        <div class="aluno-login-box">
-            <h2><span>ROB</span> DANCE</h2>
-            <h3>ENTRAR</h3>
-            
-            <!-- Formulário de Login por Código -->
-            <div class="login-form" id="formLogin">
-                <div class="aviso-login">
-                    <i>🔐</i> <strong>Use seu código de acesso</strong> (você recebeu no cadastro)
-                </div>
-                <input type="text" id="loginCodigo" placeholder="Digite seu código de acesso" maxlength="6" style="text-transform: uppercase;">
-                <button onclick="loginAluno()" id="loginBtn">ENTRAR</button>
-                <p style="color: #888; margin: 15px 0;">ou</p>
-                <button class="back-btn" onclick="mostrarCadastro()">CRIAR MINHA CONTA</button>
-                <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
-            </div>
-            
-            <!-- Formulário de Cadastro -->
-            <div class="login-form hidden" id="formCadastro">
-                <div class="aviso-login" style="background: #004d00; color: #ccffcc;">
-                    <i>✨</i> <strong>Crie sua conta</strong> Preencha os dados abaixo
-                </div>
-                
-                <input type="text" id="cadastroNome" placeholder="Nome completo">
-                <input type="email" id="cadastroEmail" placeholder="E-mail">
-                <input type="text" id="cadastroWhatsapp" placeholder="WhatsApp (com DDD)">
-                <input type="password" id="cadastroSenha" placeholder="Crie uma senha">
-                <input type="password" id="cadastroConfirmarSenha" placeholder="Confirme sua senha">
-                
-                <div style="text-align: left; color: #888; font-size: 12px; margin: 10px 0;">
-                    <input type="checkbox" id="termos"> Aceito os <a href="#" style="color: #ff0000;">Termos de Uso</a>
-                </div>
-                
-                <button onclick="cadastrarAluno()" id="cadastroBtn">CRIAR MINHA CONTA</button>
-                <p style="color: #888; margin: 15px 0;">ou</p>
-                <button class="back-btn" onclick="mostrarLogin()">JÁ TENHO CONTA</button>
-                <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
-            </div>
+
+    <!-- MODAL DE CADASTRO -->
+    <div class="modal" id="modalCadastro">
+        <div class="modal-content">
+            <h2>CRIAR CONTA</h2>
+            <input type="text" id="cadastroNome" placeholder="Seu nome completo">
+            <input type="text" id="cadastroNumero" placeholder="Seu WhatsApp (com DDD)">
+            <input type="password" id="cadastroSenha" placeholder="Crie uma senha">
+            <input type="password" id="cadastroConfirmar" placeholder="Confirme a senha">
+            <button class="btn-primary" onclick="cadastrar()">CRIAR CONTA</button>
+            <button class="btn-secondary" onclick="voltarLogin()">VOLTAR</button>
         </div>
     </div>
-    
-    <!-- TELA DE LOGIN DO PROFESSOR -->
-    <div class="professor-login-screen" id="professorLoginScreen">
-        <div class="professor-login-box">
-            <h2>👨‍🏫 PROFESSOR</h2>
-            <input type="password" id="professorSenha" placeholder="Digite a senha">
-            <button onclick="loginProfessor()">ENTRAR</button>
-            <button class="back-btn" style="margin-top: 10px;" onclick="voltarParaEscolha()">← VOLTAR</button>
-        </div>
-    </div>
-    
-    <!-- MODAL DE PERFIL -->
-    <div class="profile-modal" id="profileModal">
-        <div class="profile-content">
-            <h2>👤 SEU PERFIL</h2>
-            <div class="avatar-upload" onclick="document.getElementById('fotoPerfil').click()">
-                <img id="avatarPreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E👤%3C/text%3E%3C/svg%3E" alt="Avatar">
-                <input type="file" id="fotoPerfil" accept="image/*" onchange="previewAvatar(event)">
-            </div>
-            <p style="color: white; margin-bottom: 15px;">Clique na imagem para trocar a foto</p>
-            
-            <h3 style="color: #ff0000; margin: 20px 0 10px;">OU ESCOLHA UM EMOJI</h3>
-            <div class="avatar-options">
-                <div class="avatar-option" onclick="escolherEmoji('🦊')">🦊</div>
-                <div class="avatar-option" onclick="escolherEmoji('🐼')">🐼</div>
-                <div class="avatar-option" onclick="escolherEmoji('🐨')">🐨</div>
-                <div class="avatar-option" onclick="escolherEmoji('🦁')">🦁</div>
-                <div class="avatar-option" onclick="escolherEmoji('🐸')">🐸</div>
-                <div class="avatar-option" onclick="escolherEmoji('🐧')">🐧</div>
-                <div class="avatar-option" onclick="escolherEmoji('🌸')">🌸</div>
-                <div class="avatar-option" onclick="escolherEmoji('⭐')">⭐</div>
-            </div>
-            
-            <button class="btn btn-primary" style="margin-top: 20px;" onclick="salvarPerfil()">SALVAR PERFIL</button>
-        </div>
-    </div>
-    
-    <!-- MODAL COM CÓDIGO DE ACESSO -->
-    <div class="professor-modal" id="codigoModal">
-        <div class="professor-modal-content">
-            <button class="close" onclick="fecharCodigoModal()">&times;</button>
-            
-            <h2 style="color: #ff0000;">🔑 SEU CÓDIGO DE ACESSO</h2>
-            
-            <div class="codigo-acesso">
-                <p>Guarde este código! Use-o para acessar sua conta em qualquer dispositivo:</p>
-                <div class="codigo-valor" id="codigoGerado">ABC123</div>
-                <button class="copiar-btn" onclick="copiarCodigo()">📋 COPIAR CÓDIGO</button>
-            </div>
-            
-            <p style="color: #888; margin-top: 20px;">Com este código você pode acessar sua conta de qualquer lugar!</p>
-        </div>
-    </div>
-    
-    <!-- MODAL SOBRE O PROFESSOR -->
-    <div class="professor-modal" id="professorModal">
-        <div class="professor-modal-content">
-            <button class="close" onclick="fecharModalProfessor()">&times;</button>
-            
-            <img src="https://drive.google.com/thumbnail?id=1yPXTBg-mPXSOZTKaoAXgsrBTq2OZMSVv&sz=w1000" alt="Professor Robson Correia">
-            
-            <h2>Professor Robson Correia</h2>
-            <p class="subtitle">🔥 Especialista em K-pop</p>
-            
-            <div class="info-list">
-                <p>✓ <strong>10 ano de kpop</strong> de experiência em K-pop</p>
-                <p>✓ <strong>+50 aulas</strong> gravadas</p>
-                <p>✓ Graduando em Dança - UFPE</p>
-                <p>✓ Mais de <strong>15 anos</strong> de dança</p>
-                <p>✓ Oficinas de Frevo, Vogue e Contemporâneo</p>
-            </div>
-            
-            <div class="social-buttons">
-                <a href="https://instagram.com/robdanceclass" target="_blank">📸 Instagram</a>
-                <a href="https://wa.me/5581996183625" target="_blank" class="whatsapp">📱 WhatsApp</a>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- CONTEÚDO PRINCIPAL -->
-    <div class="container" id="mainContent" style="display: none;">
-        <header>
-            <div class="logo">
-                <span class="rob">ROB</span>
-                <span class="dance">DANCE</span>
-                <span class="class">CLASS</span>
+    <div class="main-container" id="conteudoPublico">
+        <h1 style="color: white; text-align: center; margin: 30px 0;">🔥 AULAS DISPONÍVEIS</h1>
+        
+        <!-- GRADE DE AULAS -->
+        <div class="aulas-grid" id="aulasGrid"></div>
+        
+        <p style="color: #888; text-align: center; margin: 40px 0;">
+            Faça login para comprar aulas e acompanhar seu progresso!
+        </p>
+    </div>
+
+    <!-- ÁREA DO ALUNO (fica escondida até login) -->
+    <div class="main-container hidden" id="areaAluno">
+        <div class="aluno-area">
+            <div class="aluno-header">
+                <h2>🔥 OLÁ, <span id="alunoNome"></span>!</h2>
+                <button class="login-btn" onclick="sair()">🚪 SAIR</button>
             </div>
             
-            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <div class="user-info" onclick="abrirPerfil()">
-                    <span>Olá, <span id="nomeUsuario" class="user-name">...</span></span>
-                    <div class="avatar" id="userAvatar">👤</div>
-                </div>
-                <button class="logout-btn" onclick="fazerLogout()">🚪 SAIR</button>
-            </div>
-        </header>
-        
-        <!-- Abas de navegação -->
-        <div class="tabs-container">
-            <div class="tab active" onclick="mudarAba('aulas')" id="tabAulas">📚 AULAS</div>
-            <div class="tab" onclick="mudarAba('pedidos')" id="tabPedidos">🎤 PEDIDOS</div>
-        </div>
-        
-        <!-- Conteúdo das abas -->
-        <div id="tabAulasContent" class="tab-content active">
-            <div class="main-content">
-                <!-- Sidebar -->
-                <div class="sidebar">
-                    
-                    <!-- CARD DO PROFESSOR ROBSON CORREIA -->
-                    <div class="professor-card">
-                        <div style="position: relative; display: inline-block;">
-                            <img src="https://drive.google.com/thumbnail?id=1yPXTBg-mPXSOZTKaoAXgsrBTq2OZMSVv&sz=w1000" alt="Professor Robson Correia">
-                            <span style="position: absolute; bottom: 10px; right: 0; background: #25D366; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white;">📱</span>
-                        </div>
-                        
-                        <h3>Prof. Robson Correia</h3>
-                        <p>🔥 Especialista em K-pop</p>
-                        
-                        <div class="professor-stats">
-                            <div>
-                                <div class="number">10 ano</div>
-                                <div class="label">de kpop</div>
-                            </div>
-                            <div>
-                                <div class="number">50+</div>
-                                <div class="label">gravadas</div>
-                            </div>
-                            <div>
-                                <div class="number">UFPE</div>
-                                <div class="label">Dança</div>
-                            </div>
-                        </div>
-                        
-                        <div class="professor-social">
-                            <a href="https://instagram.com/robdanceclass" target="_blank">📸</a>
-                            <a href="https://wa.me/5581996183625" target="_blank">📱</a>
-                            <a href="#" onclick="mostrarSobreProfessor()">ℹ️</a>
-                        </div>
-                    </div>
-                    
-                    <div class="progress-section">
-                        <p>
-                            <span>Progresso</span>
-                            <span class="progress-percent" id="progressPercent">0%</span>
-                        </p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="modulo-buttons" id="modulosContainer"></div>
-                </div>
+            <!-- CÓDIGO E EXPORT -->
+            <div class="aluno-info">
+                <p style="color: #888;">🔑 SEU CÓDIGO DE ACESSO</p>
+                <div class="meu-codigo" id="alunoCodigo">ABC123</div>
+                <p style="color: #888; font-size: 14px;">Use este código para recuperar seus dados em outro celular</p>
                 
-                <!-- Área de vídeo -->
-                <div class="video-section">
-                    <!-- PAINEL ADMIN (SÓ APARECE QUANDO É PROFESSOR) -->
-                    <div id="adminPanel" class="admin-panel">
-                        <h3>⚙️ PAINEL DO PROFESSOR</h3>
-                        
-                        <div class="admin-subtitle">📁 0. ADICIONAR NOVO MÓDULO</div>
-                        <div class="admin-form">
-                            <input type="text" id="novoModuloNome" placeholder="Nome do módulo (ex: NEWJEANS)">
-                            <button onclick="adicionarModulo()">ADICIONAR MÓDULO</button>
-                        </div>
-                        
-                        <div class="admin-subtitle">📹 1. ADICIONAR VÍDEO DA AULA</div>
-                        <div class="admin-form">
-                            <select id="moduloSelectVideo"></select>
-                            <input type="text" id="aulaNomeVideo" placeholder="Nome da aula (ex: BOOMBAYAH)">
-                            <input type="url" id="aulaLinkVideo" placeholder="Link do vídeo (Drive ou YouTube)">
-                            <button onclick="adicionarLinkVideo()">SALVAR VÍDEO DA AULA</button>
-                        </div>
-                        
-                        <div class="admin-subtitle">💰 2. ADICIONAR LINK DE PAGAMENTO</div>
-                        <div class="admin-form">
-                            <select id="moduloSelectPagamento"></select>
-                            <input type="text" id="aulaNomePagamento" placeholder="Nome da aula (ex: BOOMBAYAH)">
-                            <input type="url" id="aulaLinkPagamento" placeholder="Link do Mercado Pago">
-                            <input type="number" id="aulaValor" placeholder="Valor da aula (ex: 25.00)" step="0.01" min="0">
-                            <button onclick="adicionarLinkPagamento()">SALVAR LINK DE PAGAMENTO</button>
-                        </div>
-                        
-                        <div class="pendentes-section">
-                            <h3>⏳ COMPRAS PENDENTES</h3>
-                            <div id="pendentesList"></div>
-                        </div>
-                        
-                        <div class="alunas-section">
-                            <h3>👥 ALUNAS CADASTRADAS</h3>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                                <button class="btn btn-primary" onclick="verTodasAlunas()" style="background: #ff0000; padding: 12px; font-size: 14px;">📋 VER TODAS</button>
-                                <button class="btn btn-secondary" onclick="buscarAluna()" style="background: #000; padding: 12px; font-size: 14px;">🔍 BUSCAR ALUNA</button>
-                            </div>
-                            <div style="background: #000; padding: 15px; border-radius: 10px;">
-                                <p style="color: #ff0000; margin-bottom: 5px;">📊 RESUMO:</p>
-                                <p style="color: white;">Total de alunas: <span id="totalAlunas">0</span></p>
-                                <p style="color: white;">Último cadastro: <span id="ultimoCadastro">-</span></p>
-                                <p style="color: white;">Aulas compradas: <span id="totalCompras">0</span></p>
-                            </div>
-                        </div>
-                        
-                        <h3 style="margin-top: 30px;">📋 AULAS CADASTRADAS</h3>
-                        <div class="admin-list" id="adminAulasList"></div>
-                        
-                        <h3 style="margin-top: 30px;">📋 MÓDULOS CADASTRADOS</h3>
-                        <div class="admin-list" id="adminModulosList"></div>
-                    </div>
-                    
-                    <!-- PLAYER DE VÍDEO -->
-                    <div class="video-container">
-                        <iframe id="videoPlayer" src="" style="display: none;" allowfullscreen></iframe>
-                        <div id="videoPlaceholder" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                            <h3>🎥 Selecione uma aula</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="video-info">
-                        <h2 class="video-title" id="videoTitle"><span>🔥</span> Selecione uma aula para começar</h2>
-                        <div class="video-meta">
-                            <span><i>📅</i> Clique em uma aula ao lado</span>
-                        </div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button class="btn btn-primary" onclick="marcarConcluido()">✓ MARCAR COMO CONCLUÍDO</button>
-                        <button class="btn btn-secondary" onclick="salvarAula()">❤️ SALVAR AULA</button>
-                    </div>
-                    
-                    <!-- Comentários -->
-                    <div class="comments-section">
-                        <div class="section-header">
-                            <h3>💬 COMENTÁRIOS</h3>
-                            <span id="comentariosCount">6</span>
-                        </div>
-                        
-                        <div class="comment-list" id="commentList"></div>
-                        
-                        <div class="input-area">
-                            <input type="text" id="commentInput" placeholder="Escreva seu comentário...">
-                            <button class="send-btn" onclick="enviarComentario()">ENVIAR</button>
-                        </div>
-                    </div>
+                <div class="export-import">
+                    <button onclick="exportarDados()">📤 EXPORTAR MEUS DADOS</button>
+                    <button onclick="importarDados()">📥 IMPORTAR DADOS</button>
                 </div>
             </div>
-        </div>
-        
-        <!-- ABA DE PEDIDOS -->
-        <div id="tabPedidosContent" class="tab-content">
-            <div class="pedidos-section">
-                <div class="pedidos-header">
-                    <span style="font-size: 40px;">🎤</span>
-                    <h2>PEDIDOS DE MÚSICAS</h2>
+            
+            <!-- PROGRESSO -->
+            <div class="progresso">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Progresso</span>
+                    <span id="progressoPercentual">0%</span>
                 </div>
-                
-                <div class="pedido-input">
-                    <input type="text" id="musicaPedido" placeholder="Qual música você quer aprender?">
-                    <button onclick="enviarPedido()">ENVIAR PEDIDO</button>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressoBarra"></div>
                 </div>
+            </div>
+            
+            <!-- ABAS -->
+            <div class="tabs">
+                <button class="tab active" onclick="mudarAba('minhas')" id="tabMinhas">📚 MINHAS AULAS</button>
+                <button class="tab" onclick="mudarAba('comprar')" id="tabComprar">🛒 COMPRAR AULAS</button>
+                <button class="tab" onclick="mudarAba('pedidos')" id="tabPedidos">🎤 PEDIDOS</button>
+            </div>
+            
+            <!-- MINHAS AULAS -->
+            <div id="minhasAulas">
+                <h3 style="margin: 20px 0;">✅ Aulas que você já pode assistir</h3>
+                <div id="listaMinhasAulas"></div>
+            </div>
+            
+            <!-- COMPRAR AULAS -->
+            <div id="comprarAulas" class="hidden">
+                <h3 style="margin: 20px 0;">🛒 Escolha uma aula para comprar</h3>
+                <div id="listaComprarAulas"></div>
+            </div>
+            
+            <!-- PEDIDOS -->
+            <div id="pedidosArea" class="hidden">
+                <h3 style="margin: 20px 0;">🎤 Pedir Música</h3>
+                <input type="text" id="musicaInput" placeholder="Qual música você quer aprender?" style="width: 100%; padding: 15px; margin-bottom: 10px; background: #000; border: 2px solid #333; border-radius: 8px; color: white;">
+                <button onclick="enviarPedido()" style="width: 100%; padding: 15px; background: #ff0000; color: white; border: none; border-radius: 8px; font-weight: bold;">ENVIAR PEDIDO</button>
                 
-                <div id="pedidosList"></div>
+                <h3 style="margin: 30px 0 20px;">📋 Pedidos da Galera</h3>
+                <div id="listaPedidos"></div>
             </div>
         </div>
     </div>
 
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5581996183625" target="_blank" class="whatsapp-float">
+        <span>📱</span>
+    </a>
+
     <script>
-        // ========== BANCO DE DADOS LOCAL ==========
-        let alunos = JSON.parse(localStorage.getItem('alunos_robdance')) || {};
-        let comentarios = JSON.parse(localStorage.getItem('comentarios_robdance')) || [
-            { autor: "Ana Silva", texto: "Adorei as aulas!", avatar: "👤", tempo: "há 2 horas" }
-        ];
-        let pedidos = JSON.parse(localStorage.getItem('pedidos_robdance')) || [
-            { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Ana Silva", codigo: "ABC123", quem_votou: [] }
-        ];
+        // ========== BANCO DE DADOS ==========
+        let usuarios = JSON.parse(localStorage.getItem('usuarios_rob')) || {};
+        let pedidos = JSON.parse(localStorage.getItem('pedidos_rob')) || [];
+        let usuarioAtual = null;
         
-        // MÓDULOS E AULAS
-        let modulos = [
-            { id: 1, nome: "BLACKPINK" },
-            { id: 2, nome: "TWICE" },
-            { id: 3, nome: "BTS" }
-        ];
-        
-        let aulas = [
-            { id: 'aula1', modulo: 1, nome: "BOOMBAYAH", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula2', modulo: 1, nome: "HOW YOU LIKE THAT", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula3', modulo: 1, nome: "LOVESICK GIRLS", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula4', modulo: 2, nome: "T.T", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula5', modulo: 2, nome: "CHEER UP", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula6', modulo: 2, nome: "FANCY", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula7', modulo: 3, nome: "ANPANMAN", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula8', modulo: 3, nome: "DYNAMITE", linkVideo: "", linkPagamento: "", valor: "25.00" },
-            { id: 'aula9', modulo: 3, nome: "BUTTER", linkVideo: "", linkPagamento: "", valor: "25.00" }
+        // CATÁLOGO DE AULAS
+        const catalogoAulas = [
+            { id: 1, modulo: "BLACKPINK", nome: "BOOMBAYAH", preco: 25.00 },
+            { id: 2, modulo: "BLACKPINK", nome: "HOW YOU LIKE THAT", preco: 25.00 },
+            { id: 3, modulo: "BLACKPINK", nome: "LOVESICK GIRLS", preco: 25.00 },
+            { id: 4, modulo: "TWICE", nome: "T.T", preco: 25.00 },
+            { id: 5, modulo: "TWICE", nome: "CHEER UP", preco: 25.00 },
+            { id: 6, modulo: "TWICE", nome: "FANCY", preco: 25.00 },
+            { id: 7, modulo: "BTS", nome: "DYNAMITE", preco: 25.00 },
+            { id: 8, modulo: "BTS", nome: "BUTTER", preco: 25.00 },
+            { id: 9, modulo: "BTS", nome: "ANPANMAN", preco: 25.00 }
         ];
         
-        // Variáveis de controle
-        let isProfessor = false;
-        let alunoAtual = null;
-        let codigoAtual = "";
-        
-        // ========== FUNÇÕES DE TELA ==========
-        
-        function escolherAluno() {
-            document.getElementById('choiceScreen').style.display = 'none';
-            document.getElementById('alunoLoginScreen').style.display = 'flex';
+        // ========== MOSTRAR CATÁLOGO PÚBLICO ==========
+        function mostrarCatalogo() {
+            let html = '';
+            catalogoAulas.forEach(aula => {
+                html += `
+                    <div class="aula-card">
+                        <div class="aula-modulo">${aula.modulo}</div>
+                        <div class="aula-nome">${aula.nome}</div>
+                        <div class="aula-preco">R$ ${aula.preco.toFixed(2)}</div>
+                        <button class="comprar-btn" onclick="comprarAulaPublico(${aula.id})">COMPRAR</button>
+                    </div>
+                `;
+            });
+            document.getElementById('aulasGrid').innerHTML = html;
         }
         
-        function escolherProfessor() {
-            document.getElementById('choiceScreen').style.display = 'none';
-            document.getElementById('professorLoginScreen').style.display = 'flex';
+        // ========== COMPRAR (PÚBLICO) ==========
+        function comprarAulaPublico(id) {
+            let aula = catalogoAulas.find(a => a.id === id);
+            alert(`Para comprar a aula "${aula.nome}", faça login ou crie uma conta!`);
+            mostrarModalLogin();
         }
         
-        function voltarParaEscolha() {
-            document.getElementById('alunoLoginScreen').style.display = 'none';
-            document.getElementById('professorLoginScreen').style.display = 'none';
-            document.getElementById('choiceScreen').style.display = 'flex';
-            document.getElementById('loginCodigo').value = '';
-            document.getElementById('professorSenha').value = '';
+        // ========== MODAIS ==========
+        function mostrarModalLogin() {
+            document.getElementById('modalLogin').style.display = 'flex';
         }
         
         function mostrarCadastro() {
-            document.getElementById('formLogin').classList.add('hidden');
-            document.getElementById('formCadastro').classList.remove('hidden');
+            document.getElementById('modalLogin').style.display = 'none';
+            document.getElementById('modalCadastro').style.display = 'flex';
         }
         
-        function mostrarLogin() {
-            document.getElementById('formLogin').classList.remove('hidden');
-            document.getElementById('formCadastro').classList.add('hidden');
+        function voltarLogin() {
+            document.getElementById('modalCadastro').style.display = 'none';
+            document.getElementById('modalLogin').style.display = 'flex';
         }
         
-        function mudarAba(aba) {
-            document.getElementById('tabAulas').classList.remove('active');
-            document.getElementById('tabPedidos').classList.remove('active');
-            document.getElementById('tabAulasContent').classList.remove('active');
-            document.getElementById('tabPedidosContent').classList.remove('active');
-            
-            if (aba === 'aulas') {
-                document.getElementById('tabAulas').classList.add('active');
-                document.getElementById('tabAulasContent').classList.add('active');
-            } else {
-                document.getElementById('tabPedidos').classList.add('active');
-                document.getElementById('tabPedidosContent').classList.add('active');
-                atualizarPedidos();
-            }
+        function fecharModal() {
+            document.getElementById('modalLogin').style.display = 'none';
+            document.getElementById('modalCadastro').style.display = 'none';
         }
         
-        function fazerLogout() {
-            if (confirm('Deseja sair da sua conta?')) {
-                isProfessor = false;
-                alunoAtual = null;
-                codigoAtual = "";
-                document.getElementById('mainContent').style.display = 'none';
-                document.getElementById('choiceScreen').style.display = 'flex';
-                document.getElementById('loginCodigo').value = '';
-                document.getElementById('professorSenha').value = '';
-                document.getElementById('adminPanel').classList.remove('visible');
-            }
-        }
-        
-        // ========== FUNÇÕES DO MODAL ==========
-        
-        function mostrarSobreProfessor() {
-            document.getElementById('professorModal').style.display = 'flex';
-        }
-        
-        function fecharModalProfessor() {
-            document.getElementById('professorModal').style.display = 'none';
-        }
-        
-        function mostrarCodigoModal(codigo) {
-            document.getElementById('codigoGerado').textContent = codigo;
-            document.getElementById('codigoModal').style.display = 'flex';
-        }
-        
-        function fecharCodigoModal() {
-            document.getElementById('codigoModal').style.display = 'none';
-        }
-        
-        function copiarCodigo() {
-            let codigo = document.getElementById('codigoGerado').textContent;
-            navigator.clipboard.writeText(codigo).then(() => {
-                alert('✅ Código copiado! Guarde-o em um lugar seguro.');
-            });
-        }
-        
-        // ========== FUNÇÕES DE MÓDULOS ==========
-        
-        function carregarModulosSelect() {
-            let options = '';
-            for (let modulo of modulos) {
-                options += `<option value="${modulo.id}">MÓDULO ${modulo.id} - ${modulo.nome}</option>`;
-            }
-            
-            let selectVideo = document.getElementById('moduloSelectVideo');
-            let selectPagamento = document.getElementById('moduloSelectPagamento');
-            
-            if (selectVideo) selectVideo.innerHTML = options;
-            if (selectPagamento) selectPagamento.innerHTML = options;
-        }
-        
-        function adicionarModulo() {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode adicionar módulos!');
-                return;
-            }
-            
-            let nomeModulo = document.getElementById('novoModuloNome').value.trim();
-            
-            if (nomeModulo === '') {
-                alert('Digite o nome do módulo!');
-                return;
-            }
-            
-            let novoId = modulos.length > 0 ? Math.max(...modulos.map(m => m.id)) + 1 : 1;
-            
-            modulos.push({
-                id: novoId,
-                nome: nomeModulo
-            });
-            
-            document.getElementById('novoModuloNome').value = '';
-            
-            carregarModulosSelect();
-            atualizarAdminModulosLista();
-            carregarModulos();
-            
-            alert('✅ Módulo adicionado com sucesso!');
-        }
-        
-        function removerModulo(moduloId) {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode remover módulos!');
-                return;
-            }
-            
-            if (confirm('Remover este módulo? As aulas dele também serão removidas.')) {
-                modulos = modulos.filter(m => m.id !== moduloId);
-                aulas = aulas.filter(a => a.modulo !== moduloId);
-                
-                carregarModulosSelect();
-                atualizarAdminModulosLista();
-                atualizarAdminLista();
-                carregarModulos();
-                
-                alert('✅ Módulo removido!');
-            }
-        }
-        
-        function atualizarAdminModulosLista() {
-            if (!isProfessor) return;
-            
-            let html = '';
-            
-            for (let modulo of modulos) {
-                html += `
-                    <div class="admin-aula-item">
-                        <div class="admin-aula-info">
-                            <div class="admin-aula-nome">Módulo ${modulo.id} - ${modulo.nome}</div>
-                            <button class="admin-delete" onclick="removerModulo(${modulo.id})" style="background: #ff0000; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 5px;">🗑️ Remover módulo</button>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            document.getElementById('adminModulosList').innerHTML = html;
-        }
-        
-        // ========== FUNÇÕES DO PROFESSOR ==========
-        
-        function adicionarLinkVideo() {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode adicionar vídeos!');
-                return;
-            }
-            
-            let modulo = parseInt(document.getElementById('moduloSelectVideo').value);
-            let nomeAula = document.getElementById('aulaNomeVideo').value.trim();
-            let linkVideo = document.getElementById('aulaLinkVideo').value.trim();
-            
-            if (nomeAula === '' || linkVideo === '') {
-                alert('Preencha todos os campos!');
-                return;
-            }
-            
-            let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
-            
-            if (!aula) {
-                let novoId = 'aula' + Date.now();
-                aulas.push({
-                    id: novoId,
-                    modulo: modulo,
-                    nome: nomeAula,
-                    linkVideo: linkVideo,
-                    linkPagamento: "",
-                    valor: ""
-                });
-            } else {
-                aula.linkVideo = linkVideo;
-            }
-            
-            document.getElementById('aulaNomeVideo').value = '';
-            document.getElementById('aulaLinkVideo').value = '';
-            
-            atualizarAdminLista();
-            carregarModulos();
-            
-            alert('✅ Vídeo da aula salvo com sucesso!');
-        }
-        
-        function adicionarLinkPagamento() {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode adicionar links de pagamento!');
-                return;
-            }
-            
-            let modulo = parseInt(document.getElementById('moduloSelectPagamento').value);
-            let nomeAula = document.getElementById('aulaNomePagamento').value.trim();
-            let linkPagamento = document.getElementById('aulaLinkPagamento').value.trim();
-            let valor = parseFloat(document.getElementById('aulaValor').value);
-            
-            if (nomeAula === '' || linkPagamento === '' || isNaN(valor)) {
-                alert('Preencha todos os campos!');
-                return;
-            }
-            
-            let aula = aulas.find(a => a.nome === nomeAula && a.modulo == modulo);
-            
-            if (!aula) {
-                let novoId = 'aula' + Date.now();
-                aulas.push({
-                    id: novoId,
-                    modulo: modulo,
-                    nome: nomeAula,
-                    linkVideo: "",
-                    linkPagamento: linkPagamento,
-                    valor: valor.toFixed(2)
-                });
-            } else {
-                aula.linkPagamento = linkPagamento;
-                aula.valor = valor.toFixed(2);
-            }
-            
-            document.getElementById('aulaNomePagamento').value = '';
-            document.getElementById('aulaLinkPagamento').value = '';
-            document.getElementById('aulaValor').value = '';
-            
-            atualizarAdminLista();
-            carregarModulos();
-            
-            alert('✅ Link de pagamento salvo com sucesso!');
-        }
-        
-        function removerAula(aulaId, tipo) {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode remover!');
-                return;
-            }
-            
-            let aula = aulas.find(a => a.id === aulaId);
-            if (!aula) return;
-            
-            if (tipo === 'video') {
-                if (confirm(`Remover vídeo da aula "${aula.nome}"?`)) {
-                    aula.linkVideo = '';
-                }
-            } else if (tipo === 'pagamento') {
-                if (confirm(`Remover link de pagamento da aula "${aula.nome}"?`)) {
-                    aula.linkPagamento = '';
-                    aula.valor = '';
-                }
-            } else if (tipo === 'tudo') {
-                if (confirm(`Remover TODOS os dados da aula "${aula.nome}"?`)) {
-                    aula.linkVideo = '';
-                    aula.linkPagamento = '';
-                    aula.valor = '';
-                }
-            }
-            
-            atualizarAdminLista();
-            carregarModulos();
-        }
-        
-        function atualizarAdminLista() {
-            if (!isProfessor) return;
-            
-            let html = '';
-            
-            for (let aula of aulas) {
-                let moduloNome = modulos.find(m => m.id === aula.modulo)?.nome || 'Desconhecido';
-                html += `
-                    <div class="admin-aula-item">
-                        <div class="admin-aula-info">
-                            <div class="admin-aula-nome">${aula.nome} (Módulo ${aula.modulo} - ${moduloNome})</div>
-                            
-                            ${aula.linkVideo ? `
-                                <div class="admin-aula-link">📹 Vídeo: ${aula.linkVideo}</div>
-                                <button class="admin-delete" onclick="removerAula('${aula.id}', 'video')" style="background: #ff9900; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 5px;">🗑️ Remover vídeo</button>
-                            ` : `
-                                <div class="admin-aula-link" style="color: #666;">📹 Nenhum vídeo cadastrado</div>
-                            `}
-                            
-                            ${aula.linkPagamento ? `
-                                <div class="admin-aula-link">💰 Pagamento: ${aula.linkPagamento}</div>
-                                <div class="admin-aula-valor">R$ ${aula.valor}</div>
-                                <button class="admin-delete" onclick="removerAula('${aula.id}', 'pagamento')" style="background: #ff9900; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 5px;">🗑️ Remover pagamento</button>
-                            ` : `
-                                <div class="admin-aula-link" style="color: #666;">💰 Nenhum link de pagamento</div>
-                            `}
-                            
-                            <button class="admin-delete" onclick="removerAula('${aula.id}', 'tudo')" style="background: #ff0000; width: auto; border-radius: 5px; padding: 5px 10px; margin-top: 10px;">🗑️ Remover tudo</button>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            document.getElementById('adminAulasList').innerHTML = html;
-        }
-        
-        // ========== FUNÇÕES PARA VER ALUNAS ==========
-        
-        function verTodasAlunas() {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode ver as alunas!');
-                return;
-            }
-            
-            if (Object.keys(alunos).length === 0) {
-                alert('📭 Nenhuma aluna cadastrada ainda.');
-                return;
-            }
-            
-            let mensagem = "👥 ALUNAS CADASTRADAS:\n\n";
-            let totalCompras = 0;
-            
-            for (let codigo in alunos) {
-                let aluna = alunos[codigo];
-                let compras = aluna.aulasCompradas?.length || 0;
-                totalCompras += compras;
-                
-                mensagem += `👤 ${aluna.nome}\n`;
-                mensagem += `   📧 ${aluna.email || 'Não informado'}\n`;
-                mensagem += `   📱 ${aluna.whatsapp || 'Não informado'}\n`;
-                mensagem += `   🔑 Código: ${codigo}\n`;
-                mensagem += `   📚 Aulas: ${compras} compradas | ${aluna.aulasConcluidas?.length || 0} concluídas\n`;
-                mensagem += `━━━━━━━━━━━━━━━━━━\n\n`;
-            }
-            
-            mensagem += `📊 TOTAL: ${Object.keys(alunos).length} alunas | ${totalCompras} aulas compradas`;
-            
-            alert(mensagem);
-        }
-        
-        function buscarAluna() {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode buscar alunas!');
-                return;
-            }
-            
-            let codigoBusca = prompt('Digite o código de acesso da aluna:');
-            if (!codigoBusca) return;
-            
-            let aluna = alunos[codigoBusca];
-            
-            if (aluna) {
-                let detalhes = `👤 ${aluna.nome}\n`;
-                detalhes += `📧 E-mail: ${aluna.email || 'Não informado'}\n`;
-                detalhes += `📱 WhatsApp: ${aluna.whatsapp || 'Não informado'}\n`;
-                detalhes += `🔑 Código: ${codigoBusca}\n`;
-                detalhes += `📅 Cadastro: ${aluna.dataCadastro || 'N/A'}\n`;
-                detalhes += `━━━━━━━━━━━━━━━━━━\n`;
-                detalhes += `📚 Aulas compradas: ${aluna.aulasCompradas?.length || 0}\n`;
-                detalhes += `✅ Aulas concluídas: ${aluna.aulasConcluidas?.length || 0}\n`;
-                
-                if (aluna.aulasCompradas?.length > 0) {
-                    detalhes += `📋 Lista: ${aluna.aulasCompradas.join(', ')}\n`;
-                }
-                
-                detalhes += `⭐ Progresso: ${Math.round((aluna.aulasConcluidas?.length || 0) / aulas.length * 100)}%`;
-                
-                alert(detalhes);
-            } else {
-                alert('❌ Aluna não encontrada!');
-            }
-        }
-        
-        function atualizarResumoAlunas() {
-            if (!isProfessor) return;
-            
-            let total = Object.keys(alunos).length;
-            
-            document.getElementById('totalAlunas').textContent = total;
-            
-            if (total > 0) {
-                let valores = Object.values(alunos);
-                let ultima = valores.sort((a, b) => {
-                    return new Date(b.dataCadastro) - new Date(a.dataCadastro);
-                })[0];
-                document.getElementById('ultimoCadastro').textContent = ultima.dataCadastro || '-';
-                
-                let totalCompras = 0;
-                for (let codigo in alunos) {
-                    totalCompras += alunos[codigo].aulasCompradas?.length || 0;
-                }
-                document.getElementById('totalCompras').textContent = totalCompras;
-            }
-        }
-        
-        // ========== SISTEMA DE COMPRAS ==========
-        
-        function comprarAula(nomeAula, linkPagamento, valor) {
-            if (isProfessor) {
-                alert('👨‍🏫 Professor não compra aulas!');
-                return;
-            }
-            
-            window.open(linkPagamento, '_blank');
-            
-            alert(`✅ Link do Mercado Pago aberto!\n\nApós o pagamento, aguarde a liberação.`);
-        }
-        
-        function atualizarComprasPendentes() {
-            if (!isProfessor) return;
-            
-            let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
-            
-            if (compras.length === 0) {
-                document.getElementById('pendentesList').innerHTML = '<p style="color: #888; text-align: center;">Nenhuma compra pendente</p>';
-                return;
-            }
-            
-            let html = '';
-            compras.forEach(compra => {
-                html += `
-                    <div class="pendente-item">
-                        <div style="display: flex; justify-content: space-between; align-items: start;">
-                            <div style="flex: 1;">
-                                <div style="color: #ff0000; font-weight: bold; margin-bottom: 5px;">👤 ${compra.aluno}</div>
-                                <div style="color: white; margin-bottom: 5px;">📚 Aula: ${compra.aula}</div>
-                                <div style="color: #00ff00; font-weight: bold; margin-bottom: 5px;">💰 R$ ${compra.valor}</div>
-                                <div style="color: #888; font-size: 12px; margin-bottom: 10px;">⏰ ${compra.data}</div>
-                            </div>
-                            <button onclick="excluirCompraPendente(${compra.id})" 
-                                    style="background: none; border: none; color: #ff0000; font-size: 20px; cursor: pointer; padding: 5px;" 
-                                    title="Excluir">
-                                🗑️
-                            </button>
-                        </div>
-                        <div style="display: flex; gap: 10px; margin-top: 10px;">
-                            <a href="https://wa.me/5581996183625?text=Olá! Recebi seu pagamento da aula ${compra.aula} - ${compra.aluno}" 
-                               target="_blank" 
-                               style="flex: 1; background: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px;">
-                                <span style="font-size: 18px;">📱</span> WhatsApp
-                            </a>
-                            <button class="liberar-btn" onclick="liberarCompra(${compra.id})" 
-                                    style="flex: 1; background: #00ff00; color: black; border: none; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px;">
-                                <span>✅</span> Liberar
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            document.getElementById('pendentesList').innerHTML = html;
-        }
-        
-        function excluirCompraPendente(compraId) {
-            if (!isProfessor) {
-                alert('🚫 Apenas o professor pode excluir!');
-                return;
-            }
-            
-            if (confirm('Tem certeza que deseja excluir esta compra pendente?')) {
-                let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
-                compras = compras.filter(c => c.id !== compraId);
-                localStorage.setItem('comprasPendentes', JSON.stringify(compras));
-                
-                atualizarComprasPendentes();
-                alert('✅ Compra pendente excluída!');
-            }
-        }
-        
-        function liberarCompra(compraId) {
-            let compras = JSON.parse(localStorage.getItem('comprasPendentes')) || [];
-            let compra = compras.find(c => c.id === compraId);
-            
-            if (!compra) return;
-            
-            let aluno = alunos[compra.codigo];
-            if (!aluno) return;
-            
-            if (!aluno.aulasCompradas) aluno.aulasCompradas = [];
-            
-            if (!aluno.aulasCompradas.includes(compra.aula)) {
-                aluno.aulasCompradas.push(compra.aula);
-                alunos[compra.codigo] = aluno;
-                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
-            }
-            
-            compras = compras.filter(c => c.id !== compraId);
-            localStorage.setItem('comprasPendentes', JSON.stringify(compras));
-            
-            atualizarComprasPendentes();
-            atualizarResumoAlunas();
-            carregarModulos();
-            
-            alert(`✅ Aula "${compra.aula}" liberada para ${compra.aluno}!`);
-        }
-        
-        // ========== FUNÇÕES DO SITE (ALUNOS) ==========
-        
-        function carregarModulos() {
-            let html = '';
-            
-            let modulosOrdenados = modulos.sort((a, b) => a.id - b.id);
-            
-            for (let modulo of modulosOrdenados) {
-                let aulasModulo = aulas.filter(a => a.modulo === modulo.id);
-                
-                html += `
-                    <div class="modulo-btn" onclick="toggleModulo(${modulo.id})" id="modulo${modulo.id}">
-                        MÓDULO ${modulo.id} - ${modulo.nome}
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="aulas-container" id="aulasModulo${modulo.id}">
-                `;
-                
-                for (let aula of aulasModulo) {
-                    let temAcesso = isProfessor ? true : (alunoAtual?.aulasCompradas?.includes(aula.nome) || alunoAtual?.aulasConcluidas?.includes(aula.nome));
-                    let concluida = alunoAtual?.aulasConcluidas?.includes(aula.nome) ? 'completed' : '';
-                    let temPagamento = aula.linkPagamento && aula.valor;
-                    
-                    html += `
-                        <div class="aula-item ${concluida} ${!temAcesso && !isProfessor && !temPagamento ? 'bloqueada' : ''}" 
-                             onclick="${temAcesso ? `selecionarAula(this, '${aula.linkVideo}')` : ''}">
-                            <span>🎵 ${aula.nome}</span>
-                            ${!temAcesso && !isProfessor && temPagamento ? `
-                                <button class="comprar-btn" onclick="comprarAula('${aula.nome}', '${aula.linkPagamento}', '${aula.valor}'); event.stopPropagation();">
-                                    COMPRAR R$ ${aula.valor}
-                                </button>
-                            ` : ''}
-                            ${!temAcesso && !isProfessor && !temPagamento ? `
-                                <span style="color: #666; font-size: 12px;">🔒 Em breve</span>
-                            ` : ''}
-                        </div>
-                    `;
-                }
-                
-                html += `</div>`;
-            }
-            
-            document.getElementById('modulosContainer').innerHTML = html;
-        }
-        
-        function toggleModulo(numero) {
-            let container = document.getElementById('aulasModulo' + numero);
-            let botao = document.getElementById('modulo' + numero);
-            container.classList.toggle('show');
-            botao.classList.toggle('active');
-        }
-        
-        function selecionarAula(elemento, linkVideo) {
-            document.querySelectorAll('.aula-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            elemento.classList.add('active');
-            
-            let nomeAula = elemento.querySelector('span').textContent.replace('🎵 ', '');
-            document.getElementById('videoTitle').innerHTML = `<span>🔥</span> ${nomeAula}`;
-            
-            if (linkVideo) {
-                let embedLink = linkVideo;
-                if (linkVideo.includes('drive.google.com')) {
-                    let fileId = linkVideo.match(/[-\w]{25,}/);
-                    if (fileId) {
-                        embedLink = `https://drive.google.com/file/d/${fileId[0]}/preview`;
-                    }
-                }
-                
-                document.getElementById('videoPlayer').src = embedLink;
-                document.getElementById('videoPlayer').style.display = 'block';
-                document.getElementById('videoPlaceholder').style.display = 'none';
-            } else {
-                document.getElementById('videoPlayer').style.display = 'none';
-                document.getElementById('videoPlaceholder').style.display = 'block';
-                document.getElementById('videoPlaceholder').innerHTML = `
-                    <h3>🎥 ${nomeAula}</h3>
-                    <p style="color: #999;">Vídeo será adicionado em breve</p>
-                `;
-            }
-        }
-        
-        function marcarConcluido() {
-            if (isProfessor) {
-                alert('👨‍🏫 Professor não marca progresso!');
-                return;
-            }
-            
-            let aulaAtiva = document.querySelector('.aula-item.active');
-            if (!aulaAtiva) {
-                alert('Selecione uma aula!');
-                return;
-            }
-            
-            let nomeAula = aulaAtiva.querySelector('span').textContent.replace('🎵 ', '');
-            
-            if (!alunoAtual.aulasConcluidas.includes(nomeAula)) {
-                alunoAtual.aulasConcluidas.push(nomeAula);
-                
-                alunos[codigoAtual] = alunoAtual;
-                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
-                
-                aulaAtiva.classList.add('completed');
-                aulaAtiva.classList.remove('bloqueada');
-                atualizarProgresso();
-                
-                alert('🎉 Aula concluída!');
-            }
-        }
-        
-        function atualizarProgresso() {
-            let totalAulas = document.querySelectorAll('.aula-item').length;
-            let percentual = Math.round((alunoAtual?.aulasConcluidas?.length || 0) / totalAulas * 100) || 0;
-            document.getElementById('progressFill').style.width = percentual + '%';
-            document.getElementById('progressPercent').textContent = percentual + '%';
-        }
-        
-        function salvarAula() {
-            alert('❤️ Aula salva nos favoritos!');
-        }
-        
-        // ========== PERFIL ==========
-        
-        function abrirPerfil() {
-            document.getElementById('profileModal').style.display = 'flex';
-        }
-        
-        function previewAvatar(event) {
-            let reader = new FileReader();
-            reader.onload = function() {
-                document.getElementById('avatarPreview').src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-        
-        function escolherEmoji(emoji) {
-            document.getElementById('avatarPreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff0000'/%3E%3Ctext x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='Arial'%3E" + emoji + "%3C/text%3E%3C/svg%3E";
-            if (alunoAtual) {
-                alunoAtual.avatar = emoji;
-                alunos[codigoAtual] = alunoAtual;
-                localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
-                document.getElementById('userAvatar').innerHTML = emoji;
-            }
-        }
-        
-        function salvarPerfil() {
-            document.getElementById('profileModal').style.display = 'none';
-        }
-        
-        // ========== PEDIDOS ==========
-        
-        function enviarPedido() {
-            if (isProfessor) {
-                alert('👨‍🏫 Professor não faz pedidos!');
-                return;
-            }
-            
-            let musica = document.getElementById('musicaPedido').value.trim();
-            
-            if (musica === '') {
-                alert('Digite o nome da música!');
-                return;
-            }
-            
-            let novoPedido = {
-                id: Date.now(),
-                musica: musica,
-                votos: 1,
-                autor: alunoAtual.nome,
-                codigo: codigoAtual,
-                quem_votou: [codigoAtual]
-            };
-            
-            pedidos.push(novoPedido);
-            localStorage.setItem('pedidos_robdance', JSON.stringify(pedidos));
-            
-            document.getElementById('musicaPedido').value = '';
-            atualizarPedidos();
-            mudarAba('pedidos');
-            
-            alert('✅ Pedido enviado!');
-        }
-        
-        function votarPedido(id) {
-            if (isProfessor) {
-                alert('👨‍🏫 Professor não vota!');
-                return;
-            }
-            
-            let pedido = pedidos.find(p => p.id === id);
-            if (!pedido) return;
-            
-            if (pedido.quem_votou.includes(codigoAtual)) {
-                alert('Você já votou neste pedido!');
-                return;
-            }
-            
-            pedido.votos++;
-            pedido.quem_votou.push(codigoAtual);
-            localStorage.setItem('pedidos_robdance', JSON.stringify(pedidos));
-            atualizarPedidos();
-        }
-        
-        function atualizarPedidos() {
-            pedidos.sort((a, b) => b.votos - a.votos);
-            
-            let html = '';
-            
-            for (let pedido of pedidos) {
-                let jaVotou = !isProfessor && pedido.quem_votou.includes(codigoAtual);
-                
-                html += `
-                    <div class="pedido-item">
-                        <div class="pedido-info">
-                            <h4>${pedido.musica}</h4>
-                            <div class="pedido-meta">Pedido por: ${pedido.autor}</div>
-                        </div>
-                        <div class="pedido-votos">
-                            <span class="voto-contador">${pedido.votos} votos</span>
-                            ${!isProfessor ? `
-                                <button class="votar-btn ${jaVotou ? 'votado' : ''}" 
-                                        onclick="votarPedido(${pedido.id})"
-                                        ${jaVotou ? 'disabled' : ''}>
-                                    ${jaVotou ? '✓ VOTOU' : '👍 VOTAR'}
-                                </button>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-            }
-            
-            if (pedidos.length === 0) {
-                html = '<p style="text-align: center; color: #888;">Nenhum pedido ainda. Seja a primeira a pedir!</p>';
-            }
-            
-            document.getElementById('pedidosList').innerHTML = html;
-        }
-        
-        // ========== COMENTÁRIOS ==========
-        
-        function atualizarComentarios() {
-            let html = '';
-            comentarios.slice(0, 10).forEach(com => {
-                html += `
-                    <div class="comment-item">
-                        <div class="comment-author">${com.avatar || '👤'} ${com.autor}</div>
-                        <div class="comment-text">${com.texto}</div>
-                        <div class="comment-time">${com.tempo}</div>
-                    </div>
-                `;
-            });
-            document.getElementById('commentList').innerHTML = html;
-            document.getElementById('comentariosCount').textContent = comentarios.length;
-        }
-        
-        function enviarComentario() {
-            if (!alunoAtual && !isProfessor) {
-                alert('Faça login primeiro!');
-                return;
-            }
-            
-            let comment = document.getElementById('commentInput').value.trim();
-            if (comment === '') return;
-            
-            let autor = isProfessor ? 'Professor' : alunoAtual.nome;
-            let avatar = isProfessor ? '👨‍🏫' : (alunoAtual.avatar || '👤');
-            
-            let novoComentario = {
-                autor: autor,
-                texto: comment,
-                avatar: avatar,
-                tempo: 'agora mesmo'
-            };
-            
-            comentarios.unshift(novoComentario);
-            localStorage.setItem('comentarios_robdance', JSON.stringify(comentarios));
-            atualizarComentarios();
-            document.getElementById('commentInput').value = '';
-        }
-        
-        // ========== LOGIN DO ALUNO ==========
-        
-        function loginAluno() {
-            let codigo = document.getElementById('loginCodigo').value.trim().toUpperCase();
-            
-            if (codigo === '') {
-                alert('Digite seu código de acesso!');
-                return;
-            }
-            
-            let aluno = alunos[codigo];
-            
-            if (aluno) {
-                alunoAtual = aluno;
-                codigoAtual = codigo;
-                
-                document.getElementById('nomeUsuario').textContent = alunoAtual.nome;
-                document.getElementById('userAvatar').innerHTML = alunoAtual.avatar || '👤';
-                
-                document.getElementById('alunoLoginScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                
-                carregarModulos();
-                atualizarProgresso();
-                atualizarPedidos();
-                atualizarComentarios();
-                
-                alert(`🎉 Bem-vindo(a), ${alunoAtual.nome}!`);
-            } else {
-                alert('❌ Código não encontrado!');
-            }
-        }
-        
-        // ========== CADASTRO ==========
-        
-        function gerarCodigoUnico() {
+        // ========== GERAR CÓDIGO ==========
+        function gerarCodigo() {
             let letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let numeros = '0123456789';
             let codigo = '';
@@ -2524,96 +536,350 @@
             return codigo.split('').sort(() => Math.random() - 0.5).join('');
         }
         
-        function cadastrarAluno() {
+        // ========== CADASTRAR ==========
+        function cadastrar() {
             let nome = document.getElementById('cadastroNome').value.trim();
-            let email = document.getElementById('cadastroEmail').value.trim();
-            let whatsapp = document.getElementById('cadastroWhatsapp').value.trim();
+            let numero = document.getElementById('cadastroNumero').value.trim();
             let senha = document.getElementById('cadastroSenha').value;
-            let confirmarSenha = document.getElementById('cadastroConfirmarSenha').value;
-            let termos = document.getElementById('termos').checked;
+            let confirmar = document.getElementById('cadastroConfirmar').value;
             
-            if (nome === '' || email === '' || whatsapp === '' || senha === '') {
+            if (!nome || !numero || !senha) {
                 alert('Preencha todos os campos!');
                 return;
             }
             
-            if (senha !== confirmarSenha) {
+            if (senha !== confirmar) {
                 alert('As senhas não coincidem!');
                 return;
             }
             
-            if (senha.length < 4) {
-                alert('A senha deve ter pelo menos 4 caracteres!');
+            // Verificar se já existe (pelo número)
+            let usuarioExistente = Object.values(usuarios).find(u => u.numero === numero);
+            if (usuarioExistente) {
+                alert('Este número já está cadastrado! Faça login.');
+                voltarLogin();
                 return;
             }
             
-            if (!termos) {
-                alert('Você precisa aceitar os termos de uso!');
-                return;
+            let codigo = gerarCodigo();
+            while (usuarios[codigo]) {
+                codigo = gerarCodigo();
             }
             
-            let codigo = gerarCodigoUnico();
-            while (alunos[codigo]) {
-                codigo = gerarCodigoUnico();
-            }
-            
-            let novoAluno = {
+            let novoUsuario = {
+                codigo: codigo,
                 nome: nome,
-                email: email,
-                whatsapp: whatsapp,
+                numero: numero,
                 senha: senha,
-                avatar: "👤",
-                aulasConcluidas: [],
                 aulasCompradas: [],
+                aulasConcluidas: [],
                 dataCadastro: new Date().toLocaleString()
             };
             
-            alunos[codigo] = novoAluno;
-            localStorage.setItem('alunos_robdance', JSON.stringify(alunos));
+            usuarios[codigo] = novoUsuario;
+            localStorage.setItem('usuarios_rob', JSON.stringify(usuarios));
             
-            alert(`✅ Conta criada com sucesso!\n\nSEU CÓDIGO É: ${codigo}\n\nGuarde este código para acessar em outros dispositivos!`);
+            alert(`✅ CONTA CRIADA!\n\nSEU CÓDIGO É: ${codigo}\n\nGuarde este código! Ele é único e serve para recuperar seus dados.`);
             
-            mostrarCodigoModal(codigo);
+            // Fazer login automático
+            usuarioAtual = novoUsuario;
+            entrarAreaAluno();
             
-            document.getElementById('cadastroNome').value = '';
-            document.getElementById('cadastroEmail').value = '';
-            document.getElementById('cadastroWhatsapp').value = '';
-            document.getElementById('cadastroSenha').value = '';
-            document.getElementById('cadastroConfirmarSenha').value = '';
-            document.getElementById('termos').checked = false;
-            
-            document.getElementById('loginCodigo').value = codigo;
-            mostrarLogin();
+            fecharModal();
         }
         
-        // ========== LOGIN DO PROFESSOR ==========
-        
-        function loginProfessor() {
-            let senha = document.getElementById('professorSenha').value;
+        // ========== LOGIN ==========
+        function fazerLogin() {
+            let nome = document.getElementById('loginNome').value.trim();
+            let numero = document.getElementById('loginNumero').value.trim();
+            let senha = document.getElementById('loginSenha').value;
             
-            if (senha === "rob2026") {
-                document.getElementById('professorLoginScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                
-                isProfessor = true;
-                document.getElementById('nomeUsuario').textContent = "Professor";
-                document.getElementById('userAvatar').innerHTML = "👨‍🏫";
-                
-                document.getElementById('adminPanel').classList.add('visible');
-                
-                carregarModulosSelect();
-                carregarModulos();
-                atualizarAdminLista();
-                atualizarAdminModulosLista();
-                atualizarComprasPendentes();
-                atualizarResumoAlunas();
-                atualizarPedidos();
-                atualizarComentarios();
-                
-                alert('👨‍🏫 Bem-vindo, Professor!');
-            } else {
-                alert('Senha incorreta!');
+            if (!nome || !numero || !senha) {
+                alert('Preencha todos os campos!');
+                return;
             }
+            
+            // Buscar usuário pelo número
+            let usuario = Object.values(usuarios).find(u => u.numero === numero && u.nome === nome && u.senha === senha);
+            
+            if (usuario) {
+                usuarioAtual = usuario;
+                entrarAreaAluno();
+                fecharModal();
+            } else {
+                alert('❌ Dados incorretos! Verifique nome, número e senha.');
+            }
+        }
+        
+        // ========== ENTRAR NA ÁREA DO ALUNO ==========
+        function entrarAreaAluno() {
+            document.getElementById('conteudoPublico').classList.add('hidden');
+            document.getElementById('areaAluno').classList.remove('hidden');
+            
+            document.getElementById('alunoNome').textContent = usuarioAtual.nome;
+            document.getElementById('alunoCodigo').textContent = usuarioAtual.codigo;
+            
+            atualizarMinhasAulas();
+            atualizarCatalogoCompras();
+            atualizarPedidos();
+            atualizarProgresso();
+        }
+        
+        // ========== ATUALIZAR MINHAS AULAS ==========
+        function atualizarMinhasAulas() {
+            let html = '';
+            let aulasCompradas = usuarioAtual.aulasCompradas || [];
+            
+            catalogoAulas.forEach(aula => {
+                if (aulasCompradas.includes(aula.id)) {
+                    let concluida = (usuarioAtual.aulasConcluidas || []).includes(aula.id) ? 'completa' : '';
+                    html += `
+                        <div class="aula-item ${concluida}">
+                            <div>
+                                <strong>${aula.modulo}</strong> - ${aula.nome}
+                                ${concluida ? '<span class="badge">✓ CONCLUÍDA</span>' : ''}
+                            </div>
+                            ${!concluida ? '<button class="votar-btn" onclick="marcarConcluida(' + aula.id + ')">✓ MARCAR</button>' : ''}
+                        </div>
+                    `;
+                }
+            });
+            
+            if (html === '') {
+                html = '<p style="color: #888; text-align: center;">Você ainda não tem nenhuma aula. Vá em "COMPRAR AULAS"!</p>';
+            }
+            
+            document.getElementById('listaMinhasAulas').innerHTML = html;
+        }
+        
+        // ========== MARCAR AULA COMO CONCLUÍDA ==========
+        function marcarConcluida(id) {
+            if (!usuarioAtual.aulasConcluidas) usuarioAtual.aulasConcluidas = [];
+            if (!usuarioAtual.aulasConcluidas.includes(id)) {
+                usuarioAtual.aulasConcluidas.push(id);
+                usuarios[usuarioAtual.codigo] = usuarioAtual;
+                localStorage.setItem('usuarios_rob', JSON.stringify(usuarios));
+                atualizarMinhasAulas();
+                atualizarProgresso();
+                alert('✅ Aula marcada como concluída!');
+            }
+        }
+        
+        // ========== ATUALIZAR CATÁLOGO DE COMPRAS ==========
+        function atualizarCatalogoCompras() {
+            let html = '';
+            let aulasCompradas = usuarioAtual.aulasCompradas || [];
+            
+            catalogoAulas.forEach(aula => {
+                if (!aulasCompradas.includes(aula.id)) {
+                    html += `
+                        <div class="aula-card">
+                            <div class="aula-modulo">${aula.modulo}</div>
+                            <div class="aula-nome">${aula.nome}</div>
+                            <div class="aula-preco">R$ ${aula.preco.toFixed(2)}</div>
+                            <button class="comprar-btn" onclick="comprarAulaLogado(${aula.id})">COMPRAR AGORA</button>
+                        </div>
+                    `;
+                }
+            });
+            
+            if (html === '') {
+                html = '<p style="color: #888; text-align: center;">Você já comprou todas as aulas! 🎉</p>';
+            }
+            
+            document.getElementById('listaComprarAulas').innerHTML = html;
+        }
+        
+        // ========== COMPRAR AULA (LOGADO) ==========
+        function comprarAulaLogado(id) {
+            let aula = catalogoAulas.find(a => a.id === id);
+            
+            // Abrir WhatsApp para pagamento
+            let mensagem = `Olá! Quero comprar a aula "${aula.nome}" do módulo ${aula.modulo}. Meu código é: ${usuarioAtual.codigo}`;
+            let url = `https://wa.me/5581996183625?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+            
+            alert(`✅ Link do WhatsApp aberto!\n\nEnvie a mensagem para a professora. Após a confirmação, sua aula será liberada.`);
+        }
+        
+        // ========== EXPORTAR DADOS ==========
+        function exportarDados() {
+            let dados = {
+                usuario: usuarioAtual,
+                todosUsuarios: usuarios
+            };
+            
+            let dadosString = JSON.stringify(dados);
+            
+            // Criar arquivo para download
+            let blob = new Blob([dadosString], { type: 'application/json' });
+            let url = URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `robdance_${usuarioAtual.codigo}.json`;
+            a.click();
+            
+            alert('✅ Dados exportados! Guarde este arquivo em um lugar seguro.');
+        }
+        
+        // ========== IMPORTAR DADOS ==========
+        function importarDados() {
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = function(e) {
+                let arquivo = e.target.files[0];
+                let reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        let dados = JSON.parse(e.target.result);
+                        
+                        if (dados.usuario && dados.todosUsuarios) {
+                            // Restaurar dados
+                            usuarios = dados.todosUsuarios;
+                            localStorage.setItem('usuarios_rob', JSON.stringify(usuarios));
+                            
+                            // Tentar fazer login com o usuário importado
+                            usuarioAtual = dados.usuario;
+                            
+                            alert('✅ Dados importados com sucesso!');
+                            entrarAreaAluno();
+                        } else {
+                            alert('❌ Arquivo inválido!');
+                        }
+                    } catch (erro) {
+                        alert('❌ Erro ao ler arquivo!');
+                    }
+                };
+                
+                reader.readAsText(arquivo);
+            };
+            
+            input.click();
+        }
+        
+        // ========== ATUALIZAR PROGRESSO ==========
+        function atualizarProgresso() {
+            let totalCompradas = (usuarioAtual.aulasCompradas || []).length;
+            let totalConcluidas = (usuarioAtual.aulasConcluidas || []).length;
+            
+            if (totalCompradas > 0) {
+                let percentual = Math.round((totalConcluidas / totalCompradas) * 100);
+                document.getElementById('progressoPercentual').textContent = percentual + '%';
+                document.getElementById('progressoBarra').style.width = percentual + '%';
+            }
+        }
+        
+        // ========== MUDAR ABA ==========
+        function mudarAba(aba) {
+            document.getElementById('tabMinhas').classList.remove('active');
+            document.getElementById('tabComprar').classList.remove('active');
+            document.getElementById('tabPedidos').classList.remove('active');
+            
+            document.getElementById('minhasAulas').classList.add('hidden');
+            document.getElementById('comprarAulas').classList.add('hidden');
+            document.getElementById('pedidosArea').classList.add('hidden');
+            
+            if (aba === 'minhas') {
+                document.getElementById('tabMinhas').classList.add('active');
+                document.getElementById('minhasAulas').classList.remove('hidden');
+                atualizarMinhasAulas();
+            } else if (aba === 'comprar') {
+                document.getElementById('tabComprar').classList.add('active');
+                document.getElementById('comprarAulas').classList.remove('hidden');
+                atualizarCatalogoCompras();
+            } else {
+                document.getElementById('tabPedidos').classList.add('active');
+                document.getElementById('pedidosArea').classList.remove('hidden');
+            }
+        }
+        
+        // ========== PEDIDOS ==========
+        function enviarPedido() {
+            let musica = document.getElementById('musicaInput').value.trim();
+            
+            if (!musica) {
+                alert('Digite o nome da música!');
+                return;
+            }
+            
+            let novoPedido = {
+                id: Date.now(),
+                musica: musica,
+                votos: 1,
+                autor: usuarioAtual.nome,
+                codigo: usuarioAtual.codigo,
+                quemVotou: [usuarioAtual.codigo]
+            };
+            
+            pedidos.push(novoPedido);
+            localStorage.setItem('pedidos_rob', JSON.stringify(pedidos));
+            
+            document.getElementById('musicaInput').value = '';
+            atualizarPedidos();
+            alert('✅ Pedido enviado!');
+        }
+        
+        function votarPedido(id) {
+            let pedido = pedidos.find(p => p.id === id);
+            if (!pedido) return;
+            
+            if (pedido.quemVotou.includes(usuarioAtual.codigo)) {
+                alert('Você já votou neste pedido!');
+                return;
+            }
+            
+            pedido.votos++;
+            pedido.quemVotou.push(usuarioAtual.codigo);
+            localStorage.setItem('pedidos_rob', JSON.stringify(pedidos));
+            atualizarPedidos();
+        }
+        
+        function atualizarPedidos() {
+            pedidos.sort((a, b) => b.votos - a.votos);
+            
+            let html = '';
+            pedidos.forEach(pedido => {
+                let jaVotou = pedido.quemVotou.includes(usuarioAtual.codigo);
+                html += `
+                    <div class="pedido-item">
+                        <div>
+                            <strong>${pedido.musica}</strong>
+                            <div style="color: #888;">${pedido.autor}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span class="votos">${pedido.votos}</span>
+                            ${!jaVotou ? `<button class="votar-btn" onclick="votarPedido(${pedido.id})">👍 VOTAR</button>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (html === '') {
+                html = '<p style="color: #888; text-align: center;">Nenhum pedido ainda. Seja o primeiro!</p>';
+            }
+            
+            document.getElementById('listaPedidos').innerHTML = html;
+        }
+        
+        // ========== SAIR ==========
+        function sair() {
+            usuarioAtual = null;
+            document.getElementById('areaAluno').classList.add('hidden');
+            document.getElementById('conteudoPublico').classList.remove('hidden');
+        }
+        
+        // ========== INICIALIZAR ==========
+        mostrarCatalogo();
+        
+        // Verificar se já tem pedidos iniciais
+        if (pedidos.length === 0) {
+            pedidos = [
+                { id: 1, musica: "Super Shy - NewJeans", votos: 5, autor: "Visitante", codigo: "ABC123", quemVotou: [] }
+            ];
+            localStorage.setItem('pedidos_rob', JSON.stringify(pedidos));
         }
     </script>
 </body>
